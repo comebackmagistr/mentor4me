@@ -19,6 +19,7 @@ module.exports = {
       },
       status: {
         type: Sequelize.BOOLEAN,
+        allowNull: true,
       },
       comments: {
         type: Sequelize.TEXT,

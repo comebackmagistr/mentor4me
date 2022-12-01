@@ -5,6 +5,8 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const mentorRouter = require('./routes/mentorRouter');
 const studentRouter = require('./routes/studentRouter');
+const searchRouter = require('./routes/searchRouter');
+const multer = require('multer');
 
 require('dotenv').config();
 
@@ -17,6 +19,8 @@ app.use(cors({
   origin: true,
 }));
 app.use(morgan('dev'));
+// app.use(express.static(__dirname));
+// app.use(multer({ dest: 'uploads' }).single('filedata'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
@@ -31,10 +35,18 @@ app.use(session({
   },
 }));
 
+// app.post('/upload', (req, res, next) => {
+//   const filedata = req.file;
+//   console.log(filedata);
+//   if (!filedata) { res.send('Ошибка при загрузке файла'); } else { res.send('Файл загружен'); }
+// });
+
 // app.use('/api/user', userRouter);
 // app.use('/api/posts', postsRouter);
+app.use('/search', searchRouter);
 
 app.use('/api', mentorRouter);
 app.use('/api', studentRouter);
+
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

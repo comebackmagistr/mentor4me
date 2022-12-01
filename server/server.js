@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const multer = require('multer');
 
 require('dotenv').config();
 
@@ -15,6 +16,8 @@ app.use(cors({
   origin: true,
 }));
 app.use(morgan('dev'));
+// app.use(express.static(__dirname));
+// app.use(multer({ dest: 'uploads' }).single('filedata'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
@@ -28,6 +31,12 @@ app.use(session({
     httpOnly: true,
   },
 }));
+
+// app.post('/upload', (req, res, next) => {
+//   const filedata = req.file;
+//   console.log(filedata);
+//   if (!filedata) { res.send('Ошибка при загрузке файла'); } else { res.send('Файл загружен'); }
+// });
 
 // app.use('/api/user', userRouter);
 // app.use('/api/posts', postsRouter);

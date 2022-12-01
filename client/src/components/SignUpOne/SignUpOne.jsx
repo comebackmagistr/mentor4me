@@ -24,13 +24,12 @@ export default function SignUp() {
     portfolio: '',
 
   });
-  console.log('inputMentor', inputMentor);
   const inputHandler = (e) => {
     setInputMentor((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   const submitInputs = (e) => {
     e.preventDefault();
-    dispatch(signupMentor(inputMentor));
+    dispatch(signupMentor(Object.fromEntries(new FormData(e.target))));
   };
   return (
     <div className="main">
@@ -38,9 +37,6 @@ export default function SignUp() {
 
       <form
         onSubmit={(e) => submitInputs(e)}
-        className="form"
-        action=""
-        method="post"
       >
         {auth
           ? (
@@ -71,16 +67,16 @@ export default function SignUp() {
               {' '}
               <br />
 
-              <label htmlFor="html">
-                <input name="video" type="checkbox" value={inputMentor.video} onChange={(e) => inputHandler(e)} />
+              <label htmlFor="htmlvideo">
+                <input name="video" id="html" type="checkbox" />
                 Видео
               </label>
-              <label htmlFor="html">
-                <input name="call" type="checkbox" value={inputMentor.call} onChange={(e) => inputHandler(e)} />
+              <label htmlFor="htmlcall">
+                <input name="call" id="htmlcall" type="checkbox" />
                 Звонок
               </label>
-              <label htmlFor="html">
-                <input name="chat" type="checkbox" value={inputMentor.chat} onChange={(e) => inputHandler(e)} />
+              <label htmlFor="htmlchat">
+                <input name="chat" id="htmlchat" type="checkbox" />
                 Чат
               </label>
 

@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const searchRouter = require('./routes/searchRouter');
 const multer = require('multer');
 
 require('dotenv').config();
@@ -40,5 +41,6 @@ app.use(session({
 
 // app.use('/api/user', userRouter);
 // app.use('/api/posts', postsRouter);
+app.use('/search', searchRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

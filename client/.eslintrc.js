@@ -27,5 +27,11 @@ module.exports = {
     'max-len': 0,
     'default-param-last': 0,
     'no-alert': 0,
+    'no-param-reassign': 0,
+    'no-unused-vars': 0,
+    'func-names': 0,
+    'import/prefer-default-export': 0,
+    'no-unused-expressions': 0,
+    'jsx-a11y/label-has-associated-control': 0,
   },
 };

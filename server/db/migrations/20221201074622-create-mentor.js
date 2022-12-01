@@ -29,6 +29,33 @@ module.exports = {
       password: {
         type: Sequelize.TEXT,
       },
+      video: {
+        type: Sequelize.STRING,
+      },
+      call: {
+        type: Sequelize.STRING,
+      },
+      chat: {
+        type: Sequelize.STRING,
+      },
+      education: {
+        type: Sequelize.STRING,
+      },
+      job: {
+        type: Sequelize.STRING,
+      },
+      profArea: {
+        type: Sequelize.STRING,
+      },
+      profScill: {
+        type: Sequelize.STRING,
+      },
+      aboutMe: {
+        type: Sequelize.STRING,
+      },
+      portfolio: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

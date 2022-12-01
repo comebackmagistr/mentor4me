@@ -1,8 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authMentorSlice from './slices/authMentorSlice';
+import mentorReducer from './mentorSlice';
+import studentReducer from './studentSlice';
+import searchReducer from './searchSlice';
 
-export default configureStore({
+const store = configureStore({
   reducer: {
-    authMentor: authMentorSlice,
+    mentor: mentorReducer,
+    student: studentReducer,
+    search: searchReducer,
   },
 });
+export default store;

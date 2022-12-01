@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import DownLoad from './components/DownLoad';
 import MainPage from './components/MainPage';
 import MentorNavBar from './components/Mentor/MentorNavBar';
+import SignUpOne from './components/SignUpOne/SignUpOne';
+import SignUpTwo from './components/SignUpTwo/SignUpTwo';
 import MentorForm from './components/Mentor/MentorForm';
 // import StudentForm from './components/Student/StudentForm';
 import StudentNavBar from './components/Student/StudentNavBar';
@@ -24,6 +26,8 @@ function App() {
         <Route element={<DownLoad />} path="/down" />
         <Route element={<Crop />} path="/input" />
 
+        <Route element={<SignUpOne />} path="/signup1" />
+        <Route element={<SignUpTwo />} path="/signup2" />
       </Routes>
     </>
   );

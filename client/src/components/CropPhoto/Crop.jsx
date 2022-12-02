@@ -1,12 +1,9 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import FileInput from './FileInput';
 import ImageCropper from './ImageCropper';
 
 function Crop() {
-  const user = useSelector((state) => state.mentor);
-
   const [image, setImage] = useState('');
   const [currentPage, setCurrentPage] = useState('choose-img');
   const [imgAfterCrop, setImgAfterCrop] = useState('');

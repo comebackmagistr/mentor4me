@@ -7,8 +7,9 @@ const multer = require('multer');
 const mentorRouter = require('./routes/mentorRouter');
 const studentRouter = require('./routes/studentRouter');
 const searchRouter = require('./routes/searchRouter');
-const file = require('./middleware/file');
-const { Mentor } = require('./db/models');
+const file = require('./mentorAuthRoiddleware/fie');
+const { Mentor } = require('./db/./routes/mentorAuthRouter');
+const studentAuthRouter = require('./routes/studentAuthRoodes');
 
 require('dotenv').config();
 
@@ -20,6 +21,7 @@ app.use(cors({
   credentials: true,
   origin: true,
 }));
+
 app.use(morgan('dev'));
 // app.use(express.static(__dirname));
 // app.use(multer({ dest: 'uploads' }).single('filedata'));
@@ -50,7 +52,8 @@ app.use('/search', searchRouter);
 
 app.use('/api', mentorRouter);
 app.use('/api', studentRouter);
-
+app.use('/signup1', mentorAuthRouter);
+app.use('/signup2', studentAuthRouter);
 app.post('/cropped', file.single('crop'), async (req, res) => {
   // console.log(req.files);
   // console.log(req.body);

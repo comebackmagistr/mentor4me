@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { setNavbar } from '../../redux/navbarSlice';
 import { signupMentor } from '../../redux/slices/authMentorSlice';
 
 export default function SignUp() {
-  const [auth, setAuth] = useState(true);
   const dispatch = useDispatch();
+  const param = useParams();
+  useEffect(() => {
+    dispatch(setNavbar(param.signup1));
+  }, []);
+
+  const [auth, setAuth] = useState(true);
   const [inputMentor, setInputMentor] = useState({
     firstName: '',
     lastName: '',
@@ -24,10 +31,11 @@ export default function SignUp() {
     portfolio: '',
 
   });
-  console.log('inputMentor', inputMentor);
   const inputHandler = (e) => {
     setInputMentor((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  const checkboxHandler = (e) => {};
   const submitInputs = (e) => {
     e.preventDefault();
     dispatch(signupMentor(inputMentor));
@@ -38,9 +46,6 @@ export default function SignUp() {
 
       <form
         onSubmit={(e) => submitInputs(e)}
-        className="form"
-        action=""
-        method="post"
       >
         {auth
           ? (
@@ -71,16 +76,16 @@ export default function SignUp() {
               {' '}
               <br />
 
-              <label htmlFor="html">
-                <input name="video" type="checkbox" value={inputMentor.video} onChange={(e) => inputHandler(e)} />
+              <label htmlFor="htmlvideo">
+                <input name="video" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="html" type="checkbox" />
                 Видео
               </label>
-              <label htmlFor="html">
-                <input name="call" type="checkbox" value={inputMentor.call} onChange={(e) => inputHandler(e)} />
+              <label htmlFor="htmlcall">
+                <input name="call" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlcall" type="checkbox" />
                 Звонок
               </label>
-              <label htmlFor="html">
-                <input name="chat" type="checkbox" value={inputMentor.chat} onChange={(e) => inputHandler(e)} />
+              <label htmlFor="htmlchat">
+                <input name="chat" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlchat" type="checkbox" />
                 Чат
               </label>
 
@@ -136,15 +141,11 @@ export default function SignUp() {
               <br />
               {' '}
               <br />
+
               <button type="button" onClick={() => setAuth(true)}>Назад</button>
+              <button type="submit">Отправить</button>
             </>
           )}
-        <br />
-        {' '}
-        <br />
-        <button type="submit">
-          Отправить
-        </button>
       </form>
 
     </div>

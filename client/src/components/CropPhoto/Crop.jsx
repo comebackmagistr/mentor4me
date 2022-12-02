@@ -37,7 +37,6 @@ function Crop() {
         imgCroppedArea.width,
         imgCroppedArea.height,
       );
-
       const dataURL = canvasEle.toDataURL('image/jpeg');
       console.log(dataURL);
       canvasEle.toBlob((newImg) => {

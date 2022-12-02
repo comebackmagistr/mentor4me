@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import DownLoad from './components/DownLoad';
 import MainPage from './components/MainPage';
 import MentorNavBar from './components/Mentor/MentorNavBar';
 import SignUpOne from './components/SignUpOne/SignUpOne';

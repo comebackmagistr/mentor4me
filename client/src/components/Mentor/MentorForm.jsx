@@ -18,9 +18,9 @@ export default function Profile() {
     <Card sx={{ maxWidth: 900, flexDirection: 'row' }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {mentor.firstName}
+          {mentor?.firstName}
           {' '}
-          {mentor.lastName}
+          {mentor?.lastName}
         </Typography>
         <CardActions>
           <Button size="small">Редактировать</Button>
@@ -40,22 +40,22 @@ export default function Profile() {
         <Typography variant="body2" color="text.secondary">
           email:
           {' '}
-          {mentor.email}
+          {mentor?.email}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           zoom:
           {' '}
-          {mentor.zoom}
+          {mentor?.zoom}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           phone:
           {' '}
-          {mentor.phone}
+          {mentor?.phone}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           price:
           {' '}
-          {mentor.price}
+          {mentor?.price}
         </Typography>
         <h5>Профессиональные навыки</h5>
         <Typography variant="body2" color="text.secondary">

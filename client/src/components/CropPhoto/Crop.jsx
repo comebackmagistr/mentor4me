@@ -45,9 +45,7 @@ function Crop() {
         formFile.append('crop', newImg, 'filename');
         fetch('http://localhost:3001/cropped', {
           method: 'POST',
-
           'Content-Type': 'mulpipart/form-data',
-
           body: formFile, // JSON.stringify(Object.fromEntries(formFile)),
         }).then(console.log).catch(console.log);
         // <img src={'http://localhost:3001/'+imageName}

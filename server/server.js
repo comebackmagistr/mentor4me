@@ -7,9 +7,10 @@ const multer = require('multer');
 const mentorRouter = require('./routes/mentorRouter');
 const studentRouter = require('./routes/studentRouter');
 const searchRouter = require('./routes/searchRouter');
-const file = require('./mentorAuthRoiddleware/fie');
-const { Mentor } = require('./db/./routes/mentorAuthRouter');
-const studentAuthRouter = require('./routes/studentAuthRoodes');
+const file = require('./middleware/file');
+const { Mentor } = require('./db/models');
+const studentAuthRouter = require('./routes/studentAuthRouter');
+const mentorAuthRouter = require('./routes/mentorAuthRouter');
 
 require('dotenv').config();
 

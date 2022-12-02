@@ -3,7 +3,7 @@ import mentorReducer from './mentorSlice';
 import studentReducer from './studentSlice';
 import searchReducer from './searchSlice';
 import authMentorReducer from './slices/authMentorSlice';
-import authStudentReducer from './slices/authStudentReducer';
+import authStudentSlice from './slices/authStudentSlice';
 
 const store = configureStore({
   reducer: {
@@ -11,7 +11,7 @@ const store = configureStore({
     student: studentReducer,
     search: searchReducer,
     mentorAuth: authMentorReducer,
-    authStudent: authStudentReducer,
+    authStudent: authStudentSlice,
   },
 });
 export default store;

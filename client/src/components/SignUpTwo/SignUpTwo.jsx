@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signupMentor } from '../../redux/slices/authMentorSlice';
+import { signupStudent } from '../../redux/slices/authStudentSlice';
 
 export default function SignUpTwo() {
   const dispatch = useDispatch();
@@ -10,20 +11,8 @@ export default function SignUpTwo() {
     email: '',
     zoom: '',
     phone: '',
-    video: '',
-    call: '',
-    chat: '',
-    price: '',
     password: '',
-    education: '',
-    job: '',
-    profArea: '',
-    profScill: '',
-    aboutMe: '',
-    portfolio: '',
-
   });
-  console.log('inputStudent', inputStudent);
 
   const inputHandler = (e) => {
     setInputStudent((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -31,12 +20,12 @@ export default function SignUpTwo() {
 
   const submitInputs = (e) => {
     e.preventDefault();
-    dispatch(signupMentor(inputStudent));
+    dispatch(signupStudent(inputStudent));
   };
 
   return (
     <div className="main">
-      <p>Авторизация</p>
+      <p>Авторизация студента</p>
 
       <form
         onSubmit={(e) => submitInputs(e)}

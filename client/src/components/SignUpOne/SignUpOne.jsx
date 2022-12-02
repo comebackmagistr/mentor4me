@@ -132,15 +132,11 @@ export default function SignUp() {
               <br />
               {' '}
               <br />
+
               <button type="button" onClick={() => setAuth(true)}>Назад</button>
+              <button type="submit">Отправить</button>
             </>
           )}
-        <br />
-        {' '}
-        <br />
-        <button type="submit">
-          Отправить
-        </button>
       </form>
 
     </div>

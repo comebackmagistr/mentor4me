@@ -8,6 +8,7 @@ const mentorRouter = require('./routes/mentorRouter');
 const studentRouter = require('./routes/studentRouter');
 const searchRouter = require('./routes/searchRouter');
 const mentorAuthRouter = require('./routes/mentorAuthRouter');
+const studentAuthRouter = require('./routes/studentAuthRouter');
 
 require('dotenv').config();
 
@@ -19,6 +20,7 @@ app.use(cors({
   credentials: true,
   origin: true,
 }));
+
 app.use(morgan('dev'));
 // app.use(express.static(__dirname));
 // app.use(multer({ dest: 'uploads' }).single('filedata'));
@@ -49,5 +51,6 @@ app.use('/search', searchRouter);
 app.use('/api', mentorRouter);
 app.use('/api', studentRouter);
 app.use('/signup1', mentorAuthRouter);
+app.use('/signup2', studentAuthRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

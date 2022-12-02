@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import DownLoad from './components/DownLoad';
-import MainPage from './components/MainPage';
+import MainPage from './components/CropPhoto/MainPage';
 import MentorNavBar from './components/Mentor/MentorNavBar';
 import SignUpOne from './components/SignUpOne/SignUpOne';
 import SignUpTwo from './components/SignUpTwo/SignUpTwo';
@@ -9,8 +8,7 @@ import MentorForm from './components/Mentor/MentorForm';
 // import StudentForm from './components/Student/StudentForm';
 import StudentNavBar from './components/Student/StudentNavBar';
 import Search from './components/Search/Search';
-// import FileInput from './components/FileInput';
-import Crop from './components/Crop';
+import Crop from './components/CropPhoto/Crop';
 
 function App() {
   return (
@@ -23,9 +21,7 @@ function App() {
         {/* <Route element={<StudentForm />} path="/studentprofile" /> */}
         {/* строка 6 и 17 для проверки второго навбара студента */}
         <Route element={<Search />} path="/search" />
-        <Route element={<DownLoad />} path="/down" />
         <Route element={<Crop />} path="/input" />
-
         <Route element={<SignUpOne />} path="/signup1" />
         <Route element={<SignUpTwo />} path="/signup2" />
       </Routes>

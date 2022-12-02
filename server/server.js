@@ -3,10 +3,12 @@ const morgan = require('morgan');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const multer = require('multer');
 const mentorRouter = require('./routes/mentorRouter');
 const studentRouter = require('./routes/studentRouter');
 const searchRouter = require('./routes/searchRouter');
-const multer = require('multer');
+const file = require('./middleware/file');
+const { Mentor } = require('./db/models');
 
 require('dotenv').config();
 
@@ -23,6 +25,7 @@ app.use(morgan('dev'));
 // app.use(multer({ dest: 'uploads' }).single('filedata'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 app.use(session({
   name: 'sid',
   secret: process.env.SESSION_SECRET ?? 'test',
@@ -48,5 +51,20 @@ app.use('/search', searchRouter);
 app.use('/api', mentorRouter);
 app.use('/api', studentRouter);
 
+app.post('/cropped', file.single('crop'), async (req, res) => {
+  // console.log(req.files);
+  // console.log(req.body);
+  // res.sendStatus(200);
+  try {
+    if (req.file) {
+      console.log(req.file);
+      const filePath = req.file.path;
+      await Mentor.create({ photo: filePath.substring(7) });
+      res.json(req.file);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

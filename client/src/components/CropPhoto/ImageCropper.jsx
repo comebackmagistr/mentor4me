@@ -19,6 +19,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
     <div className="cropper">
       <div>
         <Cropper
+          cropShape="round"
           image={image}
           aspect={aspectRatio}
           crop={crop}

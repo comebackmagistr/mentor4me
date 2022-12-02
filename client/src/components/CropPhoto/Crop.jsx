@@ -48,7 +48,6 @@ function Crop() {
         // };
         const formFile = new FormData();
         formFile.append('crop', newImg, 'filename');
-
         fetch('http://localhost:3001/cropped/mentor', {
           method: 'POST',
           'Content-Type': 'mulpipart/form-data',

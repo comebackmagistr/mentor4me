@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     zoom: DataTypes.STRING,
     phone: DataTypes.STRING,
     password: DataTypes.TEXT,
+    photo: DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'Student',

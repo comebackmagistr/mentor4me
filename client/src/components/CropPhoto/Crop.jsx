@@ -1,9 +1,12 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import FileInput from './FileInput';
 import ImageCropper from './ImageCropper';
 
 function Crop() {
+  const user = useSelector((state) => state.mentor);
+
   const [image, setImage] = useState('');
   const [currentPage, setCurrentPage] = useState('choose-img');
   const [imgAfterCrop, setImgAfterCrop] = useState('');
@@ -40,16 +43,21 @@ function Crop() {
       const dataURL = canvasEle.toDataURL('image/jpeg');
       console.log(dataURL);
       canvasEle.toBlob((newImg) => {
-        // console.log('Blob img', newImg);
+        // const links = {
+        //   mentor: 'mentor', student: 'student',
+        // };
         const formFile = new FormData();
         formFile.append('crop', newImg, 'filename');
-        fetch('http://localhost:3001/cropped', {
+
+        fetch('http://localhost:3001/cropped/mentor', {
           method: 'POST',
           'Content-Type': 'mulpipart/form-data',
-          body: formFile, // JSON.stringify(Object.fromEntries(formFile)),
+          body: formFile,
         }).then(console.log).catch(console.log);
-        // <img src={'http://localhost:3001/'+imageName}
+
+        // на фронте отображаем <img src={'http://localhost:3001/'+imageName}
       });
+
       setImgAfterCrop(dataURL);
       setCurrentPage('img-cropped');
     };
@@ -64,7 +72,6 @@ function Crop() {
   return (
 
     <div className="container">
-
       {currentPage === 'choose-img' ? (
         <FileInput setImage={setImage} onImageSelected={onImageSelected} />
       ) : currentPage === 'crop-img' ? (
@@ -79,7 +86,8 @@ function Crop() {
             <img src={imgAfterCrop} className="cropped-img" alt="fail" />
           </div>
 
-          <button
+          {/* пока убираем */}
+          {/* <button
             type="button"
             onClick={() => {
               setCurrentPage('crop-img');
@@ -87,9 +95,9 @@ function Crop() {
             className="btn"
           >
             Crop
-          </button>
+          </button> */}
 
-          <button
+          {/* <button
             type="button"
             onClick={() => {
               setCurrentPage('choose-img');
@@ -98,15 +106,9 @@ function Crop() {
             className="btn"
           >
             New Image
-          </button>
+          </button> */}
         </div>
       )}
-      <button
-        type="button"
-        className="btn"
-      >
-        Save
-      </button>
     </div>
   );
 }

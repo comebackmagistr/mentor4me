@@ -4,20 +4,6 @@ const { Student } = require('../db/models');
 
 const router = express.Router();
 
-// router.post('/', async (req, res) => {
-//   console.log(req.body);
-//   const {
-//     firstName, lastName, email, zoom, phone, password,
-//   } = req.body;
-//   console.log(firstName);
-
-//   const response = await Student.create({
-//     firstName, lastName, email, zoom, phone, password,
-//   });
-
-//   res.json(response);
-// });
-
 router.post('/', async (req, res) => {
   console.log(req.body, 'reqbody');
   const {

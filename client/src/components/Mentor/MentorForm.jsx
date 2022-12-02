@@ -44,9 +44,9 @@ export default function Profile() {
         <Typography gutterBottom variant="h5" component="div">
           {isTrue === true ? (
             <>
-              {mentor??.firstName}
+              {mentor?.firstName}
               {' '}
-              {mentor??.lastName}
+              {mentor?.lastName}
             </>
           ) : (
             <>

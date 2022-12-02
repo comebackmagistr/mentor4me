@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import mentorReducer from './mentorSlice';
-import studentReducer from './studentSlice';
+import mentorReducer from './slices/mentorSlice';
+import studentReducer from './slices/studentSlice';
 import searchReducer from './searchSlice';
 import authMentorReducer from './slices/authMentorSlice';
 import navbarReducer from './navbarSlice';

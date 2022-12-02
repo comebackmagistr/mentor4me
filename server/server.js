@@ -3,12 +3,15 @@ const morgan = require('morgan');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-const multer = require('multer');
 const mentorRouter = require('./routes/mentorRouter');
 const studentRouter = require('./routes/studentRouter');
 const searchRouter = require('./routes/searchRouter');
-const mentorAuthRouter = require('./routes/mentorAuthRouter');
+// const file = require('./middleware/file');
+// const { Mentor } = require('./db/models');
+const mentorAuthRouter = require('./routes/cropMentorPhotoRouter');
 const studentAuthRouter = require('./routes/studentAuthRouter');
+const cropMentorPhotoRouter = require('./routes/mentorAuthRouter');
+const cropStudentPhotoRouter = require('./routes/cropStudentPhotoRouter');
 
 require('dotenv').config();
 
@@ -26,6 +29,7 @@ app.use(morgan('dev'));
 // app.use(multer({ dest: 'uploads' }).single('filedata'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 app.use(session({
   name: 'sid',
   secret: process.env.SESSION_SECRET ?? 'test',
@@ -38,19 +42,13 @@ app.use(session({
   },
 }));
 
-// app.post('/upload', (req, res, next) => {
-//   const filedata = req.file;
-//   console.log(filedata);
-//   if (!filedata) { res.send('Ошибка при загрузке файла'); } else { res.send('Файл загружен'); }
-// });
-
-// app.use('/api/user', userRouter);
-// app.use('/api/posts', postsRouter);
 app.use('/search', searchRouter);
 
 app.use('/api', mentorRouter);
 app.use('/api', studentRouter);
 app.use('/signup1', mentorAuthRouter);
 app.use('/signup2', studentAuthRouter);
+app.use('/cropped/mentor', cropMentorPhotoRouter);
+app.use('/cropped/student', cropStudentPhotoRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

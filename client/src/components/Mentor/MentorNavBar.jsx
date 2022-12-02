@@ -26,6 +26,8 @@ export default function NavBar() {
           <Link to="/mentorprofile"><Button color="inherit">Профиль</Button></Link>
           <Link to="/calendar"><Button color="inherit">Календарь</Button></Link>
           <Link to="/applications"><Button color="inherit">Заявки</Button></Link>
+          <Link to="/signup1"><Button color="inherit">Регистрация</Button></Link>
+
         </Toolbar>
       </AppBar>
     </Box>

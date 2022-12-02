@@ -3,6 +3,7 @@ import mentorReducer from './mentorSlice';
 import studentReducer from './studentSlice';
 import searchReducer from './searchSlice';
 import authMentorReducer from './slices/authMentorSlice';
+import navbarReducer from './navbarSlice';
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     student: studentReducer,
     search: searchReducer,
     mentorAuth: authMentorReducer,
+    navbar: navbarReducer,
   },
 });
 export default store;

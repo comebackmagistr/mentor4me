@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signupMentor } from '../../redux/slices/authMentorSlice';
-import { signupStudent } from '../../redux/slices/authStudentSlice';
+import { getUser } from '../../redux/userSlice';
 
 export default function SignUpTwo() {
   const dispatch = useDispatch();
@@ -12,6 +11,7 @@ export default function SignUpTwo() {
     zoom: '',
     phone: '',
     password: '',
+    isMentor: false,
   });
 
   const inputHandler = (e) => {
@@ -20,7 +20,7 @@ export default function SignUpTwo() {
 
   const submitInputs = (e) => {
     e.preventDefault();
-    dispatch(signupStudent(inputStudent));
+    dispatch(getUser(inputStudent));
   };
 
   return (

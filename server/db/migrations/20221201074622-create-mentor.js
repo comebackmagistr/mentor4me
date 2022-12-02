@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       price: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       password: {
         type: Sequelize.TEXT,
@@ -51,10 +51,13 @@ module.exports = {
         type: Sequelize.STRING,
       },
       aboutMe: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       portfolio: {
         type: Sequelize.STRING,
+      },
+      photo: {
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,

@@ -24,7 +24,8 @@ function Crop() {
 
     const imageObj1 = new Image();
     imageObj1.src = image;
-    imageObj1.onload = async () => {
+
+    imageObj1.onload = () => {
       context.drawImage(
         imageObj1,
         imgCroppedArea.x,
@@ -37,12 +38,28 @@ function Crop() {
         imgCroppedArea.height,
       );
       const dataURL = canvasEle.toDataURL('image/jpeg');
+      console.log(dataURL);
+      canvasEle.toBlob((newImg) => {
+        // const links = {
+        //   mentor: 'mentor', student: 'student',
+        // };
+        const formFile = new FormData();
+        formFile.append('crop', newImg, 'filename');
+        fetch('http://localhost:3001/cropped/mentor', {
+          method: 'POST',
+          'Content-Type': 'mulpipart/form-data',
+          body: formFile,
+        }).then(console.log).catch(console.log);
+
+        // на фронте отображаем <img src={'http://localhost:3001/'+imageName}
+      });
+
       setImgAfterCrop(dataURL);
       setCurrentPage('img-cropped');
     };
   };
 
-  // Handle Cancel Button Click
+  // Отмена загрузки фото
   const onCropCancel = () => {
     setCurrentPage('choose-img');
     setImage('');
@@ -51,7 +68,6 @@ function Crop() {
   return (
 
     <div className="container">
-
       {currentPage === 'choose-img' ? (
         <FileInput setImage={setImage} onImageSelected={onImageSelected} />
       ) : currentPage === 'crop-img' ? (
@@ -66,7 +82,8 @@ function Crop() {
             <img src={imgAfterCrop} className="cropped-img" alt="fail" />
           </div>
 
-          <button
+          {/* пока убираем */}
+          {/* <button
             type="button"
             onClick={() => {
               setCurrentPage('crop-img');
@@ -74,9 +91,9 @@ function Crop() {
             className="btn"
           >
             Crop
-          </button>
+          </button> */}
 
-          <button
+          {/* <button
             type="button"
             onClick={() => {
               setCurrentPage('choose-img');
@@ -85,19 +102,11 @@ function Crop() {
             className="btn"
           >
             New Image
-          </button>
+          </button> */}
         </div>
       )}
-      <button
-        type="button"
-        className="btn"
-      >
-        Save
-      </button>
     </div>
   );
 }
 
 export default Crop;
-
-//     border-radius

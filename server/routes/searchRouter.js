@@ -40,5 +40,4 @@ router.post('/', async (req, res) => {
   });
   console.log(JSON.parse(JSON.stringify(allMentorsSearch)));
 });
-
 module.exports = router;

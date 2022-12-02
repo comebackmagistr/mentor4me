@@ -9,7 +9,6 @@ router.post('/', async (req, res) => {
     firstName, lastName, email, zoom, phone, video, call, chat, price, password, education, job, profArea, profScill, aboutMe, portfolio,
   } = req.body;
   console.log(firstName);
-
   const response = await Mentor.create({
     firstName, lastName, email, zoom, phone, video, call, chat, price, password, education, job, profArea, profScill, aboutMe, portfolio,
   });

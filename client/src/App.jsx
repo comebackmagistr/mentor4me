@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import DownLoad from './components/DownLoad';
 import MainPage from './components/MainPage';
 import MentorNavBar from './components/Mentor/MentorNavBar';
@@ -13,10 +14,12 @@ import Search from './components/Search/Search';
 import Crop from './components/Crop';
 
 function App() {
+  const navbar = useSelector((store) => store.navbar);
   return (
     <>
-      <MentorNavBar />
-      <StudentNavBar />
+      {navbar === 'signup1'
+        ? (<StudentNavBar />) : (<MentorNavBar />)}
+
       <Routes>
         <Route element={<MainPage />} path="/" />
         <Route element={<MentorForm />} path="/mentorprofile" />
@@ -26,7 +29,7 @@ function App() {
         <Route element={<DownLoad />} path="/down" />
         <Route element={<Crop />} path="/input" />
 
-        <Route element={<SignUpOne />} path="/signup1" />
+        <Route element={<SignUpOne />} path="/:signup1" />
         <Route element={<SignUpTwo />} path="/signup2" />
       </Routes>
     </>

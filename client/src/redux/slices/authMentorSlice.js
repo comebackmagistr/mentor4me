@@ -15,10 +15,9 @@ const authMentorSlice = createSlice({
 export const { setAuthMentor, logoutUser } = authMentorSlice.actions;
 
 const signupMentor = (inputs) => (dispatch) => {
-  console.log(inputs);
   axios.post('/signup1', inputs)
     .then((res) => dispatch(setAuthMentor(res.data)))
-    .catch(console.log);
+    .catch(() => console.log);
 };
 
 export default authMentorSlice.reducer;

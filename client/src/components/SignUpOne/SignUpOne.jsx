@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { setNavbar } from '../../redux/navbarSlice';
 import { signupMentor } from '../../redux/slices/authMentorSlice';
+import validatorName from './validatorName';
+import validatorPhone from './validatorPhone';
 
 export default function SignUp() {
   const dispatch = useDispatch();
-  const param = useParams();
   useEffect(() => {
     dispatch(setNavbar('signup1'));
   }, []);
-
   const [auth, setAuth] = useState(true);
   const [inputMentor, setInputMentor] = useState({
     firstName: '',
@@ -35,7 +34,6 @@ export default function SignUp() {
     setInputMentor((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const checkboxHandler = (e) => {};
   const submitInputs = (e) => {
     e.preventDefault();
     dispatch(signupMentor(inputMentor));
@@ -45,7 +43,9 @@ export default function SignUp() {
       <p>Авторизация</p>
 
       <form
-        onSubmit={(e) => submitInputs(e)}
+        onSubmit={(e) => {
+          submitInputs(e);
+        }}
       >
         {auth
           ? (
@@ -93,7 +93,7 @@ export default function SignUp() {
               {' '}
               <br />
               <div>Цена за консультацию</div>
-              <input name="price" className="input" type="text" value={inputMentor.price} onChange={(e) => inputHandler(e)} />
+              <input name="price" className="input" type="number" value={inputMentor.price} onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />

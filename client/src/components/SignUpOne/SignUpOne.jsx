@@ -24,7 +24,6 @@ export default function SignUp() {
     portfolio: '',
 
   });
-  console.log('inputMentor', inputMentor);
   const inputHandler = (e) => {
     setInputMentor((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };

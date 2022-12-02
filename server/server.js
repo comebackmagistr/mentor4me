@@ -3,10 +3,11 @@ const morgan = require('morgan');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const multer = require('multer');
 const mentorRouter = require('./routes/mentorRouter');
 const studentRouter = require('./routes/studentRouter');
 const searchRouter = require('./routes/searchRouter');
-const multer = require('multer');
+const authStudentRouter = require('./routes/authStudentRouter');
 
 require('dotenv').config();
 
@@ -47,6 +48,6 @@ app.use('/search', searchRouter);
 
 app.use('/api', mentorRouter);
 app.use('/api', studentRouter);
-
+app.use('/api', authStudentRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

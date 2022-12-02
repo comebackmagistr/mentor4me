@@ -22,10 +22,3 @@ export const signupMentor = (inputs) => (dispatch) => {
     .then((res) => dispatch(setAuthMentor(res.data)))
     .catch(console.log);
 };
-
-// export const loginMentor = (e, inputs) => (dispatch) => {
-//   e.preventDefault();
-//   axios.post('http://localhost:3001/api/mentor/login', inputs, { withCredentials: true })
-//     .then((res) => dispatch(setAuthMentor(res.data)))
-//     .catch(console.log);
-// };

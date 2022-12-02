@@ -1,56 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { signupMentor } from '../../redux/slices/authMentorSlice';
+import { signupStudent } from '../../redux/slices/authStudentSlice';
 
 export default function SignUpTwo() {
+  const dispatch = useDispatch();
+  const [inputStudent, setInputStudent] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    zoom: '',
+    phone: '',
+    password: '',
+  });
+
+  const inputHandler = (e) => {
+    setInputStudent((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const submitInputs = (e) => {
+    e.preventDefault();
+    dispatch(signupStudent(inputStudent));
+  };
+
   return (
     <div className="main">
-      <p>Регистрация</p>
+      <p>Авторизация студента</p>
 
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(Object.fromEntries(new FormData(e.target)));
-        }}
+        onSubmit={(e) => submitInputs(e)}
         className="form"
         action=""
         method="post"
       >
-        <div>Образование</div>
-        <input name="education" className="input" type="text" />
+        <div>Имя</div>
+        <input name="firstName" className="input" type="text" value={inputStudent.firstName} onChange={(e) => inputHandler(e)} />
         <br />
         {' '}
         <br />
-        <div>Место работы</div>
-        <input name="job" className="input" type="text" />
+        <div>Фамилия</div>
+        <input name="lastName" className="input" type="text" value={inputStudent.lastName} onChange={(e) => inputHandler(e)} />
         <br />
         {' '}
         <br />
-        <div>Профессиональная область</div>
-        <input name="profArea" className="input" type="text" />
+        <div>Почта</div>
+        <input name="email" className="input" type="email" value={inputStudent.email} onChange={(e) => inputHandler(e)} />
         <br />
         {' '}
         <br />
-        <div>Профессиональные навыки</div>
-        <input name="profScill" className="input" type="text" />
+        <div>Zoom</div>
+        <input name="zoom" className="input" type="text" value={inputStudent.zoom} onChange={(e) => inputHandler(e)} />
         <br />
         {' '}
         <br />
-        <div>О себе</div>
-        <textarea name="aboutMe" className="input" type="text" />
+        <div>Телефон</div>
+        <input name="phone" className="input" type="tel" value={inputStudent.phone} onChange={(e) => inputHandler(e)} />
         <br />
         {' '}
         <br />
-        <div>Портфолио</div>
-        <input name="portfolio" id="p1" className="input" type="text" placeholder="Введите ссылку" />
+        <div>Пароль</div>
+        <input name="password" id="p1" className="input" type="password" value={inputStudent.password} onChange={(e) => inputHandler(e)} />
         <br />
         {' '}
         <br />
         <div>Повторный ввод пароля</div>
-        <input name="repeatPassword" id="p2" className="input" type="password" />
+        <input name="repeatPassword" id="p2" className="input" type="password" onChange={(e) => inputHandler(e)} />
         <br />
         {' '}
         <br />
-        <button className="btn" type="submit">Регистрация</button>
+        <button type="submit">
+          Отправить
+        </button>
       </form>
+
     </div>
 
   );

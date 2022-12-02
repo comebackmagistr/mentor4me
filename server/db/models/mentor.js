@@ -32,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     profScill: DataTypes.STRING,
     aboutMe: DataTypes.STRING,
     portfolio: DataTypes.STRING,
+    photo: DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'Mentor',

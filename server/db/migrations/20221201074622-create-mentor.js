@@ -56,6 +56,9 @@ module.exports = {
       portfolio: {
         type: Sequelize.STRING,
       },
+      photo: {
+        type: Sequelize.TEXT,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

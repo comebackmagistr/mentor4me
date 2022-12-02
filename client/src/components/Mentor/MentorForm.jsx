@@ -44,9 +44,9 @@ export default function Profile() {
         <Typography gutterBottom variant="h5" component="div">
           {isTrue === true ? (
             <>
-              {mentor?.firstName}
+              {mentor??.firstName}
               {' '}
-              {mentor?.lastName}
+              {mentor??.lastName}
             </>
           ) : (
             <>
@@ -83,38 +83,22 @@ export default function Profile() {
         <Typography variant="body2" color="text.secondary">
           email:
           {' '}
-          {isTrue === true ? (
-            mentor?.email
-          ) : (
-            <input name="email" type="text" placeholder={mentor?.email} />
-          )}
+          {mentor.email}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           zoom:
           {' '}
-          {isTrue === true ? (
-            mentor?.zoom
-          ) : (
-            <input name="zoom" type="text" placeholder={mentor?.zoom} />
-          )}
+          {mentor.zoom}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           phone:
           {' '}
-          {isTrue === true ? (
-            mentor?.phone
-          ) : (
-            <input name="phone" type="text" placeholder={mentor?.phone} />
-          )}
+          {mentor.phone}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           price:
           {' '}
-          {isTrue === true ? (
-            mentor?.price
-          ) : (
-            <input name="price" type="text" placeholder={mentor?.price} />
-          )}
+          {mentor.price}
         </Typography>
         <h5>Профессиональные навыки</h5>
         <Typography variant="body2" color="text.secondary">

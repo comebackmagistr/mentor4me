@@ -24,7 +24,8 @@ function Crop() {
 
     const imageObj1 = new Image();
     imageObj1.src = image;
-    imageObj1.onload = async () => {
+
+    imageObj1.onload = () => {
       context.drawImage(
         imageObj1,
         imgCroppedArea.x,
@@ -37,12 +38,24 @@ function Crop() {
         imgCroppedArea.height,
       );
       const dataURL = canvasEle.toDataURL('image/jpeg');
+      console.log(dataURL);
+      canvasEle.toBlob((newImg) => {
+        // console.log('Blob img', newImg);
+        const formFile = new FormData();
+        formFile.append('crop', newImg, 'filename');
+        fetch('http://localhost:3001/cropped', {
+          method: 'POST',
+          'Content-Type': 'mulpipart/form-data',
+          body: formFile, // JSON.stringify(Object.fromEntries(formFile)),
+        }).then(console.log).catch(console.log);
+        // <img src={'http://localhost:3001/'+imageName}
+      });
       setImgAfterCrop(dataURL);
       setCurrentPage('img-cropped');
     };
   };
 
-  // Handle Cancel Button Click
+  // Отмена загрузки фото
   const onCropCancel = () => {
     setCurrentPage('choose-img');
     setImage('');
@@ -99,5 +112,3 @@ function Crop() {
 }
 
 export default Crop;
-
-//     border-radius

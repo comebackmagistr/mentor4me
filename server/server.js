@@ -7,6 +7,9 @@ const multer = require('multer');
 const mentorRouter = require('./routes/mentorRouter');
 const studentRouter = require('./routes/studentRouter');
 const searchRouter = require('./routes/searchRouter');
+const file = require('./middleware/file');
+const { Mentor } = require('./db/models');
+const studentAuthRouter = require('./routes/studentAuthRouter');
 const mentorAuthRouter = require('./routes/mentorAuthRouter');
 
 require('dotenv').config();
@@ -19,11 +22,13 @@ app.use(cors({
   credentials: true,
   origin: true,
 }));
+
 app.use(morgan('dev'));
 // app.use(express.static(__dirname));
 // app.use(multer({ dest: 'uploads' }).single('filedata'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 app.use(session({
   name: 'sid',
   secret: process.env.SESSION_SECRET ?? 'test',
@@ -49,5 +54,21 @@ app.use('/search', searchRouter);
 app.use('/api', mentorRouter);
 app.use('/api', studentRouter);
 app.use('/signup1', mentorAuthRouter);
+app.use('/signup2', studentAuthRouter);
+app.post('/cropped', file.single('crop'), async (req, res) => {
+  // console.log(req.files);
+  // console.log(req.body);
+  // res.sendStatus(200);
+  try {
+    if (req.file) {
+      console.log(req.file);
+      const filePath = req.file.path;
+      await Mentor.create({ photo: filePath.substring(7) });
+      res.json(req.file);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

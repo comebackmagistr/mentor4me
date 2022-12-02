@@ -8,7 +8,7 @@ export default function SignUp() {
   const dispatch = useDispatch();
   const param = useParams();
   useEffect(() => {
-    dispatch(setNavbar(param.signup1));
+    dispatch(setNavbar('signup1'));
   }, []);
 
   const [auth, setAuth] = useState(true);
@@ -141,15 +141,11 @@ export default function SignUp() {
               <br />
               {' '}
               <br />
+
               <button type="button" onClick={() => setAuth(true)}>Назад</button>
+              <button type="submit">Отправить</button>
             </>
           )}
-        <br />
-        {' '}
-        <br />
-        <button type="submit">
-          Отправить
-        </button>
       </form>
 
     </div>

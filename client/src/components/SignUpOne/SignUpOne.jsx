@@ -8,7 +8,7 @@ export default function SignUp() {
   const dispatch = useDispatch();
   const param = useParams();
   useEffect(() => {
-    dispatch(setNavbar(param.signup1));
+    dispatch(setNavbar('signup1'));
   }, []);
 
   const [auth, setAuth] = useState(true);

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Cropper from 'react-easy-crop';
-import getCroppedImg from './cropImage';
 
 function ImageCropper({ image, onCropDone, onCropCancel }) {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -20,6 +19,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
     <div className="cropper">
       <div>
         <Cropper
+          cropShape="round"
           image={image}
           aspect={aspectRatio}
           crop={crop}
@@ -80,8 +80,6 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
           className="btn"
           onClick={async () => {
             onCropDone(croppedArea);
-            const res = await getCroppedImg(image, croppedArea);
-            console.log(res);
           }}
         >
           Done

@@ -7,7 +7,7 @@ const multer = require('multer');
 const mentorRouter = require('./routes/mentorRouter');
 const studentRouter = require('./routes/studentRouter');
 const searchRouter = require('./routes/searchRouter');
-const authStudentRouter = require('./routes/authStudentRouter');
+const mentorAuthRouter = require('./routes/mentorAuthRouter');
 
 require('dotenv').config();
 
@@ -48,6 +48,6 @@ app.use('/search', searchRouter);
 
 app.use('/api', mentorRouter);
 app.use('/api', studentRouter);
-app.use('/api', authStudentRouter);
+app.use('/signup1', mentorAuthRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

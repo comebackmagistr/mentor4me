@@ -24,7 +24,7 @@ function Crop() {
 
     const imageObj1 = new Image();
     imageObj1.src = image;
-    imageObj1.onload = () => {
+    imageObj1.onload = async () => {
       context.drawImage(
         imageObj1,
         imgCroppedArea.x,
@@ -36,9 +36,7 @@ function Crop() {
         imgCroppedArea.width,
         imgCroppedArea.height,
       );
-
       const dataURL = canvasEle.toDataURL('image/jpeg');
-
       setImgAfterCrop(dataURL);
       setCurrentPage('img-cropped');
     };

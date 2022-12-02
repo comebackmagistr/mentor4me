@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import mentorReducer from './mentorSlice';
 import studentReducer from './studentSlice';
 import searchReducer from './searchSlice';
+import authMentorReducer from './slices/authMentorSlice';
 import authStudentReducer from './slices/authStudentReducer';
 
 const store = configureStore({
@@ -9,6 +10,7 @@ const store = configureStore({
     mentor: mentorReducer,
     student: studentReducer,
     search: searchReducer,
+    mentorAuth: authMentorReducer,
     authStudent: authStudentReducer,
   },
 });

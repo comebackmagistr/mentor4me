@@ -6,6 +6,8 @@ const router = express.Router();
 router.post('/', file.single('crop'), async (req, res) => {
   try {
     if (req.file) {
+      console.log(req.file);
+      console.log(req.file.filename);
       const fileName = req.file.filename;
       await Mentor.create({ photo: fileName });
       // await Mentor.create({ photo: filePath.substring(7) });

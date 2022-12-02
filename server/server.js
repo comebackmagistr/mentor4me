@@ -8,9 +8,9 @@ const studentRouter = require('./routes/studentRouter');
 const searchRouter = require('./routes/searchRouter');
 // const file = require('./middleware/file');
 // const { Mentor } = require('./db/models');
-const mentorAuthRouter = require('./routes/cropMentorPhotoRouter');
+const mentorAuthRouter = require('./routes/mentorAuthRouter');
 const studentAuthRouter = require('./routes/studentAuthRouter');
-const cropMentorPhotoRouter = require('./routes/mentorAuthRouter');
+const cropMentorPhotoRouter = require('./routes/cropMentorPhotoRouter');
 const cropStudentPhotoRouter = require('./routes/cropStudentPhotoRouter');
 
 require('dotenv').config();

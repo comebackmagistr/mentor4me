@@ -40,9 +40,6 @@ function Crop() {
       const dataURL = canvasEle.toDataURL('image/jpeg');
       console.log(dataURL);
       canvasEle.toBlob((newImg) => {
-        // const links = {
-        //   mentor: 'mentor', student: 'student',
-        // };
         const formFile = new FormData();
         formFile.append('crop', newImg, 'filename');
         fetch('http://localhost:3001/cropped/mentor', {

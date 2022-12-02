@@ -29,7 +29,7 @@ function App() {
         <Route element={<DownLoad />} path="/down" />
         <Route element={<Crop />} path="/input" />
 
-        <Route element={<SignUpOne />} path="/:signup1" />
+        <Route element={<SignUpOne />} path="/signup1" />
         <Route element={<SignUpTwo />} path="/signup2" />
       </Routes>
     </>

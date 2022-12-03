@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     zoom: DataTypes.STRING,
     phone: DataTypes.STRING,
-    price: DataTypes.INTEGER,
+    price: DataTypes.STRING,
     password: DataTypes.TEXT,
     video: DataTypes.STRING,
     call: DataTypes.STRING,
@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     job: DataTypes.STRING,
     profArea: DataTypes.STRING,
     profScill: DataTypes.STRING,
-    aboutMe: DataTypes.STRING,
+    aboutMe: DataTypes.TEXT,
     portfolio: DataTypes.STRING,
     photo: DataTypes.TEXT,
   }, {

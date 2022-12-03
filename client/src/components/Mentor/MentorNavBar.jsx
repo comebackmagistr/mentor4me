@@ -15,7 +15,7 @@ export default function NavBar() {
   const navigate = useNavigate();
 
   const regMentorHandler = () => {
-    navigate('/signup1');
+    navigate('/signup/mentor');
   };
 
   const handleClose = () => {
@@ -23,7 +23,7 @@ export default function NavBar() {
   };
 
   const regStudentHandler = () => {
-    navigate('/signup2');
+    navigate('/signup/student');
     handleClose();
   };
 
@@ -84,6 +84,7 @@ export default function NavBar() {
               </DialogActions>
             </Dialog>
           </div>
+          <Link to="/user/login">Login</Link>
         </Toolbar>
       </AppBar>
     </Box>

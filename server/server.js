@@ -11,6 +11,7 @@ const searchRouter = require('./routes/searchRouter');
 const cropMentorPhotoRouter = require('./routes/cropMentorPhotoRouter');
 const cropStudentPhotoRouter = require('./routes/cropStudentPhotoRouter');
 const userAuthRouter = require('./routes/userAuthRouter');
+const getMentorRouter = require('./routes/getMentorRouter');
 
 require('dotenv').config();
 
@@ -44,6 +45,7 @@ app.use(session({
 app.use('/search', searchRouter);
 
 app.use('/api', mentorRouter);
+app.use('/api', getMentorRouter);/// ручка на получение менторов
 app.use('/api', studentRouter);
 app.use('/user', userAuthRouter);
 app.use('/cropped/mentor', cropMentorPhotoRouter);

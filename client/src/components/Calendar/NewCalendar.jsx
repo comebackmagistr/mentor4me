@@ -1,33 +1,33 @@
-// import format from 'date-fns/format';
-// import getDay from 'date-fns/getDay';
-// import parse from 'date-fns/parse';
-// import startOfWeek from 'date-fns/startOfWeek';
-// import React from 'react';
-// import { Calendar, momentLocalizer } from 'react-big-calendar';
-// import moment from 'moment';
-// // import 'react-big-calendar/lib/css/react-big-calendar.css';
-// import DatePicker from 'react-datepicker';
-// import 'react-datepicker/dist/react-datepicker.css';
+import format from 'date-fns/format';
+import getDay from 'date-fns/getDay';
+import parse from 'date-fns/parse';
+import startOfWeek from 'date-fns/startOfWeek';
+import React, { useState } from 'react';
+import BigCalendar, { Calendar, dateFnsLocalizer } from 'react-big-calendar';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import moment from 'moment';
+import { ru } from 'date-fns/locale/';
 
-// moment.tz.setDefault('Europe/Moscow');
+const locales = { ru };
 
-// const localizer = momentLocalizer({
-//   moment,
-//   format,
-//   parse,
-//   startOfWeek,
-//   getDay,
+const localizer = dateFnsLocalizer({
+  format,
+  parse,
+  startOfWeek,
+  getDay,
+  locales,
+});
 
-// });
+function NewCalendar() {
+  return (
+    <div className="App">
+      <h1>Calendar</h1>
+      <Calendar localizer={localizer} startAccessor="start" endAccessor="end" style={{ height: 500, margin: '50px' }} />
 
-// function NewCalendar() {
-//   return (
-//     <div className="App">
-//       <h1>Calendar</h1>
-//       <div />
-//       <Calendar localizer={localizer} startAccessor="start" endAccessor="end" style={{ height: 500, margin: '50px' }} />
-//     </div>
-//   );
-// }
+    </div>
+  );
+}
 
-// export default NewCalendar;
+export default NewCalendar;

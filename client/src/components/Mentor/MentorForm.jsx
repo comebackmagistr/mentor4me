@@ -10,7 +10,7 @@ import { editMentor, showMentor } from '../../redux/slices/mentorSlice';
 
 export default function Profile() {
   const mentor = useSelector((store) => store.mentor);
-  console.log(mentor);
+  console.log(mentor, 'meeeentor');
   const [isTrue, setIsTrue] = useState(true); // для кнопки редактирования
   const [inputMentor, setInputMentor] = useState({
     firstName: mentor.firstName,
@@ -31,6 +31,7 @@ export default function Profile() {
     portfolio: mentor.portfolio,
 
   });
+  console.log(inputMentor, 'inputtttttmeeeentor');
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(showMentor());
@@ -38,6 +39,12 @@ export default function Profile() {
   const inputHandler = (e) => {
     setInputMentor((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  const editHandler = () => {
+    setIsTrue((prev) => !prev);
+    dispatch(editMentor(inputMentor));
+  };
+
   return (
     <Card sx={{ maxWidth: 900, flexDirection: 'row' }}>
       <CardContent>
@@ -61,22 +68,22 @@ export default function Profile() {
             <Typography variant="body2" color="text.secondary">
               Образование:
               {' '}
-              { mentor?.education}
+              {mentor?.education}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Информация обо мне:
               {' '}
-              { mentor?.aboutMe}
+              {mentor?.aboutMe}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               email:
               {' '}
-              { mentor?.email }
+              {mentor?.email }
             </Typography>
             <Typography variant="body2" color="text.secondary">
               zoom:
               {' '}
-              { mentor?.zoom }
+              {mentor?.zoom }
             </Typography>
             <Typography variant="body2" color="text.secondary">
               phone:
@@ -112,14 +119,14 @@ export default function Profile() {
               <Typography gutterBottom variant="h5" component="div">
                 Имя:
                 {' '}
-                <input name="firstName" type="text" placeholder={inputMentor?.firstName} value={mentor?.firstName} onChange={(e) => inputHandler(e)} />
+                <input name="firstName" type="text" placeholder={inputMentor?.firstName} value={inputMentor?.firstName} onChange={(e) => inputHandler(e)} />
                 Фамилия:
                 {' '}
-                <input name="lastName" type="text" placeholder={inputMentor?.lastName} value={mentor?.lastName} onChange={(e) => inputHandler(e)} />
+                <input name="lastName" type="text" placeholder={inputMentor?.lastName} value={inputMentor?.lastName} onChange={(e) => inputHandler(e)} />
               </Typography>
               <CardActions>
-                {/* <Button onClick={() => setIsTrue((prev) => !prev)} size="small">Редактировать</Button> */}
-                {!isTrue && <Button type="submit" size="small">Сохранить изменения</Button> }
+                <Button onClick={() => setIsTrue((prev) => !prev)} size="small">Отменить изменения</Button>
+                {!isTrue && <Button type="submit" size="small" onClick={() => editHandler()}>Сохранить изменения</Button> }
               </CardActions>
               <CardMedia
                 component="img"
@@ -130,43 +137,43 @@ export default function Profile() {
               <Typography variant="body2" color="text.secondary">
                 Образование:
                 {' '}
-                <input name="education" type="text" placeholder={mentor?.education} value={inputMentor?.education} onChange={(e) => inputHandler(e)} />
+                <input name="education" type="text" placeholder={inputMentor?.education} value={inputMentor?.education} onChange={(e) => inputHandler(e)} />
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Информация обо мне:
                 {' '}
-                <input name="aboutMe" type="text" placeholder={mentor?.aboutMe} value={inputMentor?.aboutMe} onChange={(e) => inputHandler(e)} />
+                <input name="aboutMe" type="text" placeholder={inputMentor?.aboutMe} value={inputMentor?.aboutMe} onChange={(e) => inputHandler(e)} />
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 email:
                 {' '}
-                <input name="email" type="text" placeholder={mentor?.email} value={inputMentor?.email} onChange={(e) => inputHandler(e)} />
+                <input name="email" type="text" placeholder={inputMentor?.email} value={inputMentor?.email} onChange={(e) => inputHandler(e)} />
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 zoom:
                 {' '}
-                <input name="zoom" type="text" placeholder={mentor?.zoom} value={inputMentor?.zoom} onChange={(e) => inputHandler(e)} />
+                <input name="zoom" type="text" placeholder={inputMentor?.zoom} value={inputMentor?.zoom} onChange={(e) => inputHandler(e)} />
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 phone:
                 {' '}
-                <input name="phone" type="text" placeholder={mentor?.phone} value={inputMentor?.phone} onChange={(e) => inputHandler(e)} />
+                <input name="phone" type="text" placeholder={inputMentor?.phone} value={inputMentor?.phone} onChange={(e) => inputHandler(e)} />
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 price:
                 {' '}
-                <input name="price" type="text" placeholder={mentor?.price} value={inputMentor?.price} onChange={(e) => inputHandler(e)} />
+                <input name="price" type="text" placeholder={inputMentor?.price} value={inputMentor?.price} onChange={(e) => inputHandler(e)} />
               </Typography>
               <h5>Профессиональные навыки</h5>
               <Typography variant="body2" color="text.secondary">
                 Профессиональные навыки:
                 {' '}
-                <input name="profArea" type="text" placeholder={mentor?.profArea} value={inputMentor?.profArea} onChange={(e) => inputHandler(e)} />
+                <input name="profArea" type="text" placeholder={inputMentor?.profArea} value={inputMentor?.profArea} onChange={(e) => inputHandler(e)} />
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Профессиональные скиллы:
                 {' '}
-                <input name="profScill" type="text" placeholder={mentor?.profScill} value={inputMentor?.profScill} onChange={(e) => inputHandler(e)} />
+                <input name="profScill" type="text" placeholder={inputMentor?.profScill} value={inputMentor?.profScill} onChange={(e) => inputHandler(e)} />
               </Typography>
             </form>
           )}

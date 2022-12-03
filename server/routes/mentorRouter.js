@@ -6,7 +6,6 @@ const router = express.Router();
 // show mentor
 router.get('/mentorprofile', async (req, res) => {
   const { id } = req.session.user;
-  console.log(id);
   try {
     const mentor = await Mentor.findOne({ where: { id } });
     res.json(mentor);
@@ -18,7 +17,6 @@ router.get('/mentorprofile', async (req, res) => {
 // edit mentor
 router.patch('/mentorprofile', async (req, res) => {
   const { id } = req.session.user;
-  console.log(req.body);
   const {
     firstName,
     lastName,

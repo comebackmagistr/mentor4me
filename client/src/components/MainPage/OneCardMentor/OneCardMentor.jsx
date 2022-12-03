@@ -1,6 +1,6 @@
 import React from 'react';
-import './OneMentorPage.css';
-import '../../App.css';
+import './OneCardMentor.css';
+import '../../../App.css';
 
 export default function OneMentorPage({ mentor }) {
   return (

@@ -1,23 +1,24 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import OneMentorPage from '../components/OneMentorPage';
-import { showAllMentor } from '../redux/slices/mentorSlice';
+import { showAllMentor } from '../../../redux/userInfoSlice';
 import './Mentor.css';
+import OneCardMentor from '../OneCardMentor';
 
 export default function MentorPage() {
-  const mentors = useSelector((state) => state.mentor);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(showAllMentor());
   }, []);
-  //   console.log('mentors', mentors);
+  const mentors = useSelector((state) => state.userInfo);
+  console.log('mentors', mentors.length);
   return (
-
-    <section className="mentorBlock">
-      <div className="container">
-        <h2 className="title">Наши менторы</h2>
-        {mentors?.map((el) => <OneMentorPage key={el.id} mentor={el} />)}
-        {/* <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
+    <div>
+      {mentors.length <= 0 && Array.isArray(mentors) ? (<span>Loading</span>) : (
+        <section className="mentorBlock">
+          <div className="container">
+            <h2 className="title">Наши менторы</h2>
+            {mentors?.map((el) => <OneCardMentor key={el.id} mentor={el} />)}
+            {/* <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
           <div className="imgBlock">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaVn-RVo12JBJq8FDGKViN5KtJL6_OPXIuHA&usqp=CAU" alt="Ирина Иванченко" className="imgCard" />
             <p className="reiting">9 / 10</p>
@@ -46,8 +47,10 @@ export default function MentorPage() {
             <div className="like">👍</div>
           </div>
         </div> */}
-      </div>
-    </section>
+          </div>
+        </section>
+      )}
+    </div>
 
   );
 }

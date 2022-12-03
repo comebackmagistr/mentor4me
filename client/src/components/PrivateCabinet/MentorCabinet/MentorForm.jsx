@@ -6,10 +6,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
-import { editMentor, showMentor } from '../../redux/slices/mentorSlice';
+import { editMentor } from '../../../redux/userSlice';
 
 export default function Profile() {
-  const mentor = useSelector((store) => store.mentor);
+  const mentor = useSelector((store) => store.user);
   console.log(mentor, 'meeeentor');
   const [isTrue, setIsTrue] = useState(true); // для кнопки редактирования
   const [inputMentor, setInputMentor] = useState({
@@ -22,7 +22,6 @@ export default function Profile() {
     call: mentor.call,
     chat: mentor.chat,
     price: mentor.price,
-    password: mentor.password,
     education: mentor.education,
     job: mentor.job,
     profArea: mentor.profArea,
@@ -33,9 +32,6 @@ export default function Profile() {
   });
   console.log(inputMentor, 'inputtttttmeeeentor');
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(showMentor());
-  }, []);
   const inputHandler = (e) => {
     setInputMentor((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };

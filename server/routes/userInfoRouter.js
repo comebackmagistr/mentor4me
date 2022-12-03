@@ -1,12 +1,13 @@
 const express = require('express');
 const { Mentor } = require('../db/models');
+const { Student } = require('../db/models');
 
 const router = express.Router();
 
 // show mentor
 router.get('/mentorprofile', async (req, res) => {
-  const { id } = req.session.user;
   try {
+    const { id } = req.session.user;
     const mentor = await Mentor.findOne({ where: { id } });
     res.json(mentor);
   } catch (error) {
@@ -16,7 +17,6 @@ router.get('/mentorprofile', async (req, res) => {
 
 // edit mentor
 router.patch('/mentorprofile', async (req, res) => {
-  const { id } = req.session.user;
   const {
     firstName,
     lastName,
@@ -35,6 +35,7 @@ router.patch('/mentorprofile', async (req, res) => {
     portfolio,
   } = req.body;
   try {
+    const { id } = req.session.user;
     await Mentor.update({
       firstName,
       lastName,
@@ -65,6 +66,41 @@ router.get('/studentapplications', async (req, res) => {
   try {
     const allMentor = await Mentor.findAll();
     res.json(allMentor);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get('/studentprofile', async (req, res) => {
+  try {
+    const { id } = req.session.user.id;
+    const student = await Student.findOne({ where: { id } });
+    res.json(student);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// edit student
+router.patch('/studentprofile', async (req, res) => {
+  const {
+    firstName,
+    lastName,
+    email,
+    zoom,
+    phone,
+  } = req.body;
+  try {
+    const { id } = req.session.user;
+    await Student.update({
+      firstName,
+      lastName,
+      email,
+      zoom,
+      phone,
+    }, { where: { id } });
+    const newStudent = await Student.findByPk(id);
+    res.json(newStudent);
   } catch (error) {
     console.log(error);
   }

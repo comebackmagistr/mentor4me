@@ -16,7 +16,7 @@ router.get('/studentprofile', async (req, res) => {
 
 // edit student
 router.patch('/studentprofile', async (req, res) => {
-  const { id } = req.session.user.id;
+  const { id } = req.session.user;
   const {
     firstName,
     lastName,

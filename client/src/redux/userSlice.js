@@ -26,6 +26,12 @@ const fetchCheck = () => async (dispatch) => {
   dispatch(setUser(res.data));
 };
 
+const getLoginUser = (inputs) => async (dispatch) => {
+  const res = await axios.post('/user/login', inputs);
+  console.log(res.data);
+  dispatch(setUser(res.data));
+};
+
 export default userSlice.reducer;
 
-export { getUser, fetchCheck };
+export { getUser, fetchCheck, getLoginUser };

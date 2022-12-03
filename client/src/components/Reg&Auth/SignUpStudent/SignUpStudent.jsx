@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getUser } from '../../redux/userSlice';
+import { getUser } from '../../../redux/userSlice';
 
 export default function SignUpTwo() {
   const dispatch = useDispatch();

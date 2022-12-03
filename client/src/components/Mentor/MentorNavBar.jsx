@@ -83,6 +83,7 @@ export default function NavBar() {
               </DialogActions>
             </Dialog>
           </div>
+          <Link to="/user/login">Login</Link>
         </Toolbar>
       </AppBar>
     </Box>

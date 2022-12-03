@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setNavbar } from '../../redux/navbarSlice';
-import { getUser } from '../../redux/userSlice';
+import { setNavbar } from '../../../redux/navbarSlice';
+import { getUser } from '../../../redux/userSlice';
 
 export default function SignUp() {
   const dispatch = useDispatch();

@@ -3,14 +3,15 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MainPage from './components/MainPage';
 import MentorNavBar from './components/Mentor/MentorNavBar';
-import SignUpOne from './components/SignUpMentor/SignUpMentor';
-import SignUpTwo from './components/SignUpStudent/SignUpStudent';
 import MentorForm from './components/Mentor/MentorForm';
 // import StudentForm from './components/Student/StudentForm';
 import StudentNavBar from './components/Student/StudentNavBar';
 import Search from './components/Search/Search';
 import Crop from './components/CropPhoto/Crop';
 import { fetchCheck } from './redux/userSlice';
+import LoginAll from './components/Reg&Auth/LoginAll/LoginAll';
+import SignUpMentor from './components/Reg&Auth/SignUpMentor';
+import SignUpStudent from './components/Reg&Auth/SignUpStudent';
 
 function App() {
   const navbar = useSelector((store) => store.navbar);
@@ -31,8 +32,9 @@ function App() {
         <Route element={<Search />} path="/search" />
         <Route element={<Crop />} path="/input" />
 
-        <Route element={<SignUpOne />} path="/signup/mentor" />
-        <Route element={<SignUpTwo />} path="/signup/student" />
+        <Route element={<SignUpMentor />} path="/signup/mentor" />
+        <Route element={<SignUpStudent />} path="/signup/student" />
+        <Route element={<LoginAll />} path="/user/login" />
       </Routes>
     </>
   );

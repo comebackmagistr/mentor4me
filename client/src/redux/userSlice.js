@@ -32,6 +32,13 @@ const getLoginUser = (inputs) => async (dispatch) => {
   dispatch(setUser(res.data));
 };
 
+const getLogout = () => async (dispatch) => {
+  await axios('/user/logout');
+  dispatch(setUser({}));
+};
+
 export default userSlice.reducer;
 
-export { getUser, fetchCheck, getLoginUser };
+export {
+  getUser, fetchCheck, getLoginUser, getLogout,
+};

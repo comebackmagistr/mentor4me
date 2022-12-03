@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
 import MainPage from './components/MainPage';
 import MentorNavBar from './components/Mentor/MentorNavBar';
 import SignUpOne from './components/SignUpOne/SignUpOne';
@@ -10,6 +11,7 @@ import MentorForm from './components/Mentor/MentorForm';
 import StudentNavBar from './components/Student/StudentNavBar';
 import Search from './components/Search/Search';
 import Crop from './components/CropPhoto/Crop';
+import NewCalendar from './components/Calendar/NewCalendar';
 
 function App() {
   const navbar = useSelector((store) => store.navbar);
@@ -25,6 +27,7 @@ function App() {
         {/* строка 6 и 17 для проверки второго навбара студента */}
         <Route element={<Search />} path="/search" />
         <Route element={<Crop />} path="/input" />
+        <Route element={<NewCalendar />} path="/calendar" />
 
         <Route element={<SignUpOne />} path="/signup1" />
         <Route element={<SignUpTwo />} path="/signup2" />

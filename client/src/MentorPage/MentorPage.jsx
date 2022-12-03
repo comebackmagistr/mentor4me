@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import OneMentorPage from '../components/OneMentorPage';
+import { showAllMentor } from '../redux/slices/mentorSlice';
 import './Mentor.css';
 
 export default function MentorPage() {
+  const mentors = useSelector((state) => state.mentor);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(showAllMentor());
+  }, []);
+  //   console.log('mentors', mentors);
   return (
 
     <section className="mentorBlock">
       <div className="container">
         <h2 className="title">Наши менторы</h2>
-        <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
+        {mentors?.map((el) => <OneMentorPage key={el.id} mentor={el} />)}
+        {/* <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
           <div className="imgBlock">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaVn-RVo12JBJq8FDGKViN5KtJL6_OPXIuHA&usqp=CAU" alt="Ирина Иванченко" className="imgCard" />
             <p className="reiting">9 / 10</p>
@@ -35,7 +45,7 @@ export default function MentorPage() {
             <div className="price">1800 руб./час</div>
             <div className="like">👍</div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
 

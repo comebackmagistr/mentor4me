@@ -1,18 +1,24 @@
 import React from 'react';
 import './OneMentorPage.css';
+import '../../App.css';
 
-export default function OneMentorPage() {
+export default function OneMentorPage({ mentor }) {
   return (
     <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
       <div className="imgBlock">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaVn-RVo12JBJq8FDGKViN5KtJL6_OPXIuHA&usqp=CAU" alt="Ирина Иванченко" className="imgCard" />
+        <img src={mentor?.photo} alt="img" className="imgCard" />
         <p className="reiting">9 / 10</p>
       </div>
       <div className="textCard">
-        <div className="subtitleCard">Петр Федорищев</div>
-        <div className="jobName">Дизайнер UI</div>
+        <div className="subtitleCard">{`${mentor?.firstName} ${mentor?.lastName}`}</div>
+        <div className="jobName">
+          {mentor?.profArea}
+          {' '}
+          - тупица
+        </div>
         <div className="mentorDescr">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam voluptas veniam iusto dolorem? Qui asperiores ratione quam deserunt! Veniam fuga aliquam voluptates laudantium consequuntur minus saepe odit doloribus fugiat a.
+          {mentor?.aboutMe}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis atque pariatur minima quo, vitae minus labore quaerat temporibus odio aperiam aspernatur rerum provident molestias, recusandae ducimus ipsam. Illo, error mollitia.
         </div>
         <div className="scill">
           <div className="scillBlock">
@@ -27,8 +33,11 @@ export default function OneMentorPage() {
         </div>
       </div>
       <div className="priceBlock">
-        <button type="button">Подать заявку</button>
-        <div className="price">1800 руб./час</div>
+        <button className="button-36" type="button">Подать заявку</button>
+        <div className="price">
+          {`${mentor?.price} руб / час`}
+
+        </div>
         <div className="like">👍</div>
       </div>
     </div>

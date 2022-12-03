@@ -22,6 +22,7 @@ module.exports = {
         profScill: 'JS',
         aboutMe: profile.address,
         portfolio: 'portfolio',
+        photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaVn-RVo12JBJq8FDGKViN5KtJL6_OPXIuHA&usqp=CAU',
         createdAt: new Date(),
         updatedAt: new Date(),
       }], {});

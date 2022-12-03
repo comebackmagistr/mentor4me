@@ -37,8 +37,14 @@ const getLogout = () => async (dispatch) => {
   dispatch(setUser({}));
 };
 
+const editMentor = (input) => (dispatch) => {
+  axios.patch('/api/mentorprofile', input)
+    .then((res) => dispatch(setUser(res.data)))
+    .catch(console.log);
+};
+
 export default userSlice.reducer;
 
 export {
-  getUser, fetchCheck, getLoginUser, getLogout,
+  getUser, fetchCheck, getLoginUser, getLogout, editMentor,
 };

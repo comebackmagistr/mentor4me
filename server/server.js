@@ -3,8 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-const mentorRouter = require('./routes/mentorRouter');
-const studentRouter = require('./routes/studentRouter');
+const userInfoRouter = require('./routes/userInfoRouter');
 const searchRouter = require('./routes/searchRouter');
 // const file = require('./middleware/file');
 // const { Mentor } = require('./db/models');
@@ -42,9 +41,7 @@ app.use(session({
 }));
 
 app.use('/search', searchRouter);
-
-app.use('/api', mentorRouter);
-app.use('/api', studentRouter);
+app.use('/api', userInfoRouter);
 app.use('/user', userAuthRouter);
 app.use('/cropped/mentor', cropMentorPhotoRouter);
 app.use('/cropped/student', cropStudentPhotoRouter);

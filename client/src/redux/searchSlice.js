@@ -13,6 +13,7 @@ export const { setSearch } = searchSlice.actions;
 
 const getSearch = (elem) => async (dispatch) => {
   const res = await axios.post('/search', elem);
+  dispatch(setSearch(res.data));
 };
 
 export default searchSlice.reducer;

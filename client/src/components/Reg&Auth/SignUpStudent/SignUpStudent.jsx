@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getUser } from '../../../redux/userSlice';
 
 export default function SignUpTwo() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [inputStudent, setInputStudent] = useState({
     firstName: '',
@@ -21,6 +23,7 @@ export default function SignUpTwo() {
   const submitInputs = (e) => {
     e.preventDefault();
     dispatch(getUser(inputStudent));
+    navigate('/');
   };
 
   return (

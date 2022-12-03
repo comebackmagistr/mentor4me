@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { getLogout } from '../../redux/userSlice';
+import '../../App.css';
 
 export default function NavBar() {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ export default function NavBar() {
           <Link to="/mentorprofile"><Button color="inherit">Профиль</Button></Link>
           <Link to="/calendar"><Button color="inherit">Календарь</Button></Link>
           <Link to="/applications"><Button color="inherit">Заявки</Button></Link>
+          <Link to="/mentor"><Button color="inherit">Наши менторы</Button></Link>
           <div>
             <Button
               variant="outlined"
@@ -81,8 +83,10 @@ export default function NavBar() {
                 justifyContent: 'center',
               }}
               >
-                <Button variant="outlined" onClick={regMentorHandler}>Ментор</Button>
-                <Button variant="outlined" onClick={regStudentHandler} autoFocus>Студент</Button>
+                <button onClick={regMentorHandler} className="button-35" type="button">Ментор</button>
+                <button onClick={regStudentHandler} className="button-35" type="button">Студент</button>
+                {/* <Button variant="outlined" onClick={regMentorHandler}>Ментор</Button> */}
+                {/* <Button variant="outlined" onClick={regStudentHandler} autoFocus>Студент</Button> */}
               </DialogActions>
             </Dialog>
           </div>

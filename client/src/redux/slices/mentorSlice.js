@@ -24,7 +24,7 @@ const editMentor = (input) => (dispatch) => {
 };
 
 const showAllMentor = () => (dispatch) => {
-  axios('api/studentapplications')
+  axios('/api/studentapplications')
     .then((res) => dispatch(setMentor(res.data)));
 };
 

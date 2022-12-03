@@ -35,7 +35,7 @@ function App() {
         <Route element={<Search />} path="/search" />
         <Route element={<Crop />} path="/input" />
         <Route element={<NewCalendar />} path="/calendar" />
-
+        <Route element={<MentorPage />} path="/mentor" />
         <Route element={<SignUpMentor />} path="/signup/mentor" />
         <Route element={<SignUpStudent />} path="/signup/student" />
         <Route element={<LoginAll />} path="/user/login" />

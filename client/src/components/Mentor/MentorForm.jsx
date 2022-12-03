@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editMentor, showMentor } from '../../redux/slices/mentorSlice';
 
 export default function Profile() {
-  const mentor = useSelector((store) => store.mentorAuth);
+  const mentor = useSelector((store) => store.mentor);
   const [isTrue, setIsTrue] = useState(true); // для кнопки редактирования
   const [inputMentor, setInputMentor] = useState({
     firstName: '',

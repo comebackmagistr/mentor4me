@@ -11,13 +11,23 @@ import { showStudent, editStudent } from '../../redux/slices/studentSlice';
 export default function Profile() {
   const student = useSelector((store) => store.student);
   const [isTrue, setIsTrue] = useState(true);// для кнопки редактирования
+  const [inputStudent, setInputStudent] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    zoom: '',
+    phone: '',
+  });
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(showStudent());
   }, []);
   const editHandler = () => {
     setIsTrue((prev) => !prev);
-    dispatch(editStudent(student));
+    dispatch(editStudent(inputStudent));
+  };
+  const inputHandler = (e) => {
+    setInputStudent((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   return (
     <Card sx={{ maxWidth: 900 }}>
@@ -31,21 +41,21 @@ export default function Profile() {
             </>
           ) : (
             <>
-              <input name="firstName" type="text" placeholder={student?.firstName} />
-              <input name="lastName" type="text" placeholder={student?.lastName} />
+              <input name="firstName" type="text" placeholder={student?.firstName} value={inputStudent?.firstName} onChange={(e) => inputHandler(e)} />
+              <input name="lastName" type="text" placeholder={student?.lastName} value={inputStudent?.lastName} onChange={(e) => inputHandler(e)} />
             </>
           )}
         </Typography>
         <CardActions>
           <Button onClick={() => setIsTrue((prev) => !prev)} size="small">Редактировать</Button>
-          {!isTrue && <Button onClick={() => editHandler()} size="small">Сохранить</Button> }
+          {!isTrue && <Button onClick={() => editHandler()} size="small">Сохранить изменения</Button> }
         </CardActions>
-        <CardMedia
+        {/* <CardMedia
           component="img"
           height="140"
-          image="./photo.jpeg"
+          image=""
           alt="photo"
-        />
+        /> */}
         <h5>Контакты:</h5>
         <Typography variant="body2" color="text.secondary">
           email:
@@ -53,7 +63,7 @@ export default function Profile() {
           {isTrue === true ? (
             student?.email
           ) : (
-            <input name="email" type="text" placeholder={student?.email} />
+            <input name="email" type="text" placeholder={student?.email} value={inputStudent?.email} onChange={(e) => inputHandler(e)} />
           )}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -62,7 +72,7 @@ export default function Profile() {
           {isTrue === true ? (
             student?.zoom
           ) : (
-            <input name="zoom" type="text" placeholder={student?.zoom} />
+            <input name="zoom" type="text" placeholder={student?.zoom} value={inputStudent?.zoom} onChange={(e) => inputHandler(e)} />
           )}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -71,7 +81,7 @@ export default function Profile() {
           {isTrue === true ? (
             student?.phone
           ) : (
-            <input name="phone" type="text" placeholder={student?.phone} />
+            <input name="phone" type="text" placeholder={student?.phone} value={inputStudent?.phone} onChange={(e) => inputHandler(e)} />
           )}
         </Typography>
         <h5>Профессиональная сфера:</h5>
@@ -79,7 +89,7 @@ export default function Profile() {
           {isTrue === true ? (
             student?.profScill // в бд надо ли добавить профориент?
           ) : (
-            <input name="profScill" type="text" placeholder={student?.profScill} />
+            <input name="profScill" type="text" placeholder={student?.profScill} value={inputStudent?.profScill} onChange={(e) => inputHandler(e)} />
           )}
         </Typography>
         <CardActions>

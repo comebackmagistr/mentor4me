@@ -10,6 +10,7 @@ import MentorForm from './components/Mentor/MentorForm';
 import StudentNavBar from './components/Student/StudentNavBar';
 import Search from './components/Search/Search';
 import Crop from './components/CropPhoto/Crop';
+import MentorPage from './MentorPage/MentorPage';
 
 function App() {
   const navbar = useSelector((store) => store.navbar);
@@ -25,7 +26,7 @@ function App() {
         {/* строка 6 и 17 для проверки второго навбара студента */}
         <Route element={<Search />} path="/search" />
         <Route element={<Crop />} path="/input" />
-
+        <Route element={<MentorPage />} path="/mentor" />
         <Route element={<SignUpOne />} path="/signup1" />
         <Route element={<SignUpTwo />} path="/signup2" />
       </Routes>

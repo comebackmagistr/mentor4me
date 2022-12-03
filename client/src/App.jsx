@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Alert } from '@mui/material';
 import MainPage from './components/MainPage';
 import MentorNavBar from './components/Mentor/MentorNavBar';
 import MentorForm from './components/Mentor/MentorForm';
@@ -13,6 +14,7 @@ import LoginAll from './components/Reg&Auth/LoginAll';
 import SignUpMentor from './components/Reg&Auth/SignUpMentor';
 import SignUpStudent from './components/Reg&Auth/SignUpStudent';
 import NewCalendar from './components/Calendar/NewCalendar';
+import AlertDialog from './components/Calendar/AlertDialog';
 
 function App() {
   const navbar = useSelector((store) => store.navbar);
@@ -33,10 +35,12 @@ function App() {
         <Route element={<Search />} path="/search" />
         <Route element={<Crop />} path="/input" />
         <Route element={<NewCalendar />} path="/calendar" />
-
+        <Route element={<MentorPage />} path="/mentor" />
         <Route element={<SignUpMentor />} path="/signup/mentor" />
         <Route element={<SignUpStudent />} path="/signup/student" />
         <Route element={<LoginAll />} path="/user/login" />
+        <Route element={<AlertDialog />} path="alert" />
+
       </Routes>
     </>
   );

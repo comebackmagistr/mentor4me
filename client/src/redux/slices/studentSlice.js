@@ -13,12 +13,12 @@ const studentSlice = createSlice({
 export const { setStudent, updateStudent } = studentSlice.actions;
 
 const showStudent = () => (dispatch) => {
-  axios('/studentprofile')
+  axios('/api/student/studentprofile')
     .then((res) => dispatch(setStudent(res.data)));
 };
 
 const editStudent = (input) => (dispatch) => {
-  axios.patch('/studentprofile', { text: input }) // что должно быть в кудрях?
+  axios.patch('/api/student/studentprofile', input)
     .then((res) => dispatch(updateStudent(res.data)))
     .catch(console.log);
 };

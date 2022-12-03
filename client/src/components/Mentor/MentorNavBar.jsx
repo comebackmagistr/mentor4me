@@ -9,8 +9,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
   Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button,
 } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { getLogout } from '../../redux/userSlice';
 
 export default function NavBar() {
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
 
@@ -85,6 +88,7 @@ export default function NavBar() {
             </Dialog>
           </div>
           <Link to="/user/login">Login</Link>
+          <Button onClick={() => dispatch(getLogout())} color="inherit">Выход</Button>
         </Toolbar>
       </AppBar>
     </Box>

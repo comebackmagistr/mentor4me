@@ -6,12 +6,13 @@ import MentorNavBar from './components/Mentor/MentorNavBar';
 import MentorForm from './components/Mentor/MentorForm';
 // import StudentForm from './components/Student/StudentForm';
 import StudentNavBar from './components/Student/StudentNavBar';
-import Search from './components/Search/Search';
+import Search from './components/Search';
 import Crop from './components/CropPhoto/Crop';
 import { fetchCheck } from './redux/userSlice';
-import LoginAll from './components/Reg&Auth/LoginAll/LoginAll';
+import LoginAll from './components/Reg&Auth/LoginAll';
 import SignUpMentor from './components/Reg&Auth/SignUpMentor';
 import SignUpStudent from './components/Reg&Auth/SignUpStudent';
+import NewCalendar from './components/Calendar/NewCalendar';
 import MentorPage from './MentorPage/MentorPage';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         {/* строка 6 и 17 для проверки второго навбара студента */}
         <Route element={<Search />} path="/search" />
         <Route element={<Crop />} path="/input" />
+        <Route element={<NewCalendar />} path="/calendar" />
         <Route element={<MentorPage />} path="/mentor" />
         <Route element={<SignUpMentor />} path="/signup/mentor" />
         <Route element={<SignUpStudent />} path="/signup/student" />

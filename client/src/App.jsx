@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MainPage from './components/MainPage';
 import Navbar from './components/Navbar';
-import MentorForm from './components/PrivateCabinet/MentorCabinet';
+import Cabinet from './components/PrivateCabinet/Cabinet';
 // import StudentForm from './components/Student/StudentForm';
 import Search from './components/Search';
 import Crop from './components/CropPhoto/Crop';
@@ -15,6 +15,7 @@ import NewCalendar from './components/Calendar/NewCalendar';
 import AlertDialog from './components/Calendar/AlertDialog';
 import MentorPage from './components/MainPage/MentorPage';
 import About from './components/About/About';
+import Application from './components/Application/Application';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,9 +27,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route element={<MainPage />} path="/" />
-        <Route element={<MentorForm />} path="/mentorprofile" />
-        {/* <Route element={<StudentForm />} path="/studentprofile" /> */}
-        {/* строка 6 и 17 для проверки второго навбара студента */}
+        <Route element={<Cabinet />} path="/profile" />
+        <Route element={<Application />} path="/applications" />
         <Route element={<Search />} path="/search" />
         <Route element={<Crop />} path="/input" />
         <Route element={<NewCalendar />} path="/calendar" />

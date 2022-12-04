@@ -15,6 +15,7 @@ import SignUpMentor from './components/Reg&Auth/SignUpMentor';
 import SignUpStudent from './components/Reg&Auth/SignUpStudent';
 import NewCalendar from './components/Calendar/NewCalendar';
 import AlertDialog from './components/Calendar/AlertDialog';
+import MentorPage from './MentorPage/MentorPage';
 
 function App() {
   const navbar = useSelector((store) => store.navbar);

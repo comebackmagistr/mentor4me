@@ -84,9 +84,8 @@ export default function NavBar() {
               }}
               >
                 <button onClick={regMentorHandler} className="button-35" type="button">Ментор</button>
+                <p> или </p>
                 <button onClick={regStudentHandler} className="button-35" type="button">Студент</button>
-                {/* <Button variant="outlined" onClick={regMentorHandler}>Ментор</Button> */}
-                {/* <Button variant="outlined" onClick={regStudentHandler} autoFocus>Студент</Button> */}
               </DialogActions>
             </Dialog>
           </div>

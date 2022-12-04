@@ -39,7 +39,12 @@ export default function NavBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        style={{
+          marginTop: '1%', backgroundColor: 'white', boxShadow: 'none', borderBottom: '1px solid black',
+        }}
+      >
         <Toolbar>
           <IconButton
             size="large"
@@ -49,17 +54,19 @@ export default function NavBar() {
             sx={{ mr: 2 }}
           />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to="/">MENTOR4ME</Link>
+            <Link className="mainTextNavbar" to="/">MENTOR4ME</Link>
           </Typography>
+          <Link className="linkInNav" to="/about">О нас</Link>
           {userIsAuth.firstName ? (
             <>
-              <Link to="/mentorprofile"><Button color="inherit">Профиль</Button></Link>
-              <Link to="/search"><Button color="inherit">Поиск</Button></Link>
-              <Link to="/calendar"><Button color="inherit">Календарь</Button></Link>
-              <Link to="/applications"><Button color="inherit">Заявки</Button></Link>
-              <Link to="/mentor"><Button color="inherit">Наши менторы</Button></Link>
+              <Link className="linkInNav" to="/mentorprofile">Профиль</Link>
+              <Link className="linkInNav" to="/search">Поиск</Link>
+              <Link className="linkInNav" to="/calendar">Календарь</Link>
+              <Link className="linkInNav" to="/applications">Заявки</Link>
+              <Link className="linkInNav" to="/mentor">Наши менторы</Link>
 
               <Button
+                className="linkInNav"
                 onClick={() => {
                   dispatch(getLogout());
                   navigate('/');
@@ -74,6 +81,7 @@ export default function NavBar() {
             <>
               <div>
                 <Button
+                  className="linkInNav"
                   variant="outlined"
                   color="inherit"
                   onClick={handleOpen}
@@ -108,7 +116,7 @@ export default function NavBar() {
                   </DialogActions>
                 </Dialog>
               </div>
-              <Link to="/user/login">Login</Link>
+              <Link className="linkInNav" to="/user/login">Login</Link>
             </>
           )}
 

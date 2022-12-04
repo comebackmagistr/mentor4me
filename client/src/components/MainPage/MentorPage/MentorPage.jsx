@@ -5,7 +5,7 @@ import './Mentor.css';
 import OneCardMentor from '../OneCardMentor';
 
 export default function MentorPage() {
-  const mentors = useSelector((state) => state.mentor);
+  const mentors = useSelector((state) => state.userInfo);
 
   //   console.log('mentors', mentors);
   const [allMentors, setAllMentors] = useState(mentors);

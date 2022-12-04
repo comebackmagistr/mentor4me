@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setNavbar } from '../../../redux/navbarSlice';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { getUser } from '../../../redux/userSlice';
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setNavbar('signup1'));
-  }, []);
   const [auth, setAuth] = useState(true);
   const [inputMentor, setInputMentor] = useState({
     firstName: '',
@@ -44,6 +42,7 @@ export default function SignUp() {
       <form
         onSubmit={(e) => {
           submitInputs(e);
+          navigate('/');
         }}
       >
         {auth

@@ -5,18 +5,22 @@ const { Student, Mentor } = require('../db/models');
 const router = express.Router();
 
 router.post('/student', async (req, res) => {
-  console.log(req.body, 'studeeeeent');
   const {
     firstName, lastName, email, zoom, phone, password,
   } = req.body;
-  const hashPassword = await hash(password, 10);
-  const student = await Student.create({
-    firstName, lastName, email, zoom, phone, password: hashPassword,
-  });
-  req.session.user = {
-    id: student.id, name: student.firstName, lastname: student.lastName, mentor: false,
-  };
-  res.json(req.session.user);
+  console.log(req.body, 'studeeeeent');
+  try {
+    const hashPassword = await hash(password, 10);
+    const student = await Student.create({
+      firstName, lastName, email, zoom, phone, password: hashPassword,
+    });
+    req.session.user = {
+      id: student.id, firstName: student.firstName, lastName: student.lastName, mentor: false, email, zoom, phone,
+    };
+    res.json(req.session.user);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.post('/mentor', async (req, res) => {
@@ -24,21 +28,29 @@ router.post('/mentor', async (req, res) => {
   const {
     firstName, lastName, email, zoom, phone, video, call, chat, price, password, education, job, profArea, profScill, aboutMe, portfolio,
   } = req.body;
-  const hashPassword = await hash(password, 10);
-  const mentor = await Mentor.create({
-    firstName, lastName, email, zoom, phone, video, call, chat, price, password: hashPassword, education, job, profArea, profScill, aboutMe, portfolio,
-  });
-  req.session.user = {
-    id: mentor.id, name: mentor.firstName, lastname: mentor.lastName, mentor: true,
-  };
-  res.json(req.session.user);
+  try {
+    const hashPassword = await hash(password, 10);
+    const mentor = await Mentor.create({
+      firstName, lastName, email, zoom, phone, video, call, chat, price, password: hashPassword, education, job, profArea, profScill, aboutMe, portfolio,
+    });
+    req.session.user = {
+      id: mentor.id, firstName: mentor.firstName, lastName: mentor.lastName, video, call, chat, price, education, job, profArea, profScill, aboutMe, portfolio, mentor: true,
+    };
+    res.json(req.session.user);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.get('/check', (req, res) => {
-  if (req.session.user) {
-    return res.json(req.session.user);
+  try {
+    if (req.session.user) {
+      return res.json(req.session.user);
+    }
+    res.json({});
+  } catch (error) {
+    console.log(error);
   }
-  res.json({});
 });
 
 router.post('/login', async (req, res) => {
@@ -53,7 +65,7 @@ router.post('/login', async (req, res) => {
       const isValid = await compare(password, findOneMentor.password);
       if (isValid) {
         req.session.user = {
-          id: findOneMentor.id, name: findOneMentor.firstName, lastname: findOneMentor.lastName, mentor: true,
+          id: findOneMentor.id, firstName: findOneMentor.firstName, lastName: findOneMentor.lastName,email: findOneMentor.email, zoom: findOneMentor.zoom, phone: findOneMentor.phone, video: findOneMentor.video, call: findOneMentor.call, chat: findOneMentor.chat, price: findOneMentor.price, education: findOneMentor.education, job: findOneMentor.job, profArea: findOneMentor.profArea, profScill: findOneMentor.profScill, aboutMe: findOneMentor.aboutMe, portfolio: findOneMentor.portfolio, mentor: true,
         };
         return res.json(req.session.user);
       }
@@ -67,7 +79,7 @@ router.post('/login', async (req, res) => {
     const isValid = await compare(password, findOneStudent.password);
     if (isValid) {
       req.session.user = {
-        id: findOneStudent.id, name: findOneStudent.firstName, lastname: findOneStudent.lastName, mentor: false,
+        id: findOneStudent.id, firstName: findOneStudent.firstName, lastName: findOneStudent.lastName, mentor: false, email: findOneStudent.email, zoom: findOneStudent.zoom, phone: findOneStudent.phone,
       };
       return res.json(req.session.user);
     }
@@ -79,9 +91,13 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-  res.clearCookie('sid', { domain: 'localhost', path: '/' });
-  req.session.destroy();
-  res.json({});
+  try {
+    res.clearCookie('sid', { domain: 'localhost', path: '/' });
+    req.session.destroy();
+    res.json({});
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;

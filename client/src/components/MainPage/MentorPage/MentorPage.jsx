@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import OneMentorPage from '../components/OneMentorPage';
-import { showAllMentor } from '../redux/slices/mentorSlice';
+import { showAllMentor } from '../../../redux/userInfoSlice';
 import './Mentor.css';
+import OneCardMentor from '../OneCardMentor';
 
 export default function MentorPage() {
   const mentors = useSelector((state) => state.mentor);

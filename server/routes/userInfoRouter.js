@@ -73,7 +73,7 @@ router.get('/studentapplications', async (req, res) => {
 
 router.get('/studentprofile', async (req, res) => {
   try {
-    const { id } = req.session.user.id;
+    const { id } = req.session.user;
     const student = await Student.findOne({ where: { id } });
     res.json(student);
   } catch (error) {
@@ -99,10 +99,11 @@ router.patch('/studentprofile', async (req, res) => {
       zoom,
       phone,
     }, { where: { id } });
-    const newStudent = await Student.findByPk(id);
-    res.json(newStudent);
-  } catch (error) {
-    console.log(error);
+    const userUpdateSt = await Student.findOne({ where: { id } });
+    console.log(userUpdateSt);
+    res.json(userUpdateSt);
+  } catch (err) {
+    console.log(err);
   }
 });
 

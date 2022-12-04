@@ -14,6 +14,7 @@ import SignUpStudent from './components/Reg&Auth/SignUpStudent';
 import NewCalendar from './components/Calendar/NewCalendar';
 import AlertDialog from './components/Calendar/AlertDialog';
 import MentorPage from './components/MainPage/MentorPage';
+import About from './components/About/About';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function App() {
         <Route element={<SignUpStudent />} path="/signup/student" />
         <Route element={<LoginAll />} path="/user/login" />
         <Route element={<AlertDialog />} path="alert" />
+        <Route element={<About />} path="/about" />
 
       </Routes>
     </>

@@ -83,6 +83,55 @@
     transition-duration: .1s;
   }
 
+  .mainContainer {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .mainTextNavbar {
+width: 116px;
+height: 25px;
+left: 124px;
+top: 79px;
+
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 25px;
+
+/* identical to box height */
+text-transform: uppercase;
+
+background: linear-gradient(180deg, #FFA706 0%, #BD5BEE 35.31%, #BD5BEE 61.88%, #0078FC 95.73%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-decoration: none;
+  }
+
+  .linkInNav {
+
+width: 88px;
+height: 25px;
+left: 598px;
+top: 79px;
+
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 25px;
+
+/* identical to box height */
+
+color: #000000;
+text-decoration: none;
+margin-right: 2em;
+margin-left: 2em;
+white-space: nowrap;
+  }
+
   .titleOne {
     position: absolute;
     width: 563px;

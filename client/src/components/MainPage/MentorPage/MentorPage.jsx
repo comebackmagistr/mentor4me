@@ -5,7 +5,7 @@ import './Mentor.css';
 import OneCardMentor from '../OneCardMentor';
 
 export default function MentorPage() {
-  const mentors = useSelector((state) => state.mentor);
+  const mentors = useSelector((state) => state.userInfo);
 
   //   console.log('mentors', mentors);
   const [allMentors, setAllMentors] = useState(mentors);
@@ -30,12 +30,10 @@ export default function MentorPage() {
   return (
 
     <section className="mentorBlock">
-      <div className="container">
-        <h2 className="title">Наши менторы</h2>
-        {currMentor && currMentor?.map((el) => <OneMentorPage key={el.id} mentor={el} />)}
-        <div className="btn">
-          <button onClick={() => setNumberMentors(numberMentors + 3)} className="button-34" type="submit">Подгрузить</button>
-        </div>
+      <h2 className="title">Наши менторы</h2>
+      {currMentor && currMentor?.map((el) => <OneCardMentor key={el.id} mentor={el} />)}
+      <div className="btn">
+        <button onClick={() => setNumberMentors(numberMentors + 3)} className="button-34" type="submit">Подгрузить</button>
       </div>
     </section>
 

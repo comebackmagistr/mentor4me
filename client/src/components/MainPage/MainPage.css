@@ -1,0 +1,61 @@
+
+.mentorHeader {
+    position: absolute;
+    width: 1391.24px;
+    height: 837.28px;
+    left: 78.27px;
+    top: 52px; 
+}
+
+.mentorPhoto {
+    margin-left: 120px;
+}
+
+.imgMentor {
+    position: absolute;
+    width: 866px;
+    height: 538px;
+    left: 534px;
+    top: 81px;
+    filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+}
+
+.contentText {
+    position: absolute;
+    width: 573px;
+    height: 117px;
+    left: 119px;
+    top: 336px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: #000000;
+}
+.buttonLeft {
+    border-style: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    position: absolute;
+    width: 220px;
+    height: 72px;
+    left: 121px;
+    top: 526px;
+    background: linear-gradient(180deg, #BD5BEE 0%, rgba(0, 120, 252, 0.48) 87.92%);
+    border-radius: 4px;
+}
+
+.buttonRight {
+    border-style: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    position: absolute;
+    width: 220px;
+    height: 72px;
+    left: 393px;
+    top: 526px;
+    background: #BD5BEE;
+    border-radius: 4px;
+}

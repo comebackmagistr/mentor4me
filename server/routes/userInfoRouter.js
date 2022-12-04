@@ -54,15 +54,17 @@ router.patch('/mentorprofile', async (req, res) => {
       portfolio,
     }, { where: { id } });
     const userUpdate = await Mentor.findOne({ where: { id } });
-    console.log(userUpdate);
-    res.json(userUpdate);
+    req.session.user = {
+      id: userUpdate.id, firstName: userUpdate.firstName, lastName: userUpdate.lastName, zoom: userUpdate.zoom, phone: userUpdate.phone, email: userUpdate.email, video: userUpdate.video, call: userUpdate.call, chat: userUpdate.chat, price: userUpdate.price, education: userUpdate.education, job: userUpdate.job, profArea: userUpdate.profArea, profScill: userUpdate.profScill, aboutMe: userUpdate.aboutMe, portfolio: userUpdate.portfolio, mentor: true,
+    };
+    res.json(req.session.user);
   } catch (err) {
     console.log(err);
   }
 });
 
 // show all mentor for application
-router.get('/studentapplications', async (req, res) => {
+router.get('/applications', async (req, res) => {
   try {
     const allMentor = await Mentor.findAll();
     res.json(allMentor);
@@ -73,7 +75,7 @@ router.get('/studentapplications', async (req, res) => {
 
 router.get('/studentprofile', async (req, res) => {
   try {
-    const { id } = req.session.user.id;
+    const { id } = req.session.user;
     const student = await Student.findOne({ where: { id } });
     res.json(student);
   } catch (error) {
@@ -99,10 +101,11 @@ router.patch('/studentprofile', async (req, res) => {
       zoom,
       phone,
     }, { where: { id } });
-    const newStudent = await Student.findByPk(id);
-    res.json(newStudent);
-  } catch (error) {
-    console.log(error);
+    const userUpdate = await Student.findOne({ where: { id } });
+    console.log(userUpdate);
+    res.json(userUpdate);
+  } catch (err) {
+    console.log(err);
   }
 });
 

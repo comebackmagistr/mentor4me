@@ -59,7 +59,7 @@ export default function NavBar() {
           <Link className="linkInNav" to="/about">О нас</Link>
           {userIsAuth.firstName ? (
             <>
-              <Link className="linkInNav" to="/mentorprofile">Профиль</Link>
+              <Link className="linkInNav" to="/profile">Профиль</Link>
               <Link className="linkInNav" to="/search">Поиск</Link>
               <Link className="linkInNav" to="/calendar">Календарь</Link>
               <Link className="linkInNav" to="/applications">Заявки</Link>

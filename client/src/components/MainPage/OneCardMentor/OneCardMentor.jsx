@@ -2,7 +2,7 @@ import React from 'react';
 import './OneCardMentor.css';
 import '../../../App.css';
 
-export default function OneMentorPage({ mentor }) {
+export default function OneMentorPage({ mentor, loading }) {
   return (
     <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
       <div className="imgBlock">
@@ -38,7 +38,10 @@ export default function OneMentorPage({ mentor }) {
           {`${mentor?.price} руб / час`}
 
         </div>
-        <div className="like">👍</div>
+        <div className="like">
+          <icon className="iconStyle" src="icons/icon-heart.png" />
+          👍
+        </div>
       </div>
     </div>
   );

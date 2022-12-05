@@ -5,6 +5,8 @@ import userReducer from './userSlice';
 import applicationReducer from './applicationSlice';
 import eventReducer from './eventSlice';
 import activeReduser from './modalSlice';
+import activeEditReduser from './modalSliceEdit';
+import modelContentReduser from './modelContentSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +16,8 @@ const store = configureStore({
     application: applicationReducer,
     events: eventReducer,
     active: activeReduser,
+    activeedit: activeEditReduser,
+    modalContent: modelContentReduser,
   },
 });
 export default store;

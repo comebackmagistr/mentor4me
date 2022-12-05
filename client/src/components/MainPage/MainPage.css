@@ -3,16 +3,14 @@
 }
 .headerWrapper {
     display: flex;
-    justify-content: flex-end;
     max-height: 837.28px;
-
 }
 .mentorLeft {
     margin-top: 130px;
 }
 
 .mentorPhoto {
-    transform: translate(-50px, -20px);
+    transform: translate(0px, -20px);
 
 }
 
@@ -26,7 +24,6 @@
 
 .contentText {
     margin-top: 25px;
-    width: 573px;
     height: 117px;
     font-family: 'Open Sans';
     font-style: normal;
@@ -87,7 +84,7 @@
 }
 .numberContainer {
     display: flex;
-
+    justify-content: space-between;
 }
 
 .titleOne {
@@ -135,10 +132,8 @@
 }
 
 .titleNumber {
-    width: 255px;
-    height: 34px;
-    left: 120px;
-    top: 1054px;
+    margin-top: -255px;
+    height: 45px;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
@@ -159,21 +154,16 @@
     color: #000000;
 }
 
-.btn {
-    margin-top: 20px;
+.btnNumber {
+    margin-top: 170px;
     display: flex;
     justify-content: center;
 } 
 
 .buttonStart {
     border-radius: 10px;
-    position: absolute;
     width: 248px;
     height: 72px;
-    left: 592px;
-    left: 573px; 
-    top: 1365px;
-    
     background: #BD5BEE;
     border-radius: 4px;
   }  

@@ -6,8 +6,6 @@ import OneCardMentor from '../OneCardMentor';
 
 export default function MentorPage() {
   const mentors = useSelector((state) => state.userInfo);
-
-  //   console.log('mentors', mentors);
   const [allMentors, setAllMentors] = useState(mentors);
   const [numberMentors, setNumberMentors] = useState(3);
   const [currPage, setCurrPage] = useState(1);// текущая страница

@@ -1,14 +1,38 @@
-.container {
+/* .container {
     max-width: 950px;
     margin: 0 auto;
-}
+} */
 .mentorBlock {
-    margin-top: 550px;
-    /* margin-top: 1500px; */
     padding-bottom: 71px;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
+    margin-top: -50px;
+    color: #0d0d0d;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.btn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ///////mentorPage */
+
+.mentorBlock {
+    padding-bottom: 71px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    margin-top: -50px;
     color: #0d0d0d;
     font-size: 30px;
     font-weight: 700;

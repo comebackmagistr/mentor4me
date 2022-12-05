@@ -17,6 +17,7 @@ import UpdateEvent from './components/Calendar/UpdateEvent';
 import MentorPage from './components/MainPage/MentorPage';
 import About from './components/About/About';
 import Application from './components/Application/Application';
+import OneCardApplication from './components/Application/OneCardApplication';
 import PageError from './components/PageError/PageError';
 import Footer from './components/Footer';
 
@@ -32,6 +33,7 @@ function App() {
         <Route element={<MainPage />} path="/" />
         <Route element={<Cabinet />} path="/profile" />
         <Route element={<Application />} path="/applications" />
+        <Route element={<OneCardApplication />} path="/applications/:id" />
         <Route element={<Search />} path="/search" />
         <Route element={<Crop />} path="/input" />
         <Route element={<NewCalendar />} path="/calendar" />

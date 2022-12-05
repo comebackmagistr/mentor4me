@@ -42,6 +42,7 @@ export default function OneMentorPage({ mentor, loading }) {
           {`${mentor?.price} руб / час`}
         </div>
         <div className="like">
+          👍
           <img className="iconStyle" src="icons/heart.png" alt="logo" />
         </div>
       </div>

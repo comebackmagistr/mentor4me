@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { setUserInfo, showAllMentor } from '../../redux/userInfoSlice';
+import OneCardMentor from '../MainPage/OneCardMentor';
 
 export default function Application() {
   const mentors = useSelector((store) => store.userInfo);
@@ -21,7 +22,7 @@ export default function Application() {
       <div className="card">
         {mentors.map((el) => (
           <>
-            <div>
+            {/* <div>
               <div className="container">
                 <h4>
                   <b>
@@ -30,13 +31,32 @@ export default function Application() {
                     {el?.lastName}
                   </b>
                 </h4>
-                <span>{el?.profArea}</span>
-                <span>{el?.education}</span>
-                <span>{el?.profScill}</span>
-                <span>{el?.price}</span>
+                <span style={{ display: 'flex' }}>
+                  <span>
+                    Профессиональная сфера:
+                    {' '}
+                    {el?.profArea}
+                  </span>
+                  <span>
+                    Образование:
+                    {' '}
+                    {el?.education}
+                  </span>
+                  <span>
+                    Профессиональные навыки:
+                    {' '}
+                    {el?.profScill}
+                  </span>
+                  <span>
+                    Стоимость:
+                    {' '}
+                    {el?.price}
+                  </span>
+                </span>
               </div>
             </div>
-            <button type="button" onClick={() => clickHandler(el.id)}>Выбрать</button>
+            <button type="button" onClick={() => clickHandler(el.id)}>Выбрать</button> */}
+            <OneCardMentor key={el.id} mentor={el} />
           </>
         ))}
       </div>

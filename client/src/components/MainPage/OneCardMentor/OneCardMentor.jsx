@@ -1,8 +1,13 @@
 import React from 'react';
 import './OneCardMentor.css';
 import '../../../App.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function OneMentorPage({ mentor, loading }) {
+  const navigate = useNavigate();
+  const clickHandler = (id) => {
+    navigate(`/applications/${id}`);
+  };
   return (
     <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
       <div className="imgBlock">
@@ -33,7 +38,7 @@ export default function OneMentorPage({ mentor, loading }) {
         </div>
       </div>
       <div className="priceBlock">
-        <button className="button-36" type="button">Подать заявку</button>
+        <button className="button-36" onClick={() => clickHandler(mentor.id)} type="button">Подать заявку</button>
         <div className="price">
           {`${mentor?.price} руб / час`}
 

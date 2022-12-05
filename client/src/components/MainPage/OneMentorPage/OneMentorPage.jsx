@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 export default function OneMentorPage() {
   const { id } = useParams();
   const allMentors = useSelector((store) => store.userInfo);
-  const oneMentor = allMentors[id];
+  const oneMentor = allMentors[Number(id) - 1];
 
   return (
     <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">

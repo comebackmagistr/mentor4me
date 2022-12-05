@@ -59,7 +59,7 @@ export default function Search() {
           <label htmlFor="chat">Чат</label>
         </div>
       </form>
-      {searchMentors.map((el) => <OneCardMentor mentor={el} />)}
+      {searchMentors.map((el) => <OneCardMentor key={el.id} mentor={el} />)}
     </>
   );
 }

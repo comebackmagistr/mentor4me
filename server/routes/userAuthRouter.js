@@ -65,7 +65,7 @@ router.post('/login', async (req, res) => {
       const isValid = await compare(password, findOneMentor.password);
       if (isValid) {
         req.session.user = {
-          id: findOneMentor.id, firstName: findOneMentor.firstName, lastName: findOneMentor.lastName,email: findOneMentor.email, zoom: findOneMentor.zoom, phone: findOneMentor.phone, video: findOneMentor.video, call: findOneMentor.call, chat: findOneMentor.chat, price: findOneMentor.price, education: findOneMentor.education, job: findOneMentor.job, profArea: findOneMentor.profArea, profScill: findOneMentor.profScill, aboutMe: findOneMentor.aboutMe, portfolio: findOneMentor.portfolio, mentor: true,
+          id: findOneMentor.id, firstName: findOneMentor.firstName, lastName: findOneMentor.lastName, email: findOneMentor.email, zoom: findOneMentor.zoom, phone: findOneMentor.phone, video: findOneMentor.video, call: findOneMentor.call, chat: findOneMentor.chat, price: findOneMentor.price, education: findOneMentor.education, job: findOneMentor.job, profArea: findOneMentor.profArea, profScill: findOneMentor.profScill, aboutMe: findOneMentor.aboutMe, portfolio: findOneMentor.portfolio, mentor: true,
         };
         return res.json(req.session.user);
       }

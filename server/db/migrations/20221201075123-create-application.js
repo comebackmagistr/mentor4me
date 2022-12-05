@@ -32,6 +32,15 @@ module.exports = {
       data: {
         type: Sequelize.INTEGER,
       },
+      video: {
+        type: Sequelize.STRING,
+      },
+      call: {
+        type: Sequelize.STRING,
+      },
+      chat: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

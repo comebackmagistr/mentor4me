@@ -16,6 +16,7 @@ import AlertDialog from './components/Calendar/AlertDialog';
 import MentorPage from './components/MainPage/MentorPage';
 import About from './components/About/About';
 import Application from './components/Application/Application';
+import OneCardApplication from './components/Application/OneCardApplication';
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ function App() {
         <Route element={<MainPage />} path="/" />
         <Route element={<Cabinet />} path="/profile" />
         <Route element={<Application />} path="/applications" />
+        <Route element={<OneCardApplication />} path="/applications/:id" />
         <Route element={<Search />} path="/search" />
         <Route element={<Crop />} path="/input" />
         <Route element={<NewCalendar />} path="/calendar" />

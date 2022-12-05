@@ -13,7 +13,6 @@ export default function Application() {
   const navigate = useNavigate();
   const clickHandler = (id) => {
     navigate(`/applications/${id}`);
-    console.log(id, 'blya');
   };
 
   return (
@@ -41,33 +40,6 @@ export default function Application() {
           </>
         ))}
       </div>
-      {/* <div>
-        <label htmlFor="name">Шаг 2: Выберите формат консультации</label>
-        <p>
-          <input type="checkbox" name="video" />
-          Видео
-        </p>
-        <p>
-          <input type="checkbox" name="call" />
-          Звонок
-        </p>
-        <p>
-          <input type="checkbox" name="chat" />
-          Чат
-        </p>
-      </div>
-      <div>
-        <label htmlFor="name">Шаг 3: Опишите интересующий Вас вопрос</label>
-        <input
-          type="text"
-          name="text"
-          minLength="4"
-          maxLength="8"
-          size="10"
-          value=""
-        />
-      </div>
-      <button type="button">Подать заявку</button> */}
     </div>
   );
 }

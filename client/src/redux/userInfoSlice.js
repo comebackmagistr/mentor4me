@@ -18,7 +18,7 @@ const showMentor = () => (dispatch) => {
 };
 
 const showAllMentor = () => (dispatch) => {
-  axios('/api/studentapplications')
+  axios('/api/applications')
     .then((res) => dispatch(setUserInfo(res.data)));
 };
 

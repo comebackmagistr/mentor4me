@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUserInfo, showMentor } from '../../redux/userInfoSlice';
+import { setUserInfo, showAllMentor, showMentor } from '../../redux/userInfoSlice';
 
 export default function Application() {
   const mentors = useSelector((store) => store.userInfo);

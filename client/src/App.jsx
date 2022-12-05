@@ -17,6 +17,10 @@ import UpdateEvent from './components/Calendar/UpdateEvent';
 import MentorPage from './components/MainPage/MentorPage';
 import About from './components/About/About';
 import Application from './components/Application/Application';
+import OneCardApplication from './components/Application/OneCardApplication';
+import PageError from './components/PageError/PageError';
+import Footer from './components/Footer';
+import OneMentorPage from './components/MainPage/OneMentorPage/OneMentorPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +34,8 @@ function App() {
         <Route element={<MainPage />} path="/" />
         <Route element={<Cabinet />} path="/profile" />
         <Route element={<Application />} path="/applications" />
+        <Route element={<OneMentorPage />} path="/mentorinfo/:id" />
+        <Route element={<OneCardApplication />} path="/applications/:id" />
         <Route element={<Search />} path="/search" />
         <Route element={<Crop />} path="/input" />
         <Route element={<NewCalendar />} path="/calendar" />
@@ -40,8 +46,10 @@ function App() {
         <Route element={<AddEvent />} path="add" />
         <Route element={<UpdateEvent />} path="update" />
         <Route element={<About />} path="/about" />
+        <Route element={<PageError />} path="*" />
 
       </Routes>
+      <Footer />
     </>
   );
 }

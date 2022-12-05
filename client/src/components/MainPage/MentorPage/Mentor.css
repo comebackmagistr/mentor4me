@@ -1,12 +1,15 @@
-.container {
+/* .container {
     max-width: 950px;
     margin: 0 auto;
-}
+} */
 .mentorBlock {
     padding-bottom: 71px;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
+    margin-top: -50px;
     color: #0d0d0d;
     font-size: 30px;
     font-weight: 700;
@@ -19,3 +22,4 @@
     display: flex;
     justify-content: center;
 }
+

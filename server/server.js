@@ -8,6 +8,7 @@ const searchRouter = require('./routes/searchRouter');
 const cropMentorPhotoRouter = require('./routes/cropMentorPhotoRouter');
 const cropStudentPhotoRouter = require('./routes/cropStudentPhotoRouter');
 const userAuthRouter = require('./routes/userAuthRouter');
+const applicationRouter = require('./routes/applicationRouter');
 const eventRouter = require('./routes/eventRouter');
 
 require('dotenv').config();
@@ -42,6 +43,7 @@ app.use(session({
 app.use('/search', searchRouter);
 app.use('/api', userInfoRouter);
 app.use('/user', userAuthRouter);
+app.use('/applications', applicationRouter);
 app.use('/cropped/mentor', cropMentorPhotoRouter);
 app.use('/cropped/student', cropStudentPhotoRouter);
 app.use('/event', eventRouter);

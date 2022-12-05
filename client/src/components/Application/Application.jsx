@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
-import { setUserInfo, showAllMentor } from '../../redux/userInfoSlice';
 import OneCardMentor from '../MainPage/OneCardMentor';
+import { setUserInfo, showAllMentor, showMentor } from '../../redux/userInfoSlice';
 
 export default function Application() {
   const mentors = useSelector((store) => store.userInfo);

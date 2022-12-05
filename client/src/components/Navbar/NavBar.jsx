@@ -57,14 +57,18 @@ export default function NavBar() {
             <Link className="mainTextNavbar" to="/">MENTOR4ME</Link>
           </Typography>
           <Link className="linkInNav" to="/about">О нас</Link>
+          <Link className="linkInNav" to="/calendar">Календарь</Link>
+          <Link className="linkInNav" to="/update">Update</Link>
+          <Link className="linkInNav" to="/add">AddEvent</Link>
+
           {userIsAuth.firstName ? (
             <>
               <Link className="linkInNav" to="/profile">Профиль</Link>
               <Link className="linkInNav" to="/search">Поиск</Link>
-              <Link className="linkInNav" to="/calendar">Календарь</Link>
+              {/* <Link className="linkInNav" to="/calendar">Календарь</Link> */}
               <Link className="linkInNav" to="/applications">Заявки</Link>
               <Link className="linkInNav" to="/mentor">Наши менторы</Link>
-
+              <Link className="linkInNav" onClick={() => dispatch(getLogout())} to="/">Выход</Link>
               <Button
                 className="linkInNav"
                 onClick={() => {
@@ -89,7 +93,7 @@ export default function NavBar() {
                     border: 'none',
                     font: 'inherit',
                     color: 'inherit',
-                    backgroundColor: 'transparent',
+                    // backgroundColor: 'transparent',
                   }}
                 >
                   Регистрация
@@ -111,8 +115,6 @@ export default function NavBar() {
                   >
                     <button onClick={regMentorHandler} className="button-35" type="button">Ментор</button>
                     <button onClick={regStudentHandler} className="button-35" type="button">Студент</button>
-                    {/* <Button variant="outlined" onClick={regMentorHandler}>Ментор</Button> */}
-                    {/* <Button variant="outlined" onClick={regStudentHandler} autoFocus>Студент</Button> */}
                   </DialogActions>
                 </Dialog>
               </div>

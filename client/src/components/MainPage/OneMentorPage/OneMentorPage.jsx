@@ -10,7 +10,7 @@ export default function OneMentorPage() {
   return (
     <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
       <div className="imgBlock">
-        <img src={oneMentor?.photo} alt="img" className="imgCard" />
+        <img src={`/photos/${oneMentor?.photo}`} alt="img" className="imgCard" />
         <p className="reiting">9 / 10</p>
       </div>
       <div className="textCard">

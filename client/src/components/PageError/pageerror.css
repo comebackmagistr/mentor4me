@@ -1,0 +1,10 @@
+.pageError{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 12%;
+    font-size: 400px;
+}

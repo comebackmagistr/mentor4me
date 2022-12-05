@@ -64,7 +64,7 @@ export default function NavBar() {
               <Link className="linkInNav" to="/calendar">Календарь</Link>
               <Link className="linkInNav" to="/applications">Заявки</Link>
               <Link className="linkInNav" to="/mentor">Наши менторы</Link>
-              <Link className="linkInNav" onClick={() => dispatch(getLogout())} to="/logout">Выход</Link>
+              <Link className="linkInNav" onClick={() => dispatch(getLogout())} to="/">Выход</Link>
               <Button
                 className="linkInNav"
                 onClick={() => {

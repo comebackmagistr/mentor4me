@@ -1,9 +1,11 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import FileInput from './FileInput';
 import ImageCropper from './ImageCropper';
 
 function Crop() {
+  const user = useSelector((store) => store.user);
   const [image, setImage] = useState('');
   const [currentPage, setCurrentPage] = useState('choose-img');
   const [imgAfterCrop, setImgAfterCrop] = useState('');
@@ -41,12 +43,20 @@ function Crop() {
       console.log(dataURL);
       canvasEle.toBlob((newImg) => {
         const formFile = new FormData();
-        formFile.append('crop', newImg, 'filename');
-        fetch('http://localhost:3001/cropped/mentor', {
-          method: 'POST',
-          'Content-Type': 'mulpipart/form-data',
-          body: formFile,
-        }).then(console.log).catch(console.log);
+        formFile.append('crop', newImg, user.id);
+        if (user.mentor === true) {
+          fetch('http://localhost:3001/cropped/mentor', {
+            method: 'POST',
+            'Content-Type': 'mulpipart/form-data',
+            body: formFile,
+          }).then(console.log).catch(console.log);
+        } else {
+          fetch('http://localhost:3001/cropped/student', {
+            method: 'POST',
+            'Content-Type': 'mulpipart/form-data',
+            body: formFile,
+          }).then(console.log).catch(console.log);
+        }
 
         // на фронте отображаем <img src={'http://localhost:3001/'+imageName}
       });

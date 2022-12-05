@@ -132,16 +132,3 @@ margin-left: 2em;
 white-space: nowrap;
   }
 
-  .titleOne {
-    position: absolute;
-    width: 563px;
-    height: 70px;
-    left: 121px;
-    top: 241px;
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 41px;
-    color: #000000;
-}

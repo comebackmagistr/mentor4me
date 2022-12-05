@@ -3,7 +3,7 @@ import './pageerror.css';
 
 export default function PageError() {
   return (
-    <div className="pageError">
+    <div className="textError">
       <h1>404</h1>
     </div>
   );

@@ -22,7 +22,11 @@ router.post('/', async (req, res) => {
     // console.log(str);
     // console.log('sdfghjkjhgfghgfghjhgfghjhgfdfghjkjhgfghgfghjhgfghjhgfdfghjkjhgfghgfghjhgfghjhgfdfghjkjhgfghgfghjhgfghjhgfdfghjkjhgfghgfghjhgfghjhgfdfghjkjhgfghgfghjhgfghjhgf', start, end);
     const event = await Event.create({
-      start: `${start.replace(/(\d+)\/(\d+)\/(\d+)./, '$3-$2-$1T')}.000Z`, end: `${end.replace(/(\d+)\/(\d+)\/(\d+)./, '$3-$2-$1T')}.000Z`, title, text, user_id: req.session.user.id,
+      start,
+      end,
+      title,
+      text,
+      user_id: req.session.user.id,
     });
     res.json(event);
   } catch (error) {
@@ -47,8 +51,8 @@ router.patch('/:id', async (req, res) => {
     const { id } = req.params;
     const { title, text } = req.body;
     await Event.update({ title, text }, { where: { id } });
-    const newTodo = await Event.findByPk(id);
-    res.json(newTodo);
+    const newEvent = await Event.findByPk(id);
+    res.json(newEvent);
   } catch (error) {
     console.log(error);
   }

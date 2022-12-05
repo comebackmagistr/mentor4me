@@ -120,10 +120,10 @@ export default function Profile() {
                   <Typography gutterBottom variant="h5" component="div">
                     Имя:
                     {' '}
-                    <input name="firstName" type="text" placeholder={inputUser?.firstName} value={inputUser?.firstName} onChange={(e) => inputHandler(e)} />
+                    <input name="firstName" type="text" placeholder={user?.firstName} value={inputUser?.firstName} onChange={(e) => inputHandler(e)} />
                     Фамилия:
                     {' '}
-                    <input name="lastName" type="text" placeholder={inputUser?.lastName} value={inputUser?.lastName} onChange={(e) => inputHandler(e)} />
+                    <input name="lastName" type="text" placeholder={user?.lastName} value={inputUser?.lastName} onChange={(e) => inputHandler(e)} />
                   </Typography>
                   <CardActions>
                     <Button onClick={() => setIsTrue((prev) => !prev)} size="small">Отменить изменения</Button>
@@ -138,43 +138,43 @@ export default function Profile() {
                   <Typography variant="body2" color="text.secondary">
                     Образование:
                     {' '}
-                    <input name="education" type="text" placeholder={inputUser?.education} value={inputUser?.education} onChange={(e) => inputHandler(e)} />
+                    <input name="education" type="text" placeholder={user?.education} value={inputUser?.education} onChange={(e) => inputHandler(e)} />
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     Информация обо мне:
                     {' '}
-                    <input name="aboutMe" type="text" placeholder={inputUser?.aboutMe} value={inputUser?.aboutMe} onChange={(e) => inputHandler(e)} />
+                    <input name="aboutMe" type="text" placeholder={user?.aboutMe} value={inputUser?.aboutMe} onChange={(e) => inputHandler(e)} />
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     email:
                     {' '}
-                    <input name="email" type="text" placeholder={inputUser?.email} value={inputUser?.email} onChange={(e) => inputHandler(e)} />
+                    <input name="email" type="text" placeholder={user?.email} value={inputUser?.email} onChange={(e) => inputHandler(e)} />
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     zoom:
                     {' '}
-                    <input name="zoom" type="text" placeholder={inputUser?.zoom} value={inputUser?.zoom} onChange={(e) => inputHandler(e)} />
+                    <input name="zoom" type="text" placeholder={user?.zoom} value={inputUser?.zoom} onChange={(e) => inputHandler(e)} />
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     phone:
                     {' '}
-                    <input name="phone" type="text" placeholder={inputUser?.phone} value={inputUser?.phone} onChange={(e) => inputHandler(e)} />
+                    <input name="phone" type="text" placeholder={user?.phone} value={inputUser?.phone} onChange={(e) => inputHandler(e)} />
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     price:
                     {' '}
-                    <input name="price" type="text" placeholder={inputUser?.price} value={inputUser?.price} onChange={(e) => inputHandler(e)} />
+                    <input name="price" type="text" placeholder={user?.price} value={inputUser?.price} onChange={(e) => inputHandler(e)} />
                   </Typography>
                   <h5>Профессиональные навыки</h5>
                   <Typography variant="body2" color="text.secondary">
                     Профессиональные навыки:
                     {' '}
-                    <input name="profArea" type="text" placeholder={inputUser?.profArea} value={inputUser?.profArea} onChange={(e) => inputHandler(e)} />
+                    <input name="profArea" type="text" placeholder={user?.profArea} value={inputUser?.profArea} onChange={(e) => inputHandler(e)} />
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     Профессиональные скиллы:
                     {' '}
-                    <input name="profScill" type="text" placeholder={inputUser?.profScill} value={inputUser?.profScill} onChange={(e) => inputHandler(e)} />
+                    <input name="profScill" type="text" placeholder={user?.profScill} value={inputUser?.profScill} onChange={(e) => inputHandler(e)} />
                   </Typography>
                 </form>
               )}

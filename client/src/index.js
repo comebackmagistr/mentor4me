@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
-import { Container } from '@mui/system';
 import App from './App';
 import store from './redux/store';
 

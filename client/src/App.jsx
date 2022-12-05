@@ -17,6 +17,8 @@ import UpdateEvent from './components/Calendar/UpdateEvent';
 import MentorPage from './components/MainPage/MentorPage';
 import About from './components/About/About';
 import Application from './components/Application/Application';
+import PageError from './components/PageError/PageError';
+import Footer from './components/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,8 +42,10 @@ function App() {
         <Route element={<AddEvent />} path="add" />
         <Route element={<UpdateEvent />} path="update" />
         <Route element={<About />} path="/about" />
+        <Route element={<PageError />} path="*" />
 
       </Routes>
+      <Footer />
     </>
   );
 }

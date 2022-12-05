@@ -12,9 +12,9 @@ export default function Application() {
     dispatch(showAllMentor());
   }, []);
   const navigate = useNavigate();
-  const clickHandler = (id) => {
-    navigate(`/applications/${id}`);
-  };
+  // const clickHandler = (id) => {
+  //   navigate(`/applications/${id}`);
+  // };
 
   return (
     <div>

@@ -49,7 +49,9 @@ export default function MainPage() {
               Напишите ментору
             </div>
             <div className="numberText">
-              в чём Вам нужна его помощь или консультация
+              в чём Вам нужна его
+              <br />
+              помощь или консультация
             </div>
           </div>
 
@@ -72,10 +74,9 @@ export default function MainPage() {
               и достигайте поставленных целей
             </div>
           </div>
-          <div className="btn">
-            <button onClick="" className="buttonStart" type="submit"><span className="textButton">Начать</span></button>
-          </div>
-
+        </div>
+        <div className="btnNumber">
+          <button onClick="" className="buttonStart" type="submit"><span className="textButton">Начать</span></button>
         </div>
 
       </div>

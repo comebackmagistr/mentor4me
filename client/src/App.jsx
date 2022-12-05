@@ -13,6 +13,7 @@ import SignUpMentor from './components/Reg&Auth/SignUpMentor';
 import SignUpStudent from './components/Reg&Auth/SignUpStudent';
 import NewCalendar from './components/Calendar/NewCalendar';
 import AddEvent from './components/Calendar/AddEvent';
+import UpdateEvent from './components/Calendar/UpdateEvent';
 import MentorPage from './components/MainPage/MentorPage';
 import About from './components/About/About';
 import Application from './components/Application/Application';
@@ -36,7 +37,8 @@ function App() {
         <Route element={<SignUpMentor />} path="/signup/mentor" />
         <Route element={<SignUpStudent />} path="/signup/student" />
         <Route element={<LoginAll />} path="/user/login" />
-        <Route element={<AddEvent />} path="alert" />
+        <Route element={<AddEvent />} path="add" />
+        <Route element={<UpdateEvent />} path="update" />
         <Route element={<About />} path="/about" />
 
       </Routes>

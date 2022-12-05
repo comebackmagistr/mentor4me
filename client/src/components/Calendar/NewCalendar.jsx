@@ -1,47 +1,34 @@
-import format from 'date-fns/format';
-import getDay from 'date-fns/getDay';
-import parse from 'date-fns/parse';
-import startOfWeek from 'date-fns/startOfWeek';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, {
+  useCallback, useEffect, useMemo, useRef, useState,
+} from 'react';
 import { Calendar, momentLocalizer, dateFnsLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-datepicker/dist/react-datepicker.css';
-// import { ru } from 'date-fns/locale'; // 1 вариант
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import { axiosEvent } from '../../redux/eventSlice';
 
 import 'moment/locale/ru';
+import AddEvent from './AddEvent';
+import { setActive } from '../../redux/modalSlice';
+import ModalCard from './ModalCard';
 
 moment.locale('ru');
 
-// const locales = {
-//   ru,
-// };
 const localizer = momentLocalizer(moment);
-
-// 1 вариант
-// const localizer = dateFnsLocalizer({
-//   format,
-//   parse,
-//   startOfWeek,
-//   getDay,
-//   locales,
-// });
-
-// Добавление задач   const todoes = useSelector((s) => s.todo);
 
 function NewCalendar() {
   const [open, setOpen] = useState(false);
+  const active = useSelector((s) => s.active);
 
   // Отображение задачи в календаре
   const task = useSelector((store) => store.events);
   const dispatch = useDispatch();
-  const event = task?.map(
+  const event = task.map(
     (el) => (
       {
-        end: el?.end,
-        start: el?.start,
+        end: new Date(el?.end),
+        start: new Date(el?.start),
         title: el?.title,
       }
     ),
@@ -52,13 +39,30 @@ function NewCalendar() {
     dispatch(axiosEvent());
   }, []);
 
-  const openEventClick = () => {
-    setOpen(true);
-    if (task.id) {
-      axiosEvent(task.id);
-    }
-  };
+  // Появление модального окна при клике на дату
+  // const openEventClick = () => {
+  //   setOpen(true);
+  // };
+  const clickRef = useRef(null);
 
+  // const [active, setActive] = useState(false);
+  // const dispatch = useDispatch()
+
+  useEffect(
+    () => () => {
+      window.clearTimeout(clickRef?.current);
+    },
+    [],
+  );
+
+  const onSelectSlot = useCallback((slotInfo) => {
+    console.log('selectfunc');
+    window.clearTimeout(clickRef?.current);
+    clickRef.current = window.setTimeout(() => {
+      dispatch(setActive());
+    }, 250);
+  }, []);
+  // Появление модального окна при клике на ивент для редактирования9
   const { messages } = useMemo(
     () => ({
       messages: {
@@ -87,14 +91,17 @@ function NewCalendar() {
         messages={messages}
         style={{ height: 500, margin: '50px' }}
         selectable
-        // onSelectEvent={onSelectEvent} // изменение ивента при клике на задачу
-        onSelectEvent={openEventClick}
-        // onSelectSlot={() => {
-        // }}// добавление новой задачи при клике на дату
-          //  events.map((noteevent) => <EventForm noteevent={noteevent} key={noteevent.id} />)
-        popup
+        popup // показывает вкладочку "еще"
         events={event}
+        // onSelectEvent={openEventClick}
+        onSelectSlot={onSelectSlot}
+
+        // onSelectEvent={} // изменение ивента при клике на задачу
+        // onSelectSlot={() => {}}// добавление новой задачи при клике на дату
+
       />
+      {active
+      && <ModalCard />}
     </div>
   );
 }

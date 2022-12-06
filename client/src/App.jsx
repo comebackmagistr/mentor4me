@@ -17,7 +17,7 @@ import UpdateEvent from './components/Calendar/UpdateEvent';
 import MentorPage from './components/MainPage/MentorPage';
 import About from './components/About/About';
 import Application from './components/Application/Application';
-import OneCardApplication from './components/Application/OneCardApplication';
+import OneCardApplication from './components/Application/OneCardApplication/OneCardApplication';
 import PageError from './components/PageError/PageError';
 import Footer from './components/Footer';
 import ApplicationForMentorProfile from './components/Application/ApplicationForMentorProfile';

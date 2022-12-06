@@ -8,6 +8,7 @@ import {
 import { setActiveEdit } from '../../redux/modalSliceEdit';
 import UpdateEvent from './UpdateEvent';
 import { axiosDelete, axiosEdit } from '../../redux/eventSlice';
+import { setActive } from '../../redux/modalSlice';
 
 export default function EditModalCard() {
   const active = useSelector((s) => s.active);
@@ -31,8 +32,22 @@ export default function EditModalCard() {
       </DialogContent>
       <DialogActions>
         <Button onClick={() => dispatch(setActiveEdit())}>Close</Button>
-        <Button onClick={() => clickEditHandler(inputGroup)}>Save changes</Button>
-        <Button onClick={() => dispatch(axiosDelete(modalContent.id))}>Delete</Button>
+        <Button onClick={() => {
+          clickEditHandler(inputGroup);
+          dispatch(setActiveEdit());
+        }}
+        >
+          Save changes
+
+        </Button>
+        <Button onClick={() => {
+          dispatch(axiosDelete(modalContent.id));
+          dispatch(setActiveEdit());
+        }}
+        >
+          Delete
+
+        </Button>
       </DialogActions>
     </Dialog>
 

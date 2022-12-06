@@ -17,30 +17,28 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
   };
 
   return (
-    <div className="cropper">
-      <div>
-        <Cropper
-          cropShape="round"
-          image={image}
-          aspect={aspectRatio}
-          crop={crop}
-          zoom={zoom}
-          onCropChange={setCrop}
-          onZoomChange={setZoom}
-          onCropComplete={onCropComplete}
-          style={{
-            containerStyle: {
-              width: '30%',
-              height: '40%',
-              backgroundColor: '#fff',
-              marginTop: '9em',
-              marginLeft: '9em',
-            },
-          }}
-        />
-      </div>
+    <div className="cropper" style={{ display: 'flex' }}>
+      <Cropper
+        cropShape="round"
+        image={image}
+        aspect={aspectRatio}
+        crop={crop}
+        zoom={zoom}
+        onCropChange={setCrop}
+        onZoomChange={setZoom}
+        onCropComplete={onCropComplete}
+        style={{
+          containerStyle: {
+            width: '30%',
+            height: '40%',
+            backgroundColor: '#fff',
+            margin: 'auto',
 
-      <div className="action-btns" style={{ zIndex: 1000, position: 'absolute' }}>
+          },
+        }}
+      />
+
+      <div className="action-btns" style={{ zIndex: 1000 }}>
         <div className="aspect-ratios" onChange={onAspectRatioChange}>
 
           <input type="radio" value={1 / 1} name="ratio" />
@@ -66,20 +64,22 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
           3:1
 
         </div>
+        <div className="buttons">
 
-        <button type="button" className="btn2 btn-outline" onClick={onCropCancel}>
-          Отменить
-        </button>
+          <button type="button" className="btn2 btn-outline" onClick={onCropCancel}>
+            Отменить
+          </button>
 
-        <button
-          type="button"
-          className="btn1"
-          onClick={async () => {
-            onCropDone(croppedArea);
-          }}
-        >
-          Сохранить
-        </button>
+          <button
+            type="button"
+            className="btn1"
+            onClick={async () => {
+              onCropDone(croppedArea);
+            }}
+          >
+            Сохранить
+          </button>
+        </div>
       </div>
     </div>
   );

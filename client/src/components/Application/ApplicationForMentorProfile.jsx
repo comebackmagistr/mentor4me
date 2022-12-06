@@ -9,27 +9,22 @@ export default function ApplicationForMentorProfile({ userId, oneApplication }) 
   useEffect(() => {
     dispatch(axiosApplication());
   }, []);
+  // const clickShowDiv = () => {
+  //   setVisible((prev) => !prev);
+  // };
   // const [visible, setVisible] = useState(false);
   // const clickShowDiv = () => {
   //   setVisible((prev) => !prev);
   // };
-  const clickShowDiv = () => {
-    dispatch(axiosOneApplication(userId));
-  };
+  // const clickShowDiv = () => {
+  //   dispatch(axiosOneApplication(userId));
+  // };
 
   return (
     <>
       <h1>Заявки</h1>
       {allApplicationOneMentor?.map((el) => (
-        <>
-          <div key={el.id} style={{ display: 'flex' }} onClick={() => clickShowDiv()}>
-            <div><b>{el?.Student.firstName}</b></div>
-            <div><b>{el?.Student.lastName}</b></div>
-            <div>{el?.text}</div>
-            <button type="button" onClick={() => clickShowDiv()}>Подробнее</button>
-          </div>
-          <ApplicationFormbutt el={el} />
-        </>
+        <ApplicationFormbutt el={el} />
       ))}
     </>
   );

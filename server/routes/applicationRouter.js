@@ -1,5 +1,5 @@
 const express = require('express');
-const { Application } = require('../db/models');
+const { Application, Student } = require('../db/models');
 
 const router = express.Router();
 
@@ -20,11 +20,16 @@ router.post('/:id', async (req, res) => {
 });
 
 router.get('/applicationformentor', async (req, res) => {
-  const userId = req.session.user.id; // id авторизованного ментора
-  console.log(userId, 'idididididid');
-  const applications = await Application.findAll({ where: { mentor_id: userId } });
+  // const userId = req.session.user.id; // id авторизованного ментора
+  const userId = 1; // хардкод
+  const applications = await Application.findAll({
+    where: { mentor_id: userId },
+    include: [{
+      model: Student,
+    // attributes: ['lastName', 'firstNAme'],
+    }],
+  });
   res.json(applications);
-  console.log(applications, 'sfkldhkapplications');
 });
 
 module.exports = router;

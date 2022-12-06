@@ -3,16 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { axiosApplication } from '../../redux/applicationSlice';
 
 export default function ApplicationForMentorProfile() {
-  const allApplication = useSelector((store) => store.application);
+  const allApplicationOneMentor = useSelector((store) => store.application);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(axiosApplication());
   }, []);
-  console.log(allApplication, 'allApplicationqwertyu');
   return (
     <>
       <div>ApplicationForMentorProfile</div>
-      {allApplication?.map((el) => <span>{el.text}</span>)}
+      {allApplicationOneMentor?.map((el) => (
+        <div key={el.id} style={{ display: 'flex' }}>
+          <div><b>{el?.Student.firstName}</b></div>
+          <div><b>{el?.Student.lastName}</b></div>
+          <div>{el?.text}</div>
+        </div>
+      ))}
     </>
   );
 }

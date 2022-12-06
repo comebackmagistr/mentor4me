@@ -1,0 +1,20 @@
+.btn1 {
+    height: 45px;
+    left: 121px;
+    top: 526px;
+    width: 150px;
+    background: linear-gradient(180deg, #BD5BEE 0%, rgba(0, 120, 252, 0.48) 87.92%);
+    border-radius: 9px;
+    margin-left: 7em;
+    text-align: center;
+}
+
+.btn2 {
+    box-sizing: border-box;
+    height: 72px;
+    left: 393px;
+    top: 526px;
+    width: 220px;
+    background: #BD5BEE;
+    border-radius: 10px;
+}

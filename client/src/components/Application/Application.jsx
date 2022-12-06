@@ -12,52 +12,16 @@ export default function Application() {
     dispatch(showAllMentor());
   }, []);
   const navigate = useNavigate();
-  // const clickHandler = (id) => {
-  //   navigate(`/applications/${id}`);
-  // };
+  const clickHandler = (id) => {
+    navigate(`/applications/${id}`);
+  };
 
   return (
     <div>
       <div>Шаг 1: Выберите ментора</div>
       <div className="card">
         {mentors.map((el) => (
-          <>
-            {/* <div>
-              <div className="container">
-                <h4>
-                  <b>
-                    {el?.firstName}
-                    {' '}
-                    {el?.lastName}
-                  </b>
-                </h4>
-                <span style={{ display: 'flex' }}>
-                  <span>
-                    Профессиональная сфера:
-                    {' '}
-                    {el?.profArea}
-                  </span>
-                  <span>
-                    Образование:
-                    {' '}
-                    {el?.education}
-                  </span>
-                  <span>
-                    Профессиональные навыки:
-                    {' '}
-                    {el?.profScill}
-                  </span>
-                  <span>
-                    Стоимость:
-                    {' '}
-                    {el?.price}
-                  </span>
-                </span>
-              </div>
-            </div>
-            <button type="button" onClick={() => clickHandler(el.id)}>Выбрать</button> */}
-            <OneCardMentor key={el.id} mentor={el} />
-          </>
+          <OneCardMentor key={el.id} mentor={el} />
         ))}
       </div>
     </div>

@@ -16,6 +16,12 @@ const getApplication = (input, id) => async (dispatch) => {
   dispatch(setApplication(res.data));
 };
 
+const axiosApplication = () => (dispatch) => {
+  axios.get('/applications/applicationformentor')
+    .then((res) => dispatch(setApplication(res.data)))
+    .catch(() => dispatch(setApplication({})));
+};
+
 export default applicationSlice.reducer;
 
-export { getApplication };
+export { getApplication, axiosApplication };

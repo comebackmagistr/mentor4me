@@ -19,4 +19,12 @@ router.post('/:id', async (req, res) => {
   }
 });
 
+router.get('/applicationformentor', async (req, res) => {
+  const userId = req.session.user.id; // id авторизованного ментора
+  console.log(userId, 'idididididid');
+  const applications = await Application.findAll({ where: { mentor_id: userId } });
+  res.json(applications);
+  console.log(applications, 'sfkldhkapplications');
+});
+
 module.exports = router;

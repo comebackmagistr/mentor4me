@@ -19,33 +19,36 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
   };
 
   return (
-    <div className="cropper">
-      <div>
-        <Cropper
-          cropShape="round"
-          image={image}
-          aspect={aspectRatio}
-          crop={crop}
-          zoom={zoom}
-          onCropChange={setCrop}
-          onZoomChange={setZoom}
-          onCropComplete={onCropComplete}
-          style={{
-            containerStyle: {
-              width: '30%',
-              height: '40%',
-              backgroundColor: '#fff',
-              marginTop: '9em',
-              marginLeft: '9em',
-            },
-          }}
-        />
-      </div>
+    <div
+      className="cropper"
+      style={{
+        display: 'flex', margin: '-12rem 0 0 5em', position: 'relative', width: '1000px', height: '1000px',
+      }}
+    >
+      <Cropper
+        cropShape="round"
+        image={image}
+        aspect={aspectRatio}
+        crop={crop}
+        zoom={zoom}
+        onCropChange={setCrop}
+        onZoomChange={setZoom}
+        onCropComplete={onCropComplete}
+        style={{
+          containerStyle: {
+            width: '30%',
+            height: '40%',
+            backgroundColor: '#fff',
+            margin: 'auto',
 
-      <div className="action-btns" style={{ zIndex: 1000, position: 'absolute' }}>
+          },
+        }}
+      />
+
+      <div className="action-btns" style={{ zIndex: 1000 }}>
         <div className="aspect-ratios" onChange={onAspectRatioChange}>
 
-          <input type="radio" value={1 / 1} name="ratio" />
+          {/* <input type="radio" value={1 / 1} name="ratio" />
           {' '}
           1:1
           <input type="radio" value={5 / 4} name="ratio" />
@@ -65,24 +68,26 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
           16:9
           <input type="radio" value={3 / 1} name="ratio" />
           {' '}
-          3:1
+          3:1 */}
 
         </div>
+        <div className="buttons">
 
-        <button type="button" className="btn2 btn-outline" onClick={onCropCancel}>
-          Отменить
-        </button>
+          <button type="button" className="btn2 btn-outline" onClick={onCropCancel}>
+            Отменить
+          </button>
 
-        <button
-          type="button"
-          className="btn1"
-          onClick={async () => {
-            onCropDone(croppedArea);
-            navigate('/gracies');
-          }}
-        >
-          Сохранить
-        </button>
+          <button
+            type="button"
+            className="btn1"
+            onClick={async () => {
+              onCropDone(croppedArea);
+              navigate('/gracies');
+            }}
+          >
+            Сохранить
+          </button>
+        </div>
       </div>
     </div>
   );

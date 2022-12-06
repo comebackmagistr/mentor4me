@@ -26,7 +26,6 @@ export default function OneMentorPage({ mentor, loading }) {
         </div>
         <div className="mentorDescr">
           {mentor?.aboutMe}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis atque pariatur minima quo, vitae minus labore quaerat temporibus odio aperiam aspernatur rerum provident molestias, recusandae ducimus ipsam. Illo, error mollitia.
         </div>
         <div className="scill">
           {Array.isArray(mentor?.profScill) && mentor?.profScill.split(',').map((el) => (

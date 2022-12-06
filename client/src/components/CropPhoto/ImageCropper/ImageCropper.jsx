@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Cropper from 'react-easy-crop';
+import './ImageCropper.css';
 
 function ImageCropper({ image, onCropDone, onCropCancel }) {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -29,9 +30,11 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
           onCropComplete={onCropComplete}
           style={{
             containerStyle: {
-              width: '100%',
-              height: '80%',
+              width: '30%',
+              height: '40%',
               backgroundColor: '#fff',
+              marginTop: '9em',
+              marginLeft: '9em',
             },
           }}
         />
@@ -39,13 +42,6 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
 
       <div className="action-btns" style={{ zIndex: 1000, position: 'absolute' }}>
         <div className="aspect-ratios" onChange={onAspectRatioChange}>
-          {/* <input
-          type="range"
-          value={zoom}
-          min={1}
-          max={3}
-          step={0.1}
-          aria-labelledby="Zoom" */}
 
           <input type="radio" value={1 / 1} name="ratio" />
           {' '}
@@ -71,18 +67,18 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
 
         </div>
 
-        <button type="button" className="btn btn-outline" onClick={onCropCancel}>
-          Cancel
+        <button type="button" className="btn2 btn-outline" onClick={onCropCancel}>
+          Отменить
         </button>
 
         <button
           type="button"
-          className="btn"
+          className="btn1"
           onClick={async () => {
             onCropDone(croppedArea);
           }}
         >
-          Done
+          Сохранить
         </button>
       </div>
     </div>

@@ -87,6 +87,7 @@ function NewCalendar() {
         events={event}
         onSelectSlot={onSelectSlot} // добавление новой задачи при клике на дату
         onSelectEvent={openEventClick} // изменение ивента при клике на задачу
+
       />
       {activeedit
       && <EditModalCard />}

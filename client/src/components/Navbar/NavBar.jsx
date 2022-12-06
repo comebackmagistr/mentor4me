@@ -61,7 +61,7 @@ export default function NavBar() {
           <Link className="linkInNav" to="/update">Update</Link>
           <Link className="linkInNav" to="/add">AddEvent</Link>
 
-          {userIsAuth.firstName ? (
+          {userIsAuth?.firstName ? (
             <>
               <Link className="linkInNav" to="/profile">Профиль</Link>
               <Link className="linkInNav" to="/search">Поиск</Link>

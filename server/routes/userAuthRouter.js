@@ -47,6 +47,7 @@ router.get('/check', async (req, res) => {
     if (req.session.user) {
       if (req.session.user.mentor === true) {
         const userMentor = await Mentor.findOne({ where: { id: req.session.user.id } });
+        userMentor.dataValues.mentor = true;
         return res.json(userMentor);
       }
       const userStudent = await Student.findOne({ where: { id: req.session.user.id } });

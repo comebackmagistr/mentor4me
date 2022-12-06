@@ -61,23 +61,24 @@ export default function NavBar() {
 
           {userIsAuth?.firstName ? (
             <>
-              <Link className="linkInNav" to="/profile">Профиль</Link>
               <Link className="linkInNav" to="/search">Поиск</Link>
               <Link className="linkInNav" to="/calendar">Календарь</Link>
               <Link className="linkInNav" to="/applications">Заявки</Link>
-              <Link className="linkInNav" to="/mentor">Наши менторы</Link>
-              <Link className="linkInNav" onClick={() => dispatch(getLogout())} to="/">Выход</Link>
-              <Button
+              <Link className="linkInNav" to="/profile">
+                <img className="avatarProfile" src={`/photos/${userIsAuth.photo}`} alt="avatar" />
+                {' '}
+              </Link>
+              <Link
                 className="linkInNav"
                 onClick={() => {
                   dispatch(getLogout());
                   navigate('/');
                 }}
-                color="inherit"
+                to="/"
               >
                 Выход
 
-              </Button>
+              </Link>
             </>
           ) : (
             <>

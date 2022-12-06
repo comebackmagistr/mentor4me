@@ -45,7 +45,7 @@ export default function SignUp() {
       <form
         onSubmit={(e) => {
           submitInputs(e);
-          navigate('/');
+          navigate('/input');
         }}
       >
         {auth

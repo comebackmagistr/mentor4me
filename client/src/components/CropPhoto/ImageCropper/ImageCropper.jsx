@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Cropper from 'react-easy-crop';
+import { useNavigate } from 'react-router-dom';
 import './ImageCropper.css';
 
 function ImageCropper({ image, onCropDone, onCropCancel }) {
+  const navigate = useNavigate();
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedArea, setCroppedArea] = useState(null);
@@ -76,6 +78,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
           className="btn1"
           onClick={async () => {
             onCropDone(croppedArea);
+            navigate('/gracies');
           }}
         >
           Сохранить

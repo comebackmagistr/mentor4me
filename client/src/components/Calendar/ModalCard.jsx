@@ -25,6 +25,7 @@ export default function ModalCard() {
   const clickHandler = () => {
     dispatch(axiosSubmitEvent(input));
     console.log(input);
+    dispatch(setActive());
     navigate('/calendar');
   };
 

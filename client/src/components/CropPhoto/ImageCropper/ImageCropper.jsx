@@ -17,7 +17,12 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
   };
 
   return (
-    <div className="cropper" style={{ display: 'flex' }}>
+    <div
+      className="cropper"
+      style={{
+        display: 'flex', margin: '-12rem 0 0 5em', position: 'relative', width: '1000px', height: '1000px',
+      }}
+    >
       <Cropper
         cropShape="round"
         image={image}
@@ -41,7 +46,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
       <div className="action-btns" style={{ zIndex: 1000 }}>
         <div className="aspect-ratios" onChange={onAspectRatioChange}>
 
-          <input type="radio" value={1 / 1} name="ratio" />
+          {/* <input type="radio" value={1 / 1} name="ratio" />
           {' '}
           1:1
           <input type="radio" value={5 / 4} name="ratio" />
@@ -61,7 +66,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
           16:9
           <input type="radio" value={3 / 1} name="ratio" />
           {' '}
-          3:1
+          3:1 */}
 
         </div>
         <div className="buttons">

@@ -1,31 +1,45 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setActive } from '../../redux/modalSlice';
+// import PropTypes from 'prop-types';
+import {
+  DialogTitle, Dialog, DialogContent, Button, DialogActions,
+} from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import AddEvent from './AddEvent';
+import { setActive } from '../../redux/modalSlice';
+import { axiosSubmitEvent } from '../../redux/eventSlice';
 
 export default function ModalCard() {
   const active = useSelector((s) => s.active);
   const dispatch = useDispatch();
-  return (
+  const navigate = useNavigate();
+  const [input, setInput] = useState({
+    start: new Date(),
+    end: new Date(),
+    title: '',
+    text: '',
+  });
 
-    <div className="modal is-active">
-      <div className="modal-background" onClick={() => dispatch(setActive())} />
-      <div className="modal-card">
-        <header className="modal-card-head">
-          <p className="modal-card-title">Modal title</p>
-          <button type="button" className="delete" aria-label="close" />
-        </header>
-        <section className="modal-card-body">
-          <AddEvent />
-        </section>
-        <footer className="modal-card-foot">
-          <button type="button" className="button is-success">Save</button>
-          <button type="button" className="button" onClick={() => dispatch(setActive())}>Cancel</button>
-        </footer>
-      </div>
-    </div>
+  const clickHandler = () => {
+    dispatch(axiosSubmitEvent(input));
+    console.log(input);
+    navigate('/calendar');
+  };
+
+  return (
+    <Dialog open maxWidth="md" fullWidth>
+      <DialogTitle>Добавить событие</DialogTitle>
+      <DialogContent>
+        <AddEvent input={input} setInput={setInput} />
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={() => dispatch(setActive())}>Cancel</Button>
+        <Button onClick={() => dispatch(setActive())}>Close</Button>
+        <Button type="submit" onClick={() => clickHandler()}>Save</Button>
+      </DialogActions>
+    </Dialog>
 
   );
 }

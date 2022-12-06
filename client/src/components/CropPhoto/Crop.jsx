@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../redux/userSlice';
-import FileInput from './FileInput';
-import ImageCropper from './ImageCropper';
+import FileInput from './FuleInput/FileInput';
+import ImageCropper from './ImageCropper/ImageCropper';
 
 function Crop() {
   const dispatch = useDispatch();

@@ -1,0 +1,15 @@
+.btn {
+    cursor: pointer;
+     border:none;
+     background: transparent;
+     margin: 0 auto;
+     display: block; 
+
+}
+
+h3,p {
+    text-align: center;
+    margin-top: 4em;
+    margin-bottom: 4em;
+}
+

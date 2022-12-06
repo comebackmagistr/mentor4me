@@ -7,6 +7,7 @@ import eventReducer from './eventSlice';
 import activeReduser from './modalSlice';
 import activeEditReduser from './modalSliceEdit';
 import modelContentReduser from './modelContentSlice';
+import reviewsSlice from './reviewsSlice';
 
 const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
     active: activeReduser,
     activeedit: activeEditReduser,
     modalContent: modelContentReduser,
+    reviews: reviewsSlice,
   },
 });
 export default store;

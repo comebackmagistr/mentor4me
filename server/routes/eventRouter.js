@@ -1,12 +1,6 @@
 const express = require('express');
 const { Event } = require('../db/models');
 
-// function parseDate(dateString) {
-//   const parsedDate = dateString.split(' ').map((el, ind) => (!ind ? el.split('/').reverse() : el.split(':'))).flat();
-//   parsedDate[1] = Number(parsedDate[1]) - 1;
-//   return parsedDate;
-// }
-
 const router = express.Router();
 
 router.get('/', async (req, res) => {

@@ -1,9 +1,13 @@
 .blockItem {
     display: flex;
-    margin-top: 100px;
+    margin-top: 1rem;
     border: 1px solid  #673FD7;
     padding: 30px;
     border-radius: 5px;
+}
+
+.imgBlock {
+    min-width: 5%;
 }
 .imgCard {
     width: 150px;

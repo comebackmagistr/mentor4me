@@ -7,6 +7,7 @@ import ApplicationForMentorProfile from './ApplicationForMentorProfile';
 
 export default function Application() {
   const user = useSelector((store) => store.user);
+  console.log(user.isMentor, 'idisisisisi');
   const mentors = useSelector((store) => store.userInfo);
   const allMentor = useSelector((store) => store.mentor);
   const dispatch = useDispatch();

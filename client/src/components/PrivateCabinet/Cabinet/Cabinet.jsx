@@ -48,11 +48,11 @@ export default function Profile() {
   return (
     <div>
       {!user?.isMentor === true ? (
-        <Card sx={{ maxWidth: 900, flexDirection: 'row' }}>
+        <Card sx={{ maxWidth: 1199, maxHeight: 550, flexDirection: 'row' }}>
           <CardContent>
             {isTrue === true ? (
               <>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography className="nameInLk" gutterBottom variant="h5" component="div">
                   {user?.firstName}
                   {' '}
                   {user?.lastName}
@@ -62,8 +62,8 @@ export default function Profile() {
                   {!isTrue && <Button onClick={() => setIsTrue((prev) => !prev)} size="small">Сохранить изменения</Button> }
                 </CardActions>
                 <CardMedia
+                  style={{ maxWidth: '230px', maxHeight: '230px', borderRadius: '50%' }}
                   component="img"
-                  height="140"
                   image={`/photos/${user?.photo}`}
                   alt="photo"
                 />

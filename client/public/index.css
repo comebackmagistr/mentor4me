@@ -22,4 +22,5 @@ body{
   max-height: 60px;
   border-radius: 50%;
   border: 2px solid rgb(195, 32, 245);
+  margin-bottom: 10px;
 }

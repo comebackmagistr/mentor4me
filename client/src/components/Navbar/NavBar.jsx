@@ -57,6 +57,7 @@ export default function NavBar() {
             <Link className="mainTextNavbar" to="/">MENTOR4ME</Link>
           </Typography>
           <Link className="linkInNav" to="/about">О нас</Link>
+          <Link className="linkInNav" to="/mentor">Наши менторы</Link>
 
           {userIsAuth?.firstName ? (
             <>
@@ -82,16 +83,10 @@ export default function NavBar() {
             <>
               <div>
                 <Button
-                  className="linkInNav"
+                  id="buttonInNav"
                   variant="outlined"
                   color="inherit"
                   onClick={handleOpen}
-                  style={{
-                    border: 'none',
-                    font: 'inherit',
-                    color: 'inherit',
-                    // backgroundColor: 'transparent',
-                  }}
                 >
                   Регистрация
 
@@ -115,7 +110,7 @@ export default function NavBar() {
                   </DialogActions>
                 </Dialog>
               </div>
-              <Link className="linkInNav" to="/user/login">Login</Link>
+              <Link className="linkInNav" to="/user/login">Авторизация</Link>
             </>
           )}
 

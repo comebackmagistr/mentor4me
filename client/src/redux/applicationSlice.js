@@ -6,6 +6,7 @@ export const applicationSlice = createSlice({
   initialState: [],
   reducers: {
     setSearch: (state, action) => action.payload,
+    setApplication: (state, action) => action.payload,
   },
 });
 

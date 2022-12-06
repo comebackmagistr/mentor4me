@@ -3,9 +3,9 @@ import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
 import { ru } from 'date-fns/locale';
 
 registerLocale('ru', ru);
-export default function UpdateEvent() {
-  const [startDate, setStartDate] = useState(new Date());
-  const [startEnd, setstartEnd] = useState(new Date());
+export default function UpdateEvent({ modalContent }) {
+  const [startDate, setStartDate] = useState(new Date(modalContent.start));
+  const [startEnd, setstartEnd] = useState(new Date(modalContent.end));
 
   const handleColorStart = (time) => (time.getHours() > 12 ? 'text-success' : 'text-error');
   const handleColorEnd = (time) => (time.getHours() > 12 ? 'text-success' : 'text-error');
@@ -20,6 +20,7 @@ export default function UpdateEvent() {
           timeClassName={handleColorStart}
           dateFormat="dd/MM/yyyy HH:mm:ss"
           name="start"
+
         />
         <DatePicker
           locale="ru"
@@ -32,11 +33,11 @@ export default function UpdateEvent() {
         />
         <div className="mb-3">
           <label htmlFor="message-text" className="col-form-label">Title:</label>
-          <input className="form-control" name="title" id="message-text" />
+          <input className="form-control" name="title" id="message-text" defaultValue={modalContent.title} />
         </div>
         <div className="mb-3">
           <label htmlFor="message-text" className="col-form-label">Add information:</label>
-          <textarea className="form-control" name="text" id="message-text" />
+          <textarea className="form-control" name="text" id="message-text" defaultValue={modalContent.text} />
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">

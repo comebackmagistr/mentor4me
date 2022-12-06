@@ -15,7 +15,7 @@ router.post('/student', async (req, res) => {
       firstName, lastName, email, zoom, phone, password: hashPassword,
     });
     req.session.user = {
-      id: student.id, firstName: student.firstName, lastName: student.lastName, mentor: false, email, zoom, phone,
+      id: student.id, firstName: student.firstName, lastName: student.lastName, mentor: false, email, zoom, phone, photo: null,
     };
     res.json(req.session.user);
   } catch (error) {
@@ -31,10 +31,10 @@ router.post('/mentor', async (req, res) => {
   try {
     const hashPassword = await hash(password, 10);
     const mentor = await Mentor.create({
-      firstName, lastName, email, zoom, phone, video, call, chat, price, password: hashPassword, education, job, profArea, profScill, aboutMe, portfolio,
+      firstName, lastName, email, zoom, phone, video, call, chat, price, password: hashPassword, education, job, profArea, profScill, aboutMe, portfolio, photo: null,
     });
     req.session.user = {
-      id: mentor.id, firstName: mentor.firstName, lastName: mentor.lastName, video, call, chat, price, education, job, profArea, profScill, aboutMe, portfolio, mentor: true,
+      id: mentor.id, firstName: mentor.firstName, lastName: mentor.lastName, video, call, chat, price, education, job, profArea, profScill, aboutMe, portfolio, mentor: true, photo: mentor.photo,
     };
     res.json(req.session.user);
   } catch (error) {
@@ -42,11 +42,15 @@ router.post('/mentor', async (req, res) => {
   }
 });
 
-router.get('/check', (req, res) => {
+router.get('/check', async (req, res) => {
   try {
-    console.log('Current user:', req.session.user);
     if (req.session.user) {
-      return res.json(req.session.user);
+      if (req.session.user.mentor === true) {
+        const userMentor = await Mentor.findOne({ where: { id: req.session.user.id } });
+        return res.json(userMentor);
+      }
+      const userStudent = await Student.findOne({ where: { id: req.session.user.id } });
+      return res.json(userStudent);
     }
     return res.json({});
   } catch (error) {
@@ -66,7 +70,7 @@ router.post('/login', async (req, res) => {
       const isValid = await compare(password, findOneMentor.password);
       if (isValid) {
         req.session.user = {
-          id: findOneMentor.id, firstName: findOneMentor.firstName, lastName: findOneMentor.lastName, email: findOneMentor.email, zoom: findOneMentor.zoom, phone: findOneMentor.phone, video: findOneMentor.video, call: findOneMentor.call, chat: findOneMentor.chat, price: findOneMentor.price, education: findOneMentor.education, job: findOneMentor.job, profArea: findOneMentor.profArea, profScill: findOneMentor.profScill, aboutMe: findOneMentor.aboutMe, portfolio: findOneMentor.portfolio, mentor: true,
+          id: findOneMentor.id, firstName: findOneMentor.firstName, lastName: findOneMentor.lastName, email: findOneMentor.email, zoom: findOneMentor.zoom, phone: findOneMentor.phone, video: findOneMentor.video, call: findOneMentor.call, chat: findOneMentor.chat, price: findOneMentor.price, education: findOneMentor.education, job: findOneMentor.job, profArea: findOneMentor.profArea, profScill: findOneMentor.profScill, aboutMe: findOneMentor.aboutMe, portfolio: findOneMentor.portfolio, photo: findOneMentor.photo, mentor: true,
         };
         return res.json(req.session.user);
       }
@@ -80,7 +84,7 @@ router.post('/login', async (req, res) => {
     const isValid = await compare(password, findOneStudent.password);
     if (isValid) {
       req.session.user = {
-        id: findOneStudent.id, firstName: findOneStudent.firstName, lastName: findOneStudent.lastName, mentor: false, email: findOneStudent.email, zoom: findOneStudent.zoom, phone: findOneStudent.phone,
+        id: findOneStudent.id, firstName: findOneStudent.firstName, lastName: findOneStudent.lastName, mentor: false, email: findOneStudent.email, zoom: findOneStudent.zoom, phone: findOneStudent.phone, photo: findOneStudent.photo,
       };
       return res.json(req.session.user);
     }

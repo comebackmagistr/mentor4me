@@ -6,13 +6,15 @@ const router = express.Router();
 router.post('/', file.single('crop'), async (req, res) => {
   try {
     if (req.file) {
-      console.log(req.file);
-      console.log(req.file.filename);
+      const id = Number(req.file.originalname);
       const fileName = req.file.filename;
-      await Student.create({ photo: fileName });
+      await Student.update(
+        { photo: fileName },
+        { where: { id } },
+      );
+      const studentUpt = await Student.findOne({ where: { id } });
       // await Mentor.create({ photo: filePath.substring(7) });
-
-      res.json(req.file);
+      res.json(studentUpt);
     }
   } catch (error) {
     console.log(error);

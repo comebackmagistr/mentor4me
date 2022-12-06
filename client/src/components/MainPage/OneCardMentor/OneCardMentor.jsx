@@ -14,7 +14,7 @@ export default function OneMentorPage({ mentor }) {
   return (
     <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
       <div className="imgBlock">
-        <img src={mentor?.photo} alt="img" className="imgCard" />
+        <img src={`/photos/${mentor?.photo}`} alt="img" className="imgCard" />
         <p className="reiting">9 / 10</p>
       </div>
       <div className="textCard" onClick={() => clickHandlerforinfo(mentor.id)}>
@@ -29,7 +29,7 @@ export default function OneMentorPage({ mentor }) {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis atque pariatur minima quo, vitae minus labore quaerat temporibus odio aperiam aspernatur rerum provident molestias, recusandae ducimus ipsam. Illo, error mollitia.
         </div>
         <div className="scill">
-          {mentor?.profScill.split(',').map((el) => (
+          {Array.isArray(mentor?.profScill) && mentor?.profScill.split(',').map((el) => (
             <div className="scillBlock" key={el}>
               <div className="skillItem">{el}</div>
             </div>
@@ -42,6 +42,7 @@ export default function OneMentorPage({ mentor }) {
           {`${mentor?.price} руб / час`}
         </div>
         <div className="like">
+          👍
           <img className="iconStyle" src="icons/heart.png" alt="logo" />
         </div>
       </div>

@@ -17,13 +17,18 @@ router.post('/', async (req, res) => {
     const {
       start, end, title, text,
     } = req.body;
+    const startDate = start.split(' ').map((el, ind) => (!ind ? el.split('/').reverse() : el.split(':'))).flat();
+    startDate[1] = Number(startDate[1]) - 1;
+    const endDate = end.split(' ').map((el, ind) => (!ind ? el.split('/').reverse() : el.split(':'))).flat();
+    endDate[1] = Number(endDate[1]) - 1;
+    // console.log(startDate, endDate);
     // const aaaa = '09/12/2022';
     // const str = `${start.replace(/(\d+)\/(\d+)\/(\d+)./, '$3-$2-$1T')}.000Z`;
     // console.log(str);
     // console.log('sdfghjkjhgfghgfghjhgfghjhgfdfghjkjhgfghgfghjhgfghjhgfdfghjkjhgfghgfghjhgfghjhgfdfghjkjhgfghgfghjhgfghjhgfdfghjkjhgfghgfghjhgfghjhgfdfghjkjhgfghgfghjhgfghjhgf', start, end);
     const event = await Event.create({
-      start,
-      end,
+      start: new Date(...startDate),
+      end: new Date(...endDate),
       title,
       text,
       user_id: req.session.user.id,

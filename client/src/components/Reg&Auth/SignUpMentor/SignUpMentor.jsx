@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { getUser } from '../../../redux/userSlice';
+import './signup.css';
 
 export default function SignUp() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [hiddenPhone, setHiddenPhone] = useState(true);
+  const [hiddenPrice, setHiddenPrice] = useState(true);
   const [auth, setAuth] = useState(true);
   const [inputMentor, setInputMentor] = useState({
     firstName: '',
     lastName: '',
     email: '',
     zoom: '',
-    phone: '',
+    phone: '+7',
     video: '',
     call: '',
     chat: '',
@@ -37,7 +40,7 @@ export default function SignUp() {
   };
   return (
     <div className="main">
-      <p>Авторизация</p>
+      <p className="pReg">Регистрация</p>
 
       <form
         onSubmit={(e) => {
@@ -47,42 +50,67 @@ export default function SignUp() {
       >
         {auth
           ? (
-            <>
-              <div>Имя</div>
-              <input name="firstName" className="input" type="text" value={inputMentor.firstName} onChange={(e) => inputHandler(e)} />
+            <div className="containerReg">
+              <div className="textOnInput">Имя</div>
+              <input name="firstName" className="inputAuth" type="text" value={inputMentor.firstName} onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />
-              <div>Фамилия</div>
-              <input name="lastName" className="input" type="text" value={inputMentor.lastName} onChange={(e) => inputHandler(e)} />
+              <div className="textOnInput">Фамилия</div>
+              <input name="lastName" className="inputAuth" type="text" value={inputMentor.lastName} onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />
-              <div>Почта</div>
-              <input name="email" className="input" type="email" value={inputMentor.email} onChange={(e) => inputHandler(e)} />
+              <div className="textOnInput">Почта</div>
+              <input name="email" className="inputAuth" type="email" value={inputMentor.email} onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />
-              <div>Zoom</div>
-              <input name="zoom" className="input" type="text" value={inputMentor.zoom} onChange={(e) => inputHandler(e)} />
-              <br />
-              {' '}
-              <br />
-              <div>Телефон</div>
-              <input name="phone" className="input" type="tel" value={inputMentor.phone} onChange={(e) => inputHandler(e)} />
+              <div className="twoInputs">
+                <div className="textOnInput">
+                  Zoom
+                  <input name="zoom" className="inputAuthTwo" type="text" value={inputMentor.zoom} onChange={(e) => inputHandler(e)} />
+                </div>
+                <br />
+                {' '}
+                <br />
+                <div className="textOnInput">
+                  Телефон
+                  <input
+                    name="phone"
+                    className="inputAuthTwo"
+                    type="tel"
+                    value={inputMentor.phone}
+                    onChange={(e) => {
+                      inputHandler(e);
+                      if (inputMentor.phone.length > 11) {
+                        setHiddenPhone(false);
+                      } else {
+                        setHiddenPhone(true);
+                      }
+                    }}
+                  />
+                  <span hidden={hiddenPhone} className="hiddenText">
+                    Номер телефона должен быть в формате
+                    (***) *** - ** - **
+                  </span>
+                </div>
+              </div>
               <br />
               {' '}
               <br />
 
-              <label htmlFor="htmlvideo">
+              <label className="inputAuthCheckbox" htmlFor="htmlvideo">
+                <span className="textOnInput">Формат консультации</span>
+                <br />
                 <input name="video" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="html" type="checkbox" />
                 Видео
               </label>
-              <label htmlFor="htmlcall">
+              <label className="inputAuthCheckbox" htmlFor="htmlcall">
                 <input name="call" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlcall" type="checkbox" />
                 Звонок
               </label>
-              <label htmlFor="htmlchat">
+              <label className="inputAuthCheckbox" htmlFor="htmlchat">
                 <input name="chat" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlchat" type="checkbox" />
                 Чат
               </label>
@@ -90,58 +118,78 @@ export default function SignUp() {
               <br />
               {' '}
               <br />
-              <div>Цена за консультацию</div>
-              <input name="price" className="input" type="number" value={inputMentor.price} onChange={(e) => inputHandler(e)} />
+              <div className="textOnInput">
+                Цена за консультацию
+                <input
+                  name="price"
+                  className="inputAuth"
+                  type="number"
+                  placeholder="Цена указывается за час консультации"
+                  value={inputMentor.price}
+                  onChange={(e) => {
+                    inputHandler(e);
+                    if (Number(e.target.value) > 5000) {
+                      setHiddenPrice(false);
+                    } else {
+                      setHiddenPrice(true);
+                    }
+                  }}
+                />
+                <span hidden={hiddenPrice} className="hiddenText1">
+                  Цена не может быть выше 5000 рублей в час.
+                </span>
+              </div>
               <br />
               {' '}
               <br />
-              <div>Пароль</div>
-              <input name="password" id="p1" className="input" type="password" value={inputMentor.password} onChange={(e) => inputHandler(e)} />
+              <div className="textOnInput">Пароль</div>
+              <input name="password" id="p1" className="inputAuth" type="password" value={inputMentor.password} onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />
-              <div>Повторный ввод пароля</div>
-              <input name="repeatPassword" id="p2" className="input" type="password" onChange={(e) => inputHandler(e)} />
+              <div className="textOnInput">Повторный ввод пароля</div>
+              <input name="repeatPassword" id="p2" className="inputAuth" type="password" onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />
-              <button className="btn" type="submit" onClick={() => setAuth(false)}>Далее</button>
-            </>
+              <button style={{ marginLeft: '220px' }} className="btnNext" type="submit" onClick={() => setAuth(false)}><span className="textInBtn">Далее</span></button>
+            </div>
           ) : (
             <>
-              <div>Образование</div>
-              <input name="education" className="input" type="text" value={inputMentor.education} onChange={(e) => inputHandler(e)} />
+              <div className="textOnInput">Образование</div>
+              <input name="education" className="inputAuth" type="text" value={inputMentor.education} onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />
-              <div>Место работы</div>
-              <input name="job" className="input" type="text" value={inputMentor.job} onChange={(e) => inputHandler(e)} />
+              <div className="textOnInput">Место работы</div>
+              <input name="job" className="inputAuth" type="text" value={inputMentor.job} onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />
-              <div>Профессиональная область</div>
-              <input name="profArea" className="input" type="text" value={inputMentor.profArea} onChange={(e) => inputHandler(e)} />
+              <div className="textOnInput">Профессиональная область</div>
+              <input name="profArea" className="inputAuth" type="text" value={inputMentor.profArea} onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />
-              <div>Профессиональные навыки</div>
-              <input name="profScill" className="input" type="text" value={inputMentor.profScill} onChange={(e) => inputHandler(e)} />
+              <div className="textOnInput">Профессиональные навыки</div>
+              <input name="profScill" className="inputAuth" type="text" value={inputMentor.profScill} onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />
-              <div>О себе</div>
-              <textarea name="aboutMe" className="input" type="text" value={inputMentor.aboutMe} onChange={(e) => inputHandler(e)} />
+              <div className="textOnInput">О себе</div>
+              <textarea name="aboutMe" className="inputAuth" type="text" value={inputMentor.aboutMe} onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />
-              <div>Портфолио</div>
-              <input name="portfolio" id="p1" className="input" type="text" placeholder="Введите ссылку" value={inputMentor.portfolio} onChange={(e) => inputHandler(e)} />
+              <div className="textOnInput">Портфолио</div>
+              <input name="portfolio" id="p1" className="inputAuth" type="text" placeholder="Введите ссылку" value={inputMentor.portfolio} onChange={(e) => inputHandler(e)} />
               <br />
               {' '}
               <br />
-
-              <button type="button" onClick={() => setAuth(true)}>Назад</button>
-              <button type="submit">Отправить</button>
+              <div className="nextButtons">
+                <button className="btnNext" type="button" onClick={() => setAuth(true)}><span className="textInBtn">Назад</span></button>
+                <button className="button-34" type="submit">Отправить</button>
+              </div>
             </>
           )}
       </form>

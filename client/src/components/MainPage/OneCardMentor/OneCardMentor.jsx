@@ -4,6 +4,7 @@ import '../../../App.css';
 import { useNavigate, Link } from 'react-router-dom';
 
 export default function OneMentorPage({ mentor }) {
+  console.log('mentor', mentor);
   const navigate = useNavigate();
   const clickHandler = (id) => {
     navigate(`/applications/${id}`);
@@ -42,7 +43,6 @@ export default function OneMentorPage({ mentor }) {
           {`${mentor?.price} руб / час`}
         </div>
         <div className="like">
-          👍
           <img className="iconStyle" src="icons/heart.png" alt="logo" />
         </div>
       </div>

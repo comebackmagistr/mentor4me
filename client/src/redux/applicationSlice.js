@@ -17,11 +17,6 @@ const getApplication = (input, id) => async (dispatch) => {
   dispatch(setApplication(res.data));
 };
 
-const showApplications = (id) => (dispatch) => {
-  axios(`/applications/${id}`)
-    .then((res) => dispatch(setApplication(res.data)));
-};
-
 export default applicationSlice.reducer;
 
-export { getApplication, showApplications };
+export { getApplication };

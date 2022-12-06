@@ -1,19 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { showApplications } from '../../../redux/applicationSlice';
+import { showReviews } from '../../../redux/reviewsSlice';
 import OneApplicationMentor from '../../OneApplicationMentor/OneApplicationMentor';
+import './OneMentorPage.css';
 
 export default function OneMentorPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const allMentors = useSelector((store) => store.userInfo);
   const oneMentor = allMentors.filter((mentor) => Number(mentor.id) === Number(id));
-  const applications = useSelector((store) => store.application);
-  //   console.log('applications', applications);
+
+  // ниже код для пагинации reviews
+  const reviews = useSelector((store) => store.reviews);
+  const [numberReviews, setNumberReviews] = useState(3);
+  const currReviews = reviews.slice(0, numberReviews);
 
   useEffect(() => {
-    dispatch(showApplications(id));
+    dispatch(showReviews(id));
   }, []);
 
   return (
@@ -53,9 +57,21 @@ export default function OneMentorPage() {
         </div>
       </div>
 
-      <div className="blockApplications">
-        {applications && applications.map((el) => <OneApplicationMentor key={el.id} application={el} />)}
+      <hr />
+      <div className="blockAllReview">
+        <div className="subReview">
+          <div className="titleReview">
+            Отзывы
+          </div>
+          <div className="btn">
+            <button onClick="" className="button-34" type="submit">Оставить отзыв</button>
+          </div>
+        </div>
 
+        {currReviews && currReviews.map((el) => <OneApplicationMentor key={el.id} review={el} />)}
+        <div className="btn">
+          <button onClick={() => setNumberReviews(numberReviews + 3)} className="button-34" type="submit">Еще отзывы</button>
+        </div>
       </div>
     </>
   );

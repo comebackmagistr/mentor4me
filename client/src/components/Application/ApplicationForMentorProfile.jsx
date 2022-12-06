@@ -23,9 +23,13 @@ export default function ApplicationForMentorProfile({ userId, oneApplication }) 
   return (
     <>
       <h1>Заявки</h1>
+      <div>
+        <div>Все заявки</div>
+      </div>
       {allApplicationOneMentor?.map((el) => (
         <ApplicationFormbutt el={el} />
       ))}
+      <div>Завершенные</div>
     </>
   );
 }

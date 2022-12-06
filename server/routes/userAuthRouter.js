@@ -42,10 +42,15 @@ router.post('/mentor', async (req, res) => {
   }
 });
 
-router.get('/check', (req, res) => {
+router.get('/check', async (req, res) => {
   try {
     if (req.session.user) {
-      return res.json(req.session.user);
+      if (req.session.user.mentor === true) {
+        const userMentor = await Mentor.findOne({ where: { id: req.session.user.id } });
+        return res.json(userMentor);
+      }
+      const userStudent = await Student.findOne({ where: { id: req.session.user.id } });
+      return res.json(userStudent);
     }
     return res.json({});
   } catch (error) {

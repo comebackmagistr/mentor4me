@@ -6,6 +6,7 @@ export const applicationSlice = createSlice({
   initialState: [],
   reducers: {
     setSearch: (state, action) => action.payload,
+    setApplication: (state, action) => action.payload,
   },
 });
 
@@ -16,6 +17,11 @@ const getApplication = (input, id) => async (dispatch) => {
   dispatch(setApplication(res.data));
 };
 
+const showApplications = (id) => (dispatch) => {
+  axios(`/applications/${id}`)
+    .then((res) => dispatch(setApplication(res.data)));
+};
+
 export default applicationSlice.reducer;
 
-export { getApplication };
+export { getApplication, showApplications };

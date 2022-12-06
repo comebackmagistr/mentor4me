@@ -3,7 +3,7 @@ import './OneCardMentor.css';
 import '../../../App.css';
 import { useNavigate, Link } from 'react-router-dom';
 
-export default function OneMentorPage({ mentor, loading }) {
+export default function OneMentorPage({ mentor }) {
   const navigate = useNavigate();
   const clickHandler = (id) => {
     navigate(`/applications/${id}`);

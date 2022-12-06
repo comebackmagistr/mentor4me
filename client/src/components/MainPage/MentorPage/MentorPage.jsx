@@ -6,7 +6,6 @@ import OneCardMentor from '../OneCardMentor';
 
 export default function MentorPage() {
   const mentors = useSelector((state) => state.userInfo);
-  const [allMentors, setAllMentors] = useState(mentors);
   const [numberMentors, setNumberMentors] = useState(3);
   const [currPage, setCurrPage] = useState(1);// текущая страница
   const [mentorPerPage] = useState(5);// кол-во отображаемых на 1 стр менторов
@@ -15,10 +14,6 @@ export default function MentorPage() {
   useEffect(() => {
     dispatch(showAllMentor());
   }, []);
-
-  const scrollHandler = (e) => {
-    console.log('scroll');
-  };
 
   const lastMentorIndex = currPage * mentorPerPage;// это число нужно менять
   const firstMentorIndex = lastMentorIndex - mentorPerPage;

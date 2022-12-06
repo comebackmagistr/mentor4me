@@ -1,44 +1,44 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Applications', [
+    await queryInterface.bulkInsert('Reviews', [
       {
         student_id: 1,
         mentor_id: 1,
-        text: 'Тупой олень не знает методов массива',
-        data: 2022,
+        comment: 'Тупой олень не знает методов массива',
+        rating: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         student_id: 1,
         mentor_id: 1,
-        text: 'Этот баран не умеет пользоваться sequelize',
-        data: 2022,
+        comment: 'Этот баран не умеет пользоваться sequelize',
+        rating: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         student_id: 1,
         mentor_id: 1,
-        text: 'Пердит на созвонах, хорошо что камера не передает запахи',
-        data: 2022,
+        comment: 'Пердит на созвонах, хорошо что камера не передает запахи',
+        rating: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         student_id: 1,
         mentor_id: 1,
-        text: 'Душный мудак,постоянно умничает',
-        data: 2022,
+        comment: 'Душный мудак,постоянно умничает',
+        rating: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         student_id: 1,
         mentor_id: 1,
-        text: 'Единственный нормальный тип из всех этих даунов',
-        data: 2022,
+        comment: 'Единственный нормальный тип из всех этих даунов',
+        rating: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
       },

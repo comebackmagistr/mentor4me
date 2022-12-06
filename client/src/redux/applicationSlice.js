@@ -22,6 +22,12 @@ const axiosApplication = () => (dispatch) => {
     .catch(() => dispatch(setSearch({})));
 };
 
+const axiosOneApplication = (userId) => (dispatch) => {
+  axios.get('/applications/applicationformentor', userId)
+    .then((res) => dispatch(setSearch(res.data)))
+    .catch(() => dispatch(setSearch({})));
+};
+
 export default applicationSlice.reducer;
 
-export { getApplication, axiosApplication };
+export { getApplication, axiosApplication, axiosOneApplication };

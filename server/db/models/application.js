@@ -20,9 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     mentor_id: DataTypes.INTEGER,
     text: DataTypes.TEXT,
     data: DataTypes.INTEGER,
-    video: DataTypes.STRING,
-    call: DataTypes.STRING,
-    chat: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Application',

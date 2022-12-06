@@ -5,6 +5,10 @@
     padding: 30px;
     border-radius: 5px;
 }
+
+.imgBlock {
+    min-width: 5%;
+}
 .imgCard {
     width: 150px;
     height: 130px;

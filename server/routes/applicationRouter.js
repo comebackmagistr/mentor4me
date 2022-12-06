@@ -36,7 +36,7 @@ router.get('/applicationformentor', async (req, res) => {
   }
 });
 
-router.get('/applicationformentor', async (req, res) => {
+router.get('/applicationformentor/:id', async (req, res) => {
   try {
     // const userId = req.session.user.id; // id авторизованного ментора
     const userId = 1; // хардкод

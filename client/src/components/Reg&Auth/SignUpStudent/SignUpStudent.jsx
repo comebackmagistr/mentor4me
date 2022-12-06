@@ -31,7 +31,10 @@ export default function SignUpTwo() {
       <p className="pReg">Регистрация студента</p>
 
       <form
-        onSubmit={(e) => submitInputs(e)}
+        onSubmit={(e) => {
+          submitInputs(e);
+          navigate('/input');
+        }}
         className="form"
         action=""
         method="post"

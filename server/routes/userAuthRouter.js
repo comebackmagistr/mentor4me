@@ -61,6 +61,7 @@ router.get('/check', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   const { email, password, isMentor } = req.body;
+  console.log(req.body);
   try {
     if (isMentor) {
       const findOneMentor = await Mentor.findOne({

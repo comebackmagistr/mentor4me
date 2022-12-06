@@ -3,7 +3,7 @@ const multer = require('multer');
 // создаем пространство, где будут храниться фото
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, 'public/');
+    cb(null, '../client/public/photos');
   },
   filename(req, file, cb) {
     cb(null, `${new Date().toISOString()}-${file.originalname}.png`);

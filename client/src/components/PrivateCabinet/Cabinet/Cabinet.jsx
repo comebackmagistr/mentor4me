@@ -64,7 +64,7 @@ export default function Profile() {
                 <CardMedia
                   component="img"
                   height="140"
-                  image={user?.photo}
+                  image={`/photos/${user?.photo}`}
                   alt="photo"
                 />
                 <Typography variant="body2" color="text.secondary">

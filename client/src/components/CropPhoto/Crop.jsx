@@ -1,9 +1,13 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUser } from '../../redux/userSlice';
 import FileInput from './FileInput';
 import ImageCropper from './ImageCropper';
 
 function Crop() {
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.user);
   const [image, setImage] = useState('');
   const [currentPage, setCurrentPage] = useState('choose-img');
   const [imgAfterCrop, setImgAfterCrop] = useState('');
@@ -38,15 +42,28 @@ function Crop() {
         imgCroppedArea.height,
       );
       const dataURL = canvasEle.toDataURL('image/jpeg');
-      console.log(dataURL);
       canvasEle.toBlob((newImg) => {
         const formFile = new FormData();
-        formFile.append('crop', newImg, 'filename');
-        fetch('http://localhost:3001/cropped/mentor', {
-          method: 'POST',
-          'Content-Type': 'mulpipart/form-data',
-          body: formFile,
-        }).then(console.log).catch(console.log);
+        formFile.append('crop', newImg, user.id);
+        if (user.mentor === true) {
+          fetch('http://localhost:3001/cropped/mentor', {
+            method: 'POST',
+            'Content-Type': 'mulpipart/form-data',
+            body: formFile,
+          })
+            .then((res) => res.json())
+            .then((data) => dispatch(setUser((data))))
+            .catch(console.log);
+        } else {
+          fetch('http://localhost:3001/cropped/student', {
+            method: 'POST',
+            'Content-Type': 'mulpipart/form-data',
+            body: formFile,
+          })
+            .then((res) => res.json())
+            .then((data) => dispatch(setUser((data))))
+            .catch(console.log);
+        }
 
         // на фронте отображаем <img src={'http://localhost:3001/'+imageName}
       });

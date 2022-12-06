@@ -5,27 +5,26 @@ import { useSelector } from 'react-redux';
 export default function OneMentorPage() {
   const { id } = useParams();
   const allMentors = useSelector((store) => store.userInfo);
-  const oneMentor = allMentors[Number(id) - 1];
-
+  const oneMentor = allMentors.filter((mentor) => Number(mentor.id) === Number(id));
   return (
     <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
       <div className="imgBlock">
-        <img src={oneMentor?.photo} alt="img" className="imgCard" />
+        <img src={`/photos/${oneMentor[0]?.photo}`} alt="img" className="imgCard" />
         <p className="reiting">9 / 10</p>
       </div>
       <div className="textCard">
-        <div className="subtitleCard">{`${oneMentor?.firstName} ${oneMentor?.lastName}`}</div>
+        <div className="subtitleCard">{`${oneMentor[0]?.firstName} ${oneMentor[0]?.lastName}`}</div>
         <div className="jobName">
-          {oneMentor?.profArea}
+          {oneMentor[0]?.profArea}
           {' '}
           - тупица
         </div>
         <div className="mentorDescr">
-          {oneMentor?.aboutMe}
+          {oneMentor[0]?.aboutMe}
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis atque pariatur minima quo, vitae minus labore quaerat temporibus odio aperiam aspernatur rerum provident molestias, recusandae ducimus ipsam. Illo, error mollitia.
         </div>
         <div className="scill">
-          {oneMentor?.profScill.split(',').map((el) => (
+          {oneMentor[0]?.profScill.split(',').map((el) => (
             <div className="scillBlock" key={el}>
               <div className="skillItem">{el}</div>
             </div>

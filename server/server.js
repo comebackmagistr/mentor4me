@@ -10,6 +10,7 @@ const cropStudentPhotoRouter = require('./routes/cropStudentPhotoRouter');
 const userAuthRouter = require('./routes/userAuthRouter');
 const applicationRouter = require('./routes/applicationRouter');
 const eventRouter = require('./routes/eventRouter');
+const reviewsRouter = require('./routes/reviewsRouter');
 
 require('dotenv').config();
 
@@ -47,5 +48,6 @@ app.use('/applications', applicationRouter);
 app.use('/cropped/mentor', cropMentorPhotoRouter);
 app.use('/cropped/student', cropStudentPhotoRouter);
 app.use('/event', eventRouter);
+app.use('/reviews', reviewsRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

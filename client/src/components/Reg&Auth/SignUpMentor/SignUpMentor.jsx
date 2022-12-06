@@ -40,7 +40,7 @@ export default function SignUp() {
   };
   return (
     <div className="main">
-      <p className="pReg">Регистрация</p>
+      <p className="pReg">Регистрация ментора</p>
 
       <form
         onSubmit={(e) => {

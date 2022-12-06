@@ -15,7 +15,9 @@ export default function MainPage() {
             персонального ментора
           </div>
           <div className="contentText">
-            Найди ментора для индивидуальных консультаций в соответствии со своими целями и интересами.
+            Найди ментора для индивидуальных консультаций
+            <br />
+            в соответствии со своими целями и интересами.
           </div>
           <div className="contentButton">
             <button onClick="" className="buttonLeft" type="button"><span className="textButton">Найти ментора</span></button>
@@ -23,7 +25,7 @@ export default function MainPage() {
           </div>
         </div>
         <div className="mentorPhoto">
-          <img className="imgMentor" src="/images/mentorHeader.svg" alt="1" />
+          <img className="imgMentor" src="/images/img7.png" alt="1" />
         </div>
       </div>
 

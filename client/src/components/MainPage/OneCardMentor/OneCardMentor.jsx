@@ -3,7 +3,8 @@ import './OneCardMentor.css';
 import '../../../App.css';
 import { useNavigate, Link } from 'react-router-dom';
 
-export default function OneMentorPage({ mentor, loading }) {
+export default function OneMentorPage({ mentor }) {
+  console.log('mentor', mentor);
   const navigate = useNavigate();
   const clickHandler = (id) => {
     navigate(`/applications/${id}`);
@@ -26,7 +27,7 @@ export default function OneMentorPage({ mentor, loading }) {
         </div>
         <div className="mentorDescr">
           {mentor?.aboutMe}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis atque pariatur minima quo, vitae minus labore quaerat temporibus odio aperiam aspernatur rerum provident molestias, recusandae ducimus ipsam. Illo, error mollitia.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur aliquid, ad illum laudantium eius laboriosam dolores ea repellat eos repudiandae harum, quibusdam accusantium animi asperiores voluptas deleniti necessitatibus adipisci dignissimos!
         </div>
         <div className="scill">
           {Array.isArray(mentor?.profScill) && mentor?.profScill.split(',').map((el) => (
@@ -42,7 +43,6 @@ export default function OneMentorPage({ mentor, loading }) {
           {`${mentor?.price} руб / час`}
         </div>
         <div className="like">
-          👍
           <img className="iconStyle" src="icons/heart.png" alt="logo" />
         </div>
       </div>

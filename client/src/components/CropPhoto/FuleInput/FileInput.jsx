@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import './FileInput.css';
 
 function FileInput({ onImageSelected }) {
   // useRef - хранение ссылки на html-элементы внутри компонента
@@ -21,6 +22,7 @@ function FileInput({ onImageSelected }) {
 
   return (
     <div>
+      <h3>Добавьте фотографию </h3>
       <input
         type="file"
         accept="image/*"
@@ -30,8 +32,9 @@ function FileInput({ onImageSelected }) {
         style={{ display: 'none' }}
       />
       <button type="button" className="btn" onClick={onChooseImg}>
-        Choose Image
+        <img src="/images/camera.png" alt="oop" />
       </button>
+      <p>Загрузите свою фотографию (поддерживаемые форматы JPEG, PNG, JPG, GIF)</p>
     </div>
   );
 }

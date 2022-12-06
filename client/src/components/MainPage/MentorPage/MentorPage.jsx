@@ -20,7 +20,8 @@ export default function MentorPage() {
       <h2 className="title">Наши менторы</h2>
       {currMentor && currMentor?.map((el) => <OneCardMentor key={el.id} mentor={el} />)}
       <div className="btn">
-        <button onClick={() => setNumberMentors(numberMentors + 3)} className="button-34" type="submit">Подгрузить</button>
+        {numberMentors > currMentor.length ? (null) : (<button onClick={() => setNumberMentors(numberMentors + 3)} className="button-34" type="submit">Подгрузить</button>)}
+
       </div>
     </section>
 

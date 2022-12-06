@@ -10,13 +10,25 @@ export const applicationSlice = createSlice({
   },
 });
 
-export const { setApplication } = applicationSlice.actions;
+export const { setApplication, setSearch } = applicationSlice.actions;
 
 const getApplication = (input, id) => async (dispatch) => {
   const res = await axios.post(`/applications/${id}`, input, id);
   dispatch(setApplication(res.data));
 };
 
+const axiosApplication = () => (dispatch) => {
+  axios.get('/applications/applicationformentor')
+    .then((res) => dispatch(setSearch(res.data)))
+    .catch(() => dispatch(setSearch({})));
+};
+
+const axiosOneApplication = (userId) => (dispatch) => {
+  axios.get('/applications/applicationformentor', userId)
+    .then((res) => dispatch(setSearch(res.data)))
+    .catch(() => dispatch(setSearch({})));
+};
+
 export default applicationSlice.reducer;
 
-export { getApplication };
+export { getApplication, axiosApplication, axiosOneApplication };

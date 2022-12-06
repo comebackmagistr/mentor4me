@@ -30,8 +30,8 @@ export const axiosDelete = (id) => (dispatch) => {
     .then(() => dispatch(deleteEvent(id)))
     .catch(console.log);
 };
-export const axiosEdit = (id, input) => (dispatch) => {
-  axios.patch(`/event/${id}`, { text: input })
+export const axiosEdit = ({ id, input }) => (dispatch) => {
+  axios.patch(`/event/${id}`, input)
     .then((res) => dispatch(updateEvent(res.data)))
     .catch(console.log);
 };

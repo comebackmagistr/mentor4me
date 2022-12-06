@@ -19,4 +19,37 @@ router.post('/:id', async (req, res) => {
   }
 });
 
+router.get('/applicationformentor', async (req, res) => {
+  // const userId = req.session.user.id; // id авторизованного ментора
+  const userId = 1; // хардкод
+  try {
+    const applications = await Application.findAll({
+      order: [['createdAt', 'DESC']],
+      where: { mentor_id: userId },
+      include: [{
+        model: Student,
+      }],
+    });
+    res.json(applications);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get('/applicationformentor/:id', async (req, res) => {
+  try {
+    // const userId = req.session.user.id; // id авторизованного ментора
+    const userId = 1; // хардкод
+    const oneApplication = await Application.findOne({
+      where: { mentor_id: userId },
+      include: [{
+        model: Student,
+      }],
+    });
+    res.json(oneApplication, userId);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;

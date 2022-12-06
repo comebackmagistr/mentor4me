@@ -57,15 +57,13 @@ export default function NavBar() {
             <Link className="mainTextNavbar" to="/">MENTOR4ME</Link>
           </Typography>
           <Link className="linkInNav" to="/about">О нас</Link>
-          <Link className="linkInNav" to="/calendar">Календарь</Link>
-          <Link className="linkInNav" to="/update">Update</Link>
-          <Link className="linkInNav" to="/add">AddEvent</Link>
+          <Link className="linkInNav" to="/mentor">Наши менторы</Link>
 
-          {userIsAuth.firstName ? (
+          {userIsAuth?.firstName ? (
             <>
               <Link className="linkInNav" to="/profile">Профиль</Link>
               <Link className="linkInNav" to="/search">Поиск</Link>
-              {/* <Link className="linkInNav" to="/calendar">Календарь</Link> */}
+              <Link className="linkInNav" to="/calendar">Календарь</Link>
               <Link className="linkInNav" to="/applications">Заявки</Link>
               <Link className="linkInNav" to="/mentor">Наши менторы</Link>
               <Link className="linkInNav" onClick={() => dispatch(getLogout())} to="/">Выход</Link>
@@ -85,16 +83,10 @@ export default function NavBar() {
             <>
               <div>
                 <Button
-                  className="linkInNav"
+                  id="buttonInNav"
                   variant="outlined"
                   color="inherit"
                   onClick={handleOpen}
-                  style={{
-                    border: 'none',
-                    font: 'inherit',
-                    color: 'inherit',
-                    // backgroundColor: 'transparent',
-                  }}
                 >
                   Регистрация
 
@@ -118,7 +110,7 @@ export default function NavBar() {
                   </DialogActions>
                 </Dialog>
               </div>
-              <Link className="linkInNav" to="/user/login">Login</Link>
+              <Link className="linkInNav" to="/user/login">Авторизация</Link>
             </>
           )}
 

@@ -69,6 +69,7 @@ router.post('/login', async (req, res) => {
           email,
         },
       });
+      console.log(findOneMentor);
       const isValid = await compare(password, findOneMentor.password);
       if (isValid) {
         req.session.user = {

@@ -2,7 +2,7 @@ import React from 'react';
 import './OneApplicationMentor.css';
 
 export default function OneApplicationMentor({ review }) {
-//   console.log('review', review);
+  console.log('review', review);
   return (
     <div className="blockReview" data-wow-duration="1.2s" data-wow-delay="0.8s">
       <div className="imgBlock">

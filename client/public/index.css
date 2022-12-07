@@ -14,7 +14,7 @@ body{
 }
 
 .footer {
-  height: 180px;
+  flex-shrink: 0;
 }
 
 .avatarProfile {

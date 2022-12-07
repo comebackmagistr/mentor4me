@@ -32,8 +32,11 @@ export default function SignUpTwo() {
       <header>Регистрация (студент)</header>
 
       <form
+        onSubmit={(e) => {
+          submitInputs(e);
+          navigate('/input');
+        }}
         className="form"
-        onSubmit={(e) => submitInputs(e)}
         action=""
         method="post"
       >

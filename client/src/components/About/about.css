@@ -3,7 +3,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 7em;
 }
 
 .leftBlock {
@@ -23,7 +22,6 @@
 .buttons {
     display: flex;
     flex-direction: row;
-    margin-top: 12%;
     height: 72px;
     margin-left: -779px;
 }

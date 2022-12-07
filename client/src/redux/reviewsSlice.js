@@ -6,13 +6,23 @@ const reviewsSlice = createSlice({
   initialState: [],
   reducers: {
     setReviews: (state, action) => action.payload,
+    setOneReview: (state, action) => [...state, action.payload],
   },
+
 });
-export const { setReviews } = reviewsSlice.actions;
+export const { setReviews, setOneReview } = reviewsSlice.actions;
+
+export const postReview = (input, id) => (dispatch) => {
+  console.log(input);
+  axios.post(`/reviews/${id}`, input)
+    .then((res) => dispatch(setOneReview(res.data)))
+    .catch(console.log);
+};
 
 export const showReviews = (id) => (dispatch) => {
   axios(`/reviews/${id}`)
-    .then((res) => dispatch(setReviews(res.data)));
+    .then((res) => dispatch(setReviews(res.data)))
+    .catch(console.log);
 };
 
 export default reviewsSlice.reducer;

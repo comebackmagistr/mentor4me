@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ru } from 'date-fns/locale';
 import { Box, Input, TextField } from '@mui/material';
-import Textarea from '@mui/joy/Textarea';
+// import Textarea from '@mui/joy/Textarea';
 
 import { axiosSubmitEvent } from '../../redux/eventSlice';
 

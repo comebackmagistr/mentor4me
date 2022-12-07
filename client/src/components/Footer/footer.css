@@ -10,6 +10,12 @@
     /* padding-bottom: 10px; */
 }
 
+.copyraiting {
+    /* position: absolute; */
+    margin-top: 3%;
+    margin-left: 40%;
+}
+
 .footerList {
     margin-top: 26px;
     display: flex;

@@ -39,7 +39,6 @@ export default function OneMentorPage() {
     setOpen(false);
   };
 
-  const navigate = useNavigate();
   /// / ниже логика на отправку отзыва
 
   const [inputReview, setInputReview] = useState({ comment: '', rating: '' });

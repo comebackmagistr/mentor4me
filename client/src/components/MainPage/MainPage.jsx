@@ -1,9 +1,17 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../App.css';
 import './MainPage.css';
 import MentorPage from './MentorPage';
 
 export default function MainPage() {
+  const navigate = useNavigate();
+  // const clickHandlerStudent1 = () => {
+  //   navigate('/signup/student');
+  // };
+  const clickHandlerMentor1 = () => {
+    navigate('/signup/mentor');
+  };
   return (
     <section className="mainPage">
 
@@ -20,8 +28,22 @@ export default function MainPage() {
             в соответствии со своими целями и интересами.
           </div>
           <div className="contentButton">
-            <button onClick="" className="buttonLeft" type="button"><span className="textButton">Найти ментора</span></button>
-            <button onClick="" className="buttonRight" type="button"><span className="textButton">Стать ментором</span></button>
+            <Link to="/signup/student">
+              <button className="buttonLeft" type="button">
+                <span className="textButton">
+                  Найти ментора
+                </span>
+              </button>
+            </Link>
+
+            {/*
+              <button className="buttonLeft" type="button">
+                <span className="textButton">
+                  Найти ментора
+                </span>
+              </button>
+            */}
+            <button onClick={() => clickHandlerMentor1()} className="buttonRight" type="button"><span className="textButton">Стать ментором</span></button>
           </div>
         </div>
         <div className="mentorPhoto">
@@ -41,7 +63,7 @@ export default function MainPage() {
               Выберите ментора
             </div>
             <div className="numberText">
-              по интерисующему Вас направлению
+              по интерeсующему Вас направлению
             </div>
           </div>
 
@@ -77,9 +99,9 @@ export default function MainPage() {
             </div>
           </div>
         </div>
-        <div className="btnNumber">
+        {/* <div className="btnNumber">
           <button onClick="" className="buttonStart" type="submit"><span className="textButton">Начать</span></button>
-        </div>
+        </div> */}
 
       </div>
 

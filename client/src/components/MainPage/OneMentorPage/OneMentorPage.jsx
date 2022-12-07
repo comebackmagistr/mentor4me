@@ -9,6 +9,7 @@ import { postReview, showReviews } from '../../../redux/reviewsSlice';
 import OneApplicationMentor from '../../OneApplicationMentor/OneApplicationMentor';
 import './OneMentorPage.css';
 import { showAllMentor } from '../../../redux/userInfoSlice';
+import { getApplication } from '../../../redux/applicationSlice';
 
 export default function OneMentorPage() {
   const dispatch = useDispatch();
@@ -38,7 +39,6 @@ export default function OneMentorPage() {
     setOpen(false);
   };
 
-  const navigate = useNavigate();
   /// / ниже логика на отправку отзыва
 
   const [inputReview, setInputReview] = useState({ comment: '', rating: '' });
@@ -53,6 +53,11 @@ export default function OneMentorPage() {
   };
   // ниже логика reting input в модалке
 
+  // подать заявку
+  const navigate = useNavigate();
+  const clickHandlerApplic = () => {
+    navigate(`/applications/${id}`);
+  };
   return (
     <>
       <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
@@ -84,11 +89,11 @@ export default function OneMentorPage() {
           </div>
         </div>
         <div className="priceBlock">
-          <button className="button-36" onClick={() => clickHandler(oneMentor.id)} type="button">Подать заявку</button>
+          <button className="button-36" type="button" onClick={() => clickHandlerApplic(oneMentor.id)}>Подать заявку</button>
           <div className="price">
             Расписание на ближайшее время
           </div>
-          <div className="like">
+          <div className="likeraspisanie">
             Посмотреть все расписание
           </div>
         </div>
@@ -101,7 +106,7 @@ export default function OneMentorPage() {
         <div>
           <Dialog open={open} onClose={handleClose}>
             {/* <DialogTitle>Subscribe</DialogTitle> */}
-            <DialogContent style={{ width: '500px' }}>
+            <DialogContent style={{ width: '500px', height: '180px' }}>
               <TextField
                 type="text"
                 value={inputReview?.comment}
@@ -109,7 +114,7 @@ export default function OneMentorPage() {
                 onChange={(e) => inputHandler(e)}
                 id="outlined-multiline-static"
                 label="Напишите отзыв . . ."
-                multiline
+                // multiline
                 rows={4}
                 name="comment"
               />

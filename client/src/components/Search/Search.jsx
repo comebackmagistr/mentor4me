@@ -33,7 +33,7 @@ export default function Search() {
           <span>Поиск ментора</span>
         </div>
         <div className="groupSearch">
-          <input className="searchInput" name="title" type="text" placeholder="введите желаемую специализацию" />
+          <input className="searchInput" name="title" type="text" placeholder="Введите желаемую специализацию" />
           <button className="searchButton" type="submit">
             <img src="./icons/Vector.png" alt="searchPhoto" />
           </button>

@@ -1,55 +1,60 @@
 const express = require('express');
-const { Application, Review, Student } = require('../db/models');
+const {
+  Application, Review, Student, Status, Mentor,
+} = require('../db/models');
 
 const router = express.Router();
 
-router.post('/:id', async (req, res) => {
-  const { id } = req.params;
+router.post('/', async (req, res) => {
   const userId = req.session.user.id;
   const {
     video, call, chat, text,
-  } = req.body;
+  } = req.body.input;
+  const { id } = req.body;
+  console.log('video:', video, 'call:', call, 'chat:', chat, 'text:', text);
   try {
     const application = await Application.create({
-      video, call, chat, text, mentor_id: id, student_id: userId,
+      text, mentor_id: id, student_id: userId, video, call, chat,
     });
-    res.json({ application, id });
+    const applicationStatus = await Status.create({
+      application_id: application.id, status: null,
+    });
+    res.json(applicationStatus);
   } catch (error) {
     console.log(error);
   }
 });
 
-router.get('/applicationformentor', async (req, res) => {
-  // const userId = req.session.user.id; // id авторизованного ментора
-  const userId = 1; // хардкод
-  try {
-    const applications = await Application.findAll({
-      order: [['createdAt', 'DESC']],
-      where: { mentor_id: userId },
-      include: [{
-        model: Student,
-      }],
-    });
-    res.json(applications);
-  } catch (error) {
-    console.log(error);
-  }
+router.get('/student', async (req, res) => {
+  const findAllApplications = await Application.findAll({
+    where: {
+      student_id: req.session.user.id,
+    },
+    include: [{ model: Status }, { model: Mentor }],
+  });
+  res.json(findAllApplications);
 });
 
-router.get('/applicationformentor/:id', async (req, res) => {
-  try {
-    // const userId = req.session.user.id; // id авторизованного ментора
-    const userId = 1; // хардкод
-    const oneApplication = await Application.findOne({
-      where: { mentor_id: userId },
-      include: [{
-        model: Student,
-      }],
-    });
-    res.json(oneApplication, userId);
-  } catch (error) {
-    console.log(error);
-  }
+router.get('/mentor', async (req, res) => {
+  const findAllApplications = await Application.findAll({
+    where: {
+      mentor_id: req.session.user.id,
+    },
+    include: [{ model: Status }, { model: Student }],
+  });
+  res.json(findAllApplications);
+});
+
+router.post('/status', async (req, res) => {
+  const { status, comments, application_id } = req.body;
+  await Status.update({ status, comments }, { where: { application_id } });
+  const findAllApplications = await Application.findAll({
+    where: {
+      mentor_id: req.session.user.id,
+    },
+    include: [{ model: Status }, { model: Student }]
+  });
+  res.json(findAllApplications);
 });
 
 module.exports = router;

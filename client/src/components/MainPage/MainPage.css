@@ -10,7 +10,9 @@
     max-height: 837.28px;
 }
 .mentorLeft {
-    z-index: -1;
+    /* min-width: 60%; */
+    /* z-index: -1; */
+
     margin-top: 130px;
 }
 

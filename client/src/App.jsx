@@ -20,7 +20,6 @@ import Application from './components/Application/Application';
 import OneCardApplication from './components/Application/OneCardApplication/OneCardApplication';
 import PageError from './components/PageError/PageError';
 import Footer from './components/Footer';
-import ApplicationForMentorProfile from './components/Application/ApplicationForMentorProfile';
 import OneMentorPage from './components/MainPage/OneMentorPage';
 import Gracies from './components/Gracies/Gracies';
 import SoundList from './components/Search/SoundList';
@@ -37,7 +36,6 @@ function App() {
         <Route element={<MainPage />} path="/" />
         <Route element={<Cabinet />} path="/profile" />
         <Route element={<Application />} path="/applications" />
-        <Route element={<ApplicationForMentorProfile />} path="/applicationformentor" />
         <Route element={<OneMentorPage />} path="/mentorinfo/:id" />
         <Route element={<OneCardApplication />} path="/applications/:id" />
         <Route element={<Search />} path="/search" />

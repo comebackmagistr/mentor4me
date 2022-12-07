@@ -36,6 +36,6 @@ module.exports = {
     'import/no-cycle': 0,
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/click-events-have-key-events': 0,
-    camelcase: 0,
+    'no-nested-ternary': 0,
   },
 };

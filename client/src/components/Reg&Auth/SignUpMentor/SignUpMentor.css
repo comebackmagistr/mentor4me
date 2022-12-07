@@ -109,3 +109,27 @@ textarea{
   color: red;
   font-weight: 400;
 }
+
+.textOnInput{
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.39;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.flex{
+  display: flex;
+  column-gap: 43px;
+}
+
+.inputAuthCheckbox{
+  font-size: 18px;
+  line-height: 1.38;
+}
+
+input[type='checkbox']{
+  margin-right: 10.65px;
+}

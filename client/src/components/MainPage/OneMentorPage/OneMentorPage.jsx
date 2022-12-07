@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField,
@@ -38,6 +38,7 @@ export default function OneMentorPage() {
     setOpen(false);
   };
 
+  const navigate = useNavigate();
   /// / ниже логика на отправку отзыва
 
   const [inputReview, setInputReview] = useState({ comment: '', rating: '' });
@@ -83,7 +84,7 @@ export default function OneMentorPage() {
           </div>
         </div>
         <div className="priceBlock">
-          <button className="button-36" type="button">Подать заявку</button>
+          <button className="button-36" onClick={() => clickHandler(oneMentor.id)} type="button">Подать заявку</button>
           <div className="price">
             Расписание на ближайшее время
           </div>

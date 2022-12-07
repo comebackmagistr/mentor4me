@@ -4,7 +4,8 @@
     border: 1px solid  #673FD7;
     padding: 30px;
     border-radius: 5px;
-    max-height: 200px;
+    /* max-height: 200px; */
+    max-width: 100%;
 }
 
 .imgBlock {
@@ -22,6 +23,7 @@
     min-width: 63%;
     margin-left: 130px;
     padding-right: 60px;
+    min-width: 57%
 }
 .subtitleCard {
     color: #0d0d0d;

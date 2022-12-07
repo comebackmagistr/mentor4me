@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getApplication } from '../../../redux/applicationSlice';
 
-export default function OneCardApplication({ el }) {
+export default function OneCardApplication() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [application, setApplication] = useState({

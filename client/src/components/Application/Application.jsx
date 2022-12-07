@@ -1,39 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams, useLocation } from 'react-router-dom';
-import OneCardMentor from '../MainPage/OneCardMentor';
-import { setUserInfo, showAllMentor, showMentor } from '../../redux/userInfoSlice';
-import ApplicationForMentorProfile from './ApplicationForMentorProfile';
+import { getAllApplicationMentor, getAllApplicationStudent } from '../../redux/applicationSlice';
+import ApplicationFormbutt from './ApplicationFormbutt';
+import ApplicationFormMentor from './ApplicationFormMentor';
 
 export default function Application() {
   const user = useSelector((store) => store.user);
-  console.log(user.isMentor, 'idisisisisi');
-  const mentors = useSelector((store) => store.userInfo);
-  const allMentor = useSelector((store) => store.mentor);
+  const allApplications = useSelector((store) => store.application);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(showAllMentor());
-  }, []);
-  const navigate = useNavigate();
-  const clickHandler = (id) => {
-    navigate(`/applications/${id}`);
-  };
+    user?.mentor ? dispatch(getAllApplicationMentor()) : dispatch(getAllApplicationStudent());
+  }, [user]);
 
   return (
     <div>
-      {!user?.isMentor === true ? (
+      {user?.mentor === true ? (
         <div>
-          <div>Шаг 1: Выберите ментора</div>
-          <div className="card">
-            {mentors.map((el) => (
-              <OneCardMentor key={el.id} mentor={el} />
-            ))}
-          </div>
+          Мои заявки:
+          {allApplications.length > 0 ? (
+            <>
+              {allApplications.map((el) => <ApplicationFormMentor el={el} />)}
+            </>
+          ) : (
+            <span>Заявок пока нет.</span>
+          )}
         </div>
       )
         : (
           <div>
-            <ApplicationForMentorProfile />
+            Мои заявки:
+            {allApplications.length > 0 ? (
+              <>
+                {allApplications.map((el) => <ApplicationFormbutt el={el} />)}
+              </>
+            ) : (
+              <span>Заявок пока нет.</span>
+            )}
           </div>
         )}
     </div>

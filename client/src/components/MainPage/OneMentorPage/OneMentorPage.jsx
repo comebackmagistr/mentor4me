@@ -63,7 +63,7 @@ export default function OneMentorPage() {
       <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
         <div className="imgBlock">
           <img src={`/photos/${oneMentor[0]?.photo}`} alt="img" className="imgCard" />
-          <p className="reiting">9 / 10</p>
+          {/* <p className="reiting">9 / 10</p> */}
         </div>
         <div className="textCard">
           <div className="subtitleCard">{`${oneMentor[0]?.firstName} ${oneMentor[0]?.lastName}`}</div>
@@ -139,7 +139,7 @@ export default function OneMentorPage() {
           </Dialog>
         </div>
         {/* модалка на отправку отзыва */}
-
+        <div className="push" />
         <div className="subReview">
           <div className="titleReview">
             Отзывы
@@ -152,14 +152,14 @@ export default function OneMentorPage() {
               className="button-34"
               type="submit"
             >
-              <span className="btnText">Оставить отзыв</span>
+              <span className="button-36 styleleft">Оставить отзыв</span>
             </Button>
           </div>
         </div>
 
         {currReviews && currReviews.map((el) => <OneApplicationMentor key={el.id} review={el} />)}
         <div className="btnDiv">
-          {numberReviews > currReviews.length ? (null) : (<button onClick={() => setNumberReviews(numberReviews + 3)} className="button-34" type="submit">Еще отзывы</button>)}
+          {numberReviews > currReviews.length ? (null) : (<button onClick={() => setNumberReviews(numberReviews + 3)} className="button-34 stylelefty" type="submit">Еще отзывы</button>)}
         </div>
       </div>
     </>

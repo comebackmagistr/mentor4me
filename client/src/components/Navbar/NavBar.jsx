@@ -100,7 +100,7 @@ export default function NavBar() {
                   aria-describedby="alert-dialog-description"
                 >
                   <DialogTitle id="alert-dialog-title" style={{ textAlign: 'center' }}>
-                    Выбери Ментор ты или студент позорный
+                    Зарегистрироваться как Ментор или Студент?
                   </DialogTitle>
                   <DialogActions style={{
                     display: 'flex',

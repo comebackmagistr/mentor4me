@@ -42,6 +42,7 @@ function Crop() {
         imgCroppedArea.height,
       );
       const dataURL = canvasEle.toDataURL('image/jpeg');
+      console.log(dataURL);
       canvasEle.toBlob((newImg) => {
         const formFile = new FormData();
         formFile.append('crop', newImg, user.id);
@@ -107,7 +108,7 @@ function Crop() {
             Crop
           </button> */}
 
-          {/* <button
+          <button
             type="button"
             onClick={() => {
               setCurrentPage('choose-img');
@@ -116,7 +117,7 @@ function Crop() {
             className="btn"
           >
             New Image
-          </button> */}
+          </button>
         </div>
       )}
     </div>

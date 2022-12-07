@@ -43,11 +43,17 @@ export default function OneMentorPage() {
   const inputHandler = (e) => {
     setInputReview((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-  console.log('inputReview', inputReview);
+  //   console.log('inputReview', inputReview);
 
   const submitInputs = () => {
-    // e.preventDefault();
-    dispatch(postReview(inputReview));
+    handleClose();
+    dispatch(postReview(inputReview, id));
+  };
+  // ниже логика reting input в модалке
+  const [currency, setCurrency] = React.useState('EUR');
+
+  const handleChange = (event) => {
+    setCurrency(event.target.value);
   };
 
   return (
@@ -111,15 +117,20 @@ export default function OneMentorPage() {
                 name="comment"
               />
               <TextField
-                type="text"
-                value={inputReview?.rating}
-                style={{ width: '20%' }}
-                onChange={(e) => inputHandler(e)}
-                id="outlined-multiline-static"
-                label="Rating . . ."
-                multiline
+                style={{ width: '20%', marginTop: '20px' }}
                 name="rating"
+                type="text"
+                id="outlined-select-currency-native"
+                select
+                label="Reiting"
+                value={currency}
+                onChange={(e) => inputHandler(e)}
+                SelectProps={{
+                  native: true,
+                }}
+                variant="outlined"
               />
+
             </DialogContent>
             <DialogActions>
               <Button onClick={() => submitInputs()} color="primary">

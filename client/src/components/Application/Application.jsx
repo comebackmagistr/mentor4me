@@ -29,7 +29,7 @@ export default function Application() {
         : (
           <div>
             Мои заявки:
-            {allApplications.length > 0 ? (
+            {allApplications.lengt > 0 ? (
               <>
                 {allApplications.map((el) => <ApplicationFormbutt el={el} />)}
               </>

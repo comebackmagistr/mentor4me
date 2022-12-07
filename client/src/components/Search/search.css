@@ -63,6 +63,7 @@ background: linear-gradient(349.23deg, #BD5BEE 38.81%, #3F6FF7 103.64%, #A160F0 
     color: #0078FC;
     text-align: center;
     border-radius: 5px ;
+    height: 2rem;
 }
 
 input[type="number"]::-webkit-outer-spin-button,

@@ -71,3 +71,10 @@ body {
 .form button:hover {
   background: rgb(88, 56, 250);
 }
+
+.inpucheckbox-container {
+  margin-top: 9px;
+  
+}
+
+

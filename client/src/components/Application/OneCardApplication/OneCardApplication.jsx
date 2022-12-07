@@ -28,20 +28,22 @@ export default function OneCardApplication({ el }) {
         <div className="input-box">
           <label>Выберите формат консультации</label>
         </div>
-        <div>
-          <p>
+
+        <div className="inpucheckbox-container" style={{ marginTop: '9px' }}>
+          <label className="inputAuthCheckbox" htmlFor="htmlvideo">
             <input type="checkbox" name="video" value={application.video} onChange={(e) => setApplication((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} />
             Видео
-          </p>
-          <p>
+          </label>
+          <label className="inputAuthCheckbox" htmlFor="htmlcall">
             <input type="checkbox" name="call" value={application.call} onChange={(e) => setApplication((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} />
             Звонок
-          </p>
-          <p>
+          </label>
+          <label className="inputAuthCheckbox" htmlFor="htmlchat">
             <input type="checkbox" name="chat" value={application.chat} onChange={(e) => setApplication((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} />
             Чат
-          </p>
+          </label>
         </div>
+
         <div className="input-box">
           <label>Опишите интересующий Вас вопрос</label>
           <input

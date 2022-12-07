@@ -84,7 +84,7 @@ export default function OneMentorPage() {
           </div>
         </div>
         <div className="priceBlock">
-          <button className="button-36" onClick={() => clickHandler(oneMentor.id)} type="button">Подать заявку</button>
+          <button className="button-36" type="button">Подать заявку</button>
           <div className="price">
             Расписание на ближайшее время
           </div>
@@ -101,7 +101,7 @@ export default function OneMentorPage() {
         <div>
           <Dialog open={open} onClose={handleClose}>
             {/* <DialogTitle>Subscribe</DialogTitle> */}
-            <DialogContent style={{ width: '500px' }}>
+            <DialogContent style={{ width: '500px', height: '180px' }}>
               <TextField
                 type="text"
                 value={inputReview?.comment}
@@ -109,7 +109,7 @@ export default function OneMentorPage() {
                 onChange={(e) => inputHandler(e)}
                 id="outlined-multiline-static"
                 label="Напишите отзыв . . ."
-                multiline
+                // multiline
                 rows={4}
                 name="comment"
               />

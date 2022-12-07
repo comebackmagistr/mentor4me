@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
 import { editMentor } from '../../../redux/userSlice';
 import { editStudent } from '../../../redux/userInfoSlice';
+import './Cabinet.css';
 
 export default function Profile() {
   const user = useSelector((store) => store.user);

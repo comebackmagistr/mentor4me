@@ -10,22 +10,11 @@
     max-height: 837.28px;
 }
 .mentorLeft {
-    /* min-width: 60%; */
     z-index: -1;
-
     margin-top: 130px;
 }
 
-/* .mentorPhoto {
-    transform: translate(0px, -20px);
-
-} */
-
 .imgMentor {
-    /* width: 866px;
-    height: 538px;
-    left: 534px;
-    top: 81px; */
     z-index: 3;
     filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
 }

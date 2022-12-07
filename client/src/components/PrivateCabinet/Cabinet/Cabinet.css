@@ -1,43 +1,119 @@
-.blockItem {
+.cabinetBlock {
     display: flex;
-    margin-top: 1rem;
+    margin-top: 4rem;
     border: 1px solid  #673FD7;
-    padding: 30px;
+    padding: 35px;
     border-radius: 5px;
-    max-height: 240px;
+    max-height: 550px;
+    max-width: 100%;
+}
+.cardBlock {
+    display: flex;
 }
 
-.imgBlock {
-    min-width: 5%;
+.imgBlockCab {
+    min-width: 20%;
+    text-align: center;
 }
-.imgCard {
-    width: 150px;
-    height: 130px;
+.imgCab {
+    margin-top: 30px;
+  
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
 }
+.imgInfo {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.imgInfoMail {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+}
+.rightTitle {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #000000;
+}
+.calendarDiv {
+    text-align: center;
+}
+.calendar {
+    margin-top: 16px;
+}
+.textInfo {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    text-align: center;
+    color: #000000;
+}
+.updateTitle{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #0078FC;
+}
+.education{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #000000;
+}
+.subInfoItem {
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+}
+
 .reiting {
     text-align: center;
 }
-.textCard {
-    min-width: 63%;
+.middleCard {
+    min-width: 50%;
     margin-left: 130px;
     padding-right: 60px;
 }
-.subtitleCard {
+.nameCab {
     color: #0d0d0d;
     font-size: 18px;
     font-weight: 700;
+    margin-left: 5px;
 }
 .jobName {
     color: #0d0d0d;
     font-size: 15px;
     margin-top: 5px;
 }
-.mentorDescr {
+.mentorEducation{
     color: #0d0d0d;
-    font-size: 16px;
-    font-weight: 300;
-    margin-top: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: 100;
+}
+.aboutMentor {
+    margin-top: 15px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 139.68%;
+    letter-spacing: 0.01em;
+    color: #000000;
+    margin-bottom: 45px;
 } 
 .scill {
     justify-content: flex-start;
@@ -48,6 +124,10 @@
     border: 1px solid  #673FD7;
     border-radius: 3px;
     padding: 5px;
+    text-align: center;
+}
+.rightBlock {
+
 }
 
 .price {
@@ -66,3 +146,17 @@
 
 }
 
+/* /////////////////////////// */
+
+.boxcontainer {
+    margin-top: 5%;
+      position: relative;
+      max-width: 700px;
+      width: 100%;
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      margin-left: auto;
+      margin-right: auto;
+    }

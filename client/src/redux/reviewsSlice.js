@@ -6,7 +6,6 @@ const reviewsSlice = createSlice({
   initialState: [],
   reducers: {
     setReviews: (state, action) => action.payload,
-    setOneReview: (state, action) => [action.payload, ...state],
   },
 
 });
@@ -15,7 +14,7 @@ export const { setReviews, setOneReview } = reviewsSlice.actions;
 export const postReview = (input, id) => (dispatch) => {
   console.log(input);
   axios.post(`/reviews/${id}`, input)
-    .then((res) => dispatch(setOneReview(res.data)))
+    .then((res) => dispatch(setReviews(res.data)))
     .catch(console.log);
 };
 

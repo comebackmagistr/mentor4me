@@ -3,6 +3,25 @@ const { Review, Student } = require('../db/models');
 
 const router = express.Router();
 
+router.post('/:id', async (req, res) => {
+  const { id } = req.params;
+  const userId = req.session.user.id;
+  console.log('id', id);
+  console.log('userId', userId);
+  const {
+    comment, rating,
+  } = req.body;
+  console.log('req.body', req.body);
+  try {
+    const review = await Review.create({
+      comment, rating, mentor_id: id, student_id: userId,
+    });
+    res.json(review);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // show all reviews
 router.get('/:id', async (req, res) => {
   const { id } = req.params;

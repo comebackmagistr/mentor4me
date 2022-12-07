@@ -22,7 +22,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
     <div
       className="cropper"
       style={{
-        display: 'flex', margin: '-12rem 0 0 5em', position: 'relative', width: '1000px', height: '1000px',
+        display: 'flex', marginLeft: '13em', marginTop: '-14em', position: 'relative', width: '1000px', height: '1000px',
       }}
     >
       <Cropper
@@ -72,8 +72,9 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
 
         </div>
         <div className="buttons">
+          {/*  */}
 
-          <button type="button" className="btn2 btn-outline" onClick={onCropCancel}>
+          <button type="button" className="btn2 " onClick={onCropCancel}>
             Отменить
           </button>
 

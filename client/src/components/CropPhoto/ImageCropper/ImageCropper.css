@@ -1,25 +1,41 @@
 .btn1 {
     height: 45px;
     left: 121px;
-    top: 526px;
     width: 150px;
     background: linear-gradient(180deg, #BD5BEE 0%, rgba(0, 120, 252, 0.48) 87.92%);
     border-radius: 9px;
-    margin-left: 7em;
-    text-align: center;
+    margin-left: 22em;
+ 
+    /* text-align: center; */
+    font-size: 16px;
+    font-weight: 300;
+    color: rgb(236, 227, 227);
+    border: none;
 }
 
 .btn2 {
     box-sizing: border-box;
-    height: 72px;
-    left: 393px;
-    top: 526px;
-    width: 220px;
-    background: #BD5BEE;
+    height: 45px;
+    /* left: 393px; */
+    width: 150px;
     border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(236, 227, 227);
+    position: absolute;
+    background: transparent;
+    margin-left: 2em;
+   
 }
 
 .buttons{
-    position: absolute;
+    position: relative;
     top: 60%;
+    left: 40%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    margin-right: -9em;
+    
 }

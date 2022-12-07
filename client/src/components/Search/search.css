@@ -8,7 +8,7 @@ top: 255px;
 
 background: rgba(196, 196, 196, 0.21);
 border: 1px solid #B9B2B2;
-border-radius: 4px;
+border-radius: 10px 0 0 10px ;
 }
 
 .searchButton {
@@ -16,6 +16,8 @@ width: 114px;
 height: 58px;
 left: 732px;
 top: 255px;
+border: none;
+border-radius:0 10px 10px 0 ;
 
 background: linear-gradient(349.23deg, #BD5BEE 38.81%, #3F6FF7 103.64%, #A160F0 106.8%, #0078FC 106.8%);
 }
@@ -56,12 +58,12 @@ background: linear-gradient(349.23deg, #BD5BEE 38.81%, #3F6FF7 103.64%, #A160F0 
 
 .inputSearch {
     border: 1px solid linear-gradient(180deg, #BD5BEE 0%, #0078FC 100%);
-
     border-color: #BD5BEE;
-
-        max-width: 450px;
-        color: #0078FC;
+    max-width: 450px;
+    color: #0078FC;
     text-align: center;
+    border-radius: 5px ;
+    height: 2rem;
 }
 
 input[type="number"]::-webkit-outer-spin-button,

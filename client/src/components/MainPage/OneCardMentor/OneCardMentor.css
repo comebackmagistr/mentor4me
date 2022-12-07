@@ -4,6 +4,7 @@
     border: 1px solid  #673FD7;
     padding: 30px;
     border-radius: 5px;
+    max-height: 200px;
 }
 
 .imgBlock {
@@ -18,7 +19,7 @@
     text-align: center;
 }
 .textCard {
-    margin-left: 62px;
+    margin-left: 130px;
     padding-right: 60px;
 }
 .subtitleCard {

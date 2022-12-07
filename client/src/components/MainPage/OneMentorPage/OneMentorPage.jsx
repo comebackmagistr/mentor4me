@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField,
@@ -7,12 +7,16 @@ import {
 import { postReview, showReviews } from '../../../redux/reviewsSlice';
 import OneApplicationMentor from '../../OneApplicationMentor/OneApplicationMentor';
 import './OneMentorPage.css';
+import { showAllMentor } from '../../../redux/userInfoSlice';
 
 export default function OneMentorPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const allMentors = useSelector((store) => store.userInfo);
   const oneMentor = allMentors.filter((mentor) => Number(mentor.id) === Number(id));
+  useEffect(() => {
+    dispatch(showAllMentor());
+  }, []);
   // ниже код для пагинации reviews
   const reviews = useSelector((store) => store.reviews);
   const [numberReviews, setNumberReviews] = useState(3);
@@ -65,11 +69,15 @@ export default function OneMentorPage() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis atque pariatur minima quo, vitae minus labore quaerat temporibus odio aperiam aspernatur rerum provident molestias, recusandae ducimus ipsam. Illo, error mollitia.
           </div>
           <div className="scill">
-            {oneMentor[0]?.profScill.split(',').map((el) => (
+            {oneMentor[0].profScill.length > 0 ? (oneMentor[0]?.profScill.split(',').map((el) => (
               <div className="scillBlock" key={el}>
                 <div className="skillItem">{el}</div>
               </div>
-            ))}
+            ))) : (
+              <div className="scillBlock">
+                <div className="skillItem">Навыки не указаны</div>
+              </div>
+            ) }
           </div>
         </div>
         <div className="priceBlock">

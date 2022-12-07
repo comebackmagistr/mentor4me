@@ -29,11 +29,15 @@ export default function OneMentorPage({ mentor }) {
           {mentor?.aboutMe}
         </div>
         <div className="scill">
-          {Array.isArray(mentor?.profScill) && mentor?.profScill.split(',').map((el) => (
+          {mentor.profScill.length > 0 ? (mentor?.profScill.split(',').map((el) => (
             <div className="scillBlock" key={el}>
               <div className="skillItem">{el}</div>
             </div>
-          ))}
+          ))) : (
+            <div className="scillBlock">
+              <div className="skillItem">Навыки не указаны</div>
+            </div>
+          ) }
         </div>
       </div>
       <div className="priceBlock">

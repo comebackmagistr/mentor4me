@@ -18,3 +18,8 @@
     background: #BD5BEE;
     border-radius: 10px;
 }
+
+.buttons{
+    position: absolute;
+    top: 60%;
+}

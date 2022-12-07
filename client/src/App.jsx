@@ -20,8 +20,9 @@ import Application from './components/Application/Application';
 import OneCardApplication from './components/Application/OneCardApplication';
 import PageError from './components/PageError/PageError';
 import Footer from './components/Footer';
-import OneMentorPage from './components/MainPage/OneMentorPage/OneMentorPage';
 import ApplicationForMentorProfile from './components/Application/ApplicationForMentorProfile';
+import OneMentorPage from './components/MainPage/OneMentorPage';
+import Gracies from './components/Gracies/Gracies';
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ function App() {
         <Route element={<AddEvent />} path="add" />
         <Route element={<UpdateEvent />} path="update" />
         <Route element={<About />} path="/about" />
+        <Route element={<Gracies />} path="/gracies" />
         <Route element={<PageError />} path="*" />
 
       </Routes>

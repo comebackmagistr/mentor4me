@@ -9,6 +9,7 @@ import { postReview, showReviews } from '../../../redux/reviewsSlice';
 import OneApplicationMentor from '../../OneApplicationMentor/OneApplicationMentor';
 import './OneMentorPage.css';
 import { showAllMentor } from '../../../redux/userInfoSlice';
+import { getApplication } from '../../../redux/applicationSlice';
 
 export default function OneMentorPage() {
   const dispatch = useDispatch();
@@ -38,7 +39,6 @@ export default function OneMentorPage() {
     setOpen(false);
   };
 
-  const navigate = useNavigate();
   /// / ниже логика на отправку отзыва
 
   const [inputReview, setInputReview] = useState({ comment: '', rating: '' });
@@ -53,12 +53,17 @@ export default function OneMentorPage() {
   };
   // ниже логика reting input в модалке
 
+  // подать заявку
+  const navigate = useNavigate();
+  const clickHandlerApplic = () => {
+    navigate(`/applications/${id}`);
+  };
   return (
     <>
       <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
         <div className="imgBlock">
           <img src={`/photos/${oneMentor[0]?.photo}`} alt="img" className="imgCard" />
-          <p className="reiting">9 / 10</p>
+          {/* <p className="reiting">9 / 10</p> */}
         </div>
         <div className="textCard">
           <div className="subtitleCard">{`${oneMentor[0]?.firstName} ${oneMentor[0]?.lastName}`}</div>
@@ -84,11 +89,11 @@ export default function OneMentorPage() {
           </div>
         </div>
         <div className="priceBlock">
-          <button className="button-36" type="button">Подать заявку</button>
+          <button className="button-36" type="button" onClick={() => clickHandlerApplic(oneMentor.id)}>Подать заявку</button>
           <div className="price">
             Расписание на ближайшее время
           </div>
-          <div className="like">
+          <div className="likeraspisanie">
             Посмотреть все расписание
           </div>
         </div>
@@ -134,7 +139,7 @@ export default function OneMentorPage() {
           </Dialog>
         </div>
         {/* модалка на отправку отзыва */}
-
+        <div className="push" />
         <div className="subReview">
           <div className="titleReview">
             Отзывы
@@ -147,14 +152,14 @@ export default function OneMentorPage() {
               className="button-34"
               type="submit"
             >
-              <span className="btnText">Оставить отзыв</span>
+              <span className="button-36 styleleft">Оставить отзыв</span>
             </Button>
           </div>
         </div>
 
         {currReviews && currReviews.map((el) => <OneApplicationMentor key={el.id} review={el} />)}
         <div className="btnDiv">
-          {numberReviews > currReviews.length ? (null) : (<button onClick={() => setNumberReviews(numberReviews + 3)} className="button-34" type="submit">Еще отзывы</button>)}
+          {numberReviews > currReviews.length ? (null) : (<button onClick={() => setNumberReviews(numberReviews + 3)} className="button-34 stylelefty" type="submit">Еще отзывы</button>)}
         </div>
       </div>
     </>

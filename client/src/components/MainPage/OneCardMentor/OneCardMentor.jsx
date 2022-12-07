@@ -12,11 +12,15 @@ export default function OneMentorPage({ mentor }) {
   const clickHandlerforinfo = (id) => {
     navigate(`/mentorinfo/${id}`);
   };
+  // const showFavourite = () => {
+
+  // };
+
   return (
     <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
       <div className="imgBlock">
         <img src={`/photos/${mentor?.photo}`} alt="img" className="imgCard" />
-        <p className="reiting">9 / 10</p>
+        {/* <p className="reiting">9 / 10</p> */}
       </div>
       <div className="textCard" onClick={() => clickHandlerforinfo(mentor.id)}>
         <div className="subtitleCard">{`${mentor?.firstName} ${mentor?.lastName}`}</div>
@@ -43,7 +47,7 @@ export default function OneMentorPage({ mentor }) {
       <div className="priceBlock">
         <button className="button-36" onClick={() => clickHandler(mentor.id)} type="button">Подать заявку</button>
         <div className="price">
-          {`${mentor?.price} руб / час`}
+          {`${mentor?.price} руб. / час`}
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setAplicationStatus } from '../../redux/applicationSlice';
+import './ApplicationFormMentor.css';
 
 export default function ApplicationFormMentor({ el }) {
   const [hid, setHid] = useState(true);
@@ -11,15 +12,19 @@ export default function ApplicationFormMentor({ el }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <div style={{ border: '1px solid black' }} key={el.id}>
-      Студент:
-      <div><b>{el?.Student.firstName}</b></div>
-      <div><b>{el?.Student?.lastName}</b></div>
+    <div className="blog_post">
+      <div className="container_copy">
+        <div key={el.id}>
+          Студент:
+          <div><b>{el?.Student.firstName}</b></div>
+          <div><b>{el?.Student?.lastName}</b></div>
+        </div>
+      </div>
       {el.Statuses[0].status === true || el.Statuses[0].status === false ? (
         el.Statuses[0].status === true ? ('Заявка принята') : ('Заяка отклонена')
       ) : (
         <>
-          <button onClick={() => setHid((prev) => !prev)} type="button">Подробнее</button>
+          <button target="_blank" className="btn_primary" onClick={() => setHid((prev) => !prev)} type="button">Подробнее</button>
           <div hidden={hid}>
             Текст заявки:
             {' '}
@@ -67,7 +72,6 @@ export default function ApplicationFormMentor({ el }) {
           </div>
         </>
       )}
-
     </div>
   );
 }

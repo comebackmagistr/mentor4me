@@ -22,7 +22,6 @@ import PageError from './components/PageError/PageError';
 import Footer from './components/Footer';
 import OneMentorPage from './components/MainPage/OneMentorPage';
 import Gracies from './components/Gracies/Gracies';
-import SoundList from './components/Search/SoundList';
 
 function App() {
   const dispatch = useDispatch();
@@ -50,7 +49,6 @@ function App() {
         <Route element={<About />} path="/about" />
         <Route element={<Gracies />} path="/gracies" />
         <Route element={<PageError />} path="*" />
-        <Route element={<SoundList />} path="/voice" />
       </Routes>
       <Footer />
     </>

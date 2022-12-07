@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllApplicationMentor, getAllApplicationStudent } from '../../redux/applicationSlice';
 import ApplicationFormbutt from './ApplicationFormbutt';
 import ApplicationFormMentor from './ApplicationFormMentor';
+import './ApplicationFormMentor.css';
 
 export default function Application() {
   const user = useSelector((store) => store.user);
@@ -15,7 +16,7 @@ export default function Application() {
   return (
     <div>
       {user?.mentor === true ? (
-        <div>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           Мои заявки:
           {allApplications.length > 0 ? (
             <>

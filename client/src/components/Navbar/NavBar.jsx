@@ -72,8 +72,8 @@ export default function NavBar() {
               <Link
                 className="linkInNav"
                 onClick={() => {
+                  window.location.href = '/';
                   dispatch(getLogout());
-                  navigate('/');
                 }}
                 to="/"
               >

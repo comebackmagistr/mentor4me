@@ -96,22 +96,21 @@ export default function SignUp() {
                   </span>
                 </div>
               </div>
-
-              <label className="inputAuthCheckbox" htmlFor="htmlvideo">
-                <span className="textOnInput">Формат консультации</span>
-                <br />
-                <input name="video" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="html" type="checkbox" />
-                Видео
-              </label>
-              <label className="inputAuthCheckbox" htmlFor="htmlcall">
-                <input name="call" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlcall" type="checkbox" />
-                Звонок
-              </label>
-              <label className="inputAuthCheckbox" htmlFor="htmlchat">
-                <input name="chat" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlchat" type="checkbox" />
-                Чат
-              </label>
-
+              <p className="textOnInput">Формат консультации</p>
+              <div className="flex">
+                <label className="inputAuthCheckbox" htmlFor="htmlvideo">
+                  <input name="video" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="html" type="checkbox" />
+                  Видео
+                </label>
+                <label className="inputAuthCheckbox" htmlFor="htmlcall">
+                  <input name="call" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlcall" type="checkbox" />
+                  Звонок
+                </label>
+                <label className="inputAuthCheckbox" htmlFor="htmlchat">
+                  <input name="chat" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlchat" type="checkbox" />
+                  Чат
+                </label>
+              </div>
               <div className="input-box">
                 <label>Цена за консультацию</label>
                 <input

@@ -6,8 +6,6 @@ import { ru } from 'date-fns/locale';
 import { Box, Input, TextField } from '@mui/material';
 import Textarea from '@mui/joy/Textarea';
 
-import { axiosSubmitEvent } from '../../redux/eventSlice';
-
 registerLocale('ru', ru);
 export default function AddEvent({ input, setInput }) {
   const [startDate, setStartDate] = useState(new Date());

@@ -63,6 +63,7 @@ export default function NavBar() {
             <>
               <Link className="linkInNav" to="/search">Поиск</Link>
               <Link className="linkInNav" to="/calendar">Календарь</Link>
+              <Link className="linkInNav" to="/favourite">Избранное</Link>
               <Link className="linkInNav" to="/applications">Заявки</Link>
               <Link className="linkInNav" to="/profile">
                 {userIsAuth.photo ? (<img className="avatarProfile" src={`/photos/${userIsAuth.photo}`} alt="avatar" />
@@ -100,7 +101,7 @@ export default function NavBar() {
                   aria-describedby="alert-dialog-description"
                 >
                   <DialogTitle id="alert-dialog-title" style={{ textAlign: 'center' }}>
-                    Выбери Ментор ты или студент позорный
+                    Зарегистрироваться как Ментор или Студент?
                   </DialogTitle>
                   <DialogActions style={{
                     display: 'flex',

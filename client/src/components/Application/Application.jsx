@@ -21,7 +21,7 @@ export default function Application() {
 
   return (
     <div>
-      {user?.isMentor === true ? (
+      {!user?.isMentor === true ? (
         <div>
           <div>Шаг 1: Выберите ментора</div>
           <div className="card">

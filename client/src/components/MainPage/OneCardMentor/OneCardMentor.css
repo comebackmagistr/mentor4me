@@ -1,10 +1,11 @@
 .blockItem {
     display: flex;
     margin-top: 1rem;
+    margin-bottom: 1rem;
     border: 1px solid  #673FD7;
     padding: 30px;
     border-radius: 5px;
-    max-height: 200px;
+    max-height: 240px;
 }
 
 .imgBlock {
@@ -17,6 +18,8 @@
 }
 .reiting {
     text-align: center;
+    width: 50px;
+    height: 20px;
 }
 .textCard {
     min-width: 57%;
@@ -52,9 +55,15 @@
 
 .price {
     margin-top: 20px;
+    text-align: center;
 }
 .like {
     margin-top: 45px;
+}
+
+.likeraspisanie {
+text-align: center;
+margin-top: 20px;
 }
 
 .iconStyle {
@@ -63,4 +72,3 @@
     height: 20px;
 
 }
-

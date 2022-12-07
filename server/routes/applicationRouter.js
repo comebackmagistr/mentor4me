@@ -20,8 +20,9 @@ router.post('/:id', async (req, res) => {
 });
 
 router.get('/applicationformentor', async (req, res) => {
-  // const userId = req.session.user.id; // id авторизованного ментора
-  const userId = 1; // хардкод
+  const userId = req.session.user.id; // id авторизованного ментора
+  // const userId = 1; // хардкод
+  console.log('userid', userId);
   try {
     const applications = await Application.findAll({
       order: [['createdAt', 'DESC']],

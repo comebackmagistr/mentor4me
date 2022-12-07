@@ -9,7 +9,7 @@ export default function OneApplicationMentor({ review }) {
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaVn-RVo12JBJq8FDGKViN5KtJL6_OPXIuHA&usqp=CAU" alt="img" className="imgReview" />
       </div>
       <div className="textReview">
-        <div className="nameStudent">{`${review.Student.firstName} ${review.Student.lastName}`}</div>
+        <div className="nameStudent">{`${review?.Student?.firstName} ${review?.Student?.lastName}`}</div>
         <div className="dataReview">
           {`${new Date(review?.createdAt).toLocaleString().slice(0, 10)}`}
 

@@ -9,16 +9,6 @@ export default function ApplicationForMentorProfile({ userId, oneApplication }) 
   useEffect(() => {
     dispatch(axiosApplication());
   }, []);
-  // const clickShowDiv = () => {
-  //   setVisible((prev) => !prev);
-  // };
-  // const [visible, setVisible] = useState(false);
-  // const clickShowDiv = () => {
-  //   setVisible((prev) => !prev);
-  // };
-  // const clickShowDiv = () => {
-  //   dispatch(axiosOneApplication(userId));
-  // };
 
   return (
     <>

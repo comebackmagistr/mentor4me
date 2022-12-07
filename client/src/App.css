@@ -86,6 +86,10 @@
     margin-top: 1rem;
   }
   
+  .stylelefty {
+    position: relative;
+    left: 160px
+  }
   /* .button-34:hover {
     box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
     transition-duration: .1s;

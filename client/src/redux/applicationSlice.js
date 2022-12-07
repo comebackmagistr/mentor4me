@@ -5,7 +5,6 @@ export const applicationSlice = createSlice({
   name: 'application',
   initialState: [],
   reducers: {
-    setSearch: (state, action) => action.payload,
     setApplication: (state, action) => action.payload,
   },
 });
@@ -13,22 +12,27 @@ export const applicationSlice = createSlice({
 export const { setApplication, setSearch } = applicationSlice.actions;
 
 const getApplication = (input, id) => async (dispatch) => {
-  const res = await axios.post(`/applications/${id}`, input, id);
+  const res = await axios.post('/applications', { input, id });
   dispatch(setApplication(res.data));
 };
 
-const axiosApplication = () => (dispatch) => {
-  axios.get('/applications/applicationformentor')
-    .then((res) => dispatch(setSearch(res.data)))
-    .catch(() => dispatch(setSearch({})));
+const getAllApplicationStudent = () => async (dispatch) => {
+  const res = await axios('/applications/student');
+  dispatch(setApplication(res.data));
 };
 
-const axiosOneApplication = (userId) => (dispatch) => {
-  axios.get('/applications/applicationformentor', userId)
-    .then((res) => dispatch(setSearch(res.data)))
-    .catch(() => dispatch(setSearch({})));
+const getAllApplicationMentor = () => async (dispatch) => {
+  const res = await axios('/applications/mentor');
+  dispatch(setApplication(res.data));
+};
+
+const setAplicationStatus = (status) => async (dispatch) => {
+  const res = await axios.post('/applications/status', status);
+  dispatch(setApplication(res.data));
 };
 
 export default applicationSlice.reducer;
 
-export { getApplication, axiosApplication, axiosOneApplication };
+export {
+  getApplication, getAllApplicationMentor, getAllApplicationStudent, setAplicationStatus,
+};

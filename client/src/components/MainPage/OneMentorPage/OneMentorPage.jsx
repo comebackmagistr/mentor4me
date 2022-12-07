@@ -39,6 +39,7 @@ export default function OneMentorPage() {
     setOpen(false);
   };
 
+  const navigate = useNavigate();
   /// / ниже логика на отправку отзыва
 
   const [inputReview, setInputReview] = useState({ comment: '', rating: '' });
@@ -106,7 +107,7 @@ export default function OneMentorPage() {
         <div>
           <Dialog open={open} onClose={handleClose}>
             {/* <DialogTitle>Subscribe</DialogTitle> */}
-            <DialogContent style={{ width: '500px' }}>
+            <DialogContent style={{ width: '500px', height: '180px' }}>
               <TextField
                 type="text"
                 value={inputReview?.comment}
@@ -114,7 +115,7 @@ export default function OneMentorPage() {
                 onChange={(e) => inputHandler(e)}
                 id="outlined-multiline-static"
                 label="Напишите отзыв . . ."
-                multiline
+                // multiline
                 rows={4}
                 name="comment"
               />

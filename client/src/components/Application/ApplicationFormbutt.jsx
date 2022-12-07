@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 
-export default function ApplicationFormbutt({ el, clickShowDiv }) {
-  const [visible, setVisible] = useState(false);
-  // const clickAddHandler = () => {
-
-  // };
-
+export default function ApplicationFormbutt({ el }) {
   return (
-    <>
-      <div key={el.id}>
-        <div><b>{el?.Student.firstName}</b></div>
-        <div><b>{el?.Student.lastName}</b></div>
-        <div>{el?.text}</div>
-        <button type="button" onClick={() => setVisible((prev) => !prev)}>Подробнее</button>
+    <div style={{ border: '1px solid black' }} key={el.id}>
+      Ментор:
+      <div><b>{el?.Mentor.firstName}</b></div>
+      <div><b>{el?.Mentor?.lastName}</b></div>
+      Текст заявки:
+      <div>{el?.text}</div>
+      <div>
+        Статус заявки:
+        {' '}
+        {el.Statuses[0].status === null ? ('На рассмотрении') : (el.Statuses[0].status === true ? ('Принята') : ('Отклонена'))}
+        <br />
+        {' '}
+        Комментарий:
+        {' '}
+        {el.Statuses[0]?.comments ? (el.Statuses[0]?.comments) : ('Ментор не оставил комментариев')}
       </div>
-      <div style={{ visibility: visible ? 'visible' : 'hidden' }}>
-        <div>{el?.text}</div>
-        <button type="button">Отклонить</button>
-        <button type="button">Принять</button>
-      </div>
-    </>
+    </div>
   );
 }

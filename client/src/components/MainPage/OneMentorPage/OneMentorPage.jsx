@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField,
 } from '@mui/material';
+import { makeStyles } from '@material-ui/core/styles';
 import { postReview, showReviews } from '../../../redux/reviewsSlice';
 import OneApplicationMentor from '../../OneApplicationMentor/OneApplicationMentor';
 import './OneMentorPage.css';
@@ -44,15 +45,13 @@ export default function OneMentorPage() {
   const inputHandler = (e) => {
     setInputReview((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-  console.log('inputReview', inputReview);
+  //   console.log('inputReview', inputReview);
 
   const submitInputs = () => {
-    // e.preventDefault();
-    dispatch(postReview(inputReview));
+    handleClose();
+    dispatch(postReview(inputReview, id));
   };
-  const clickHandler = () => {
-    navigate(`/applications/${id}`);
-  };
+  // ниже логика reting input в модалке
 
   return (
     <>
@@ -114,23 +113,24 @@ export default function OneMentorPage() {
                 rows={4}
                 name="comment"
               />
-              <TextField
-                type="text"
-                value={inputReview?.rating}
-                style={{ width: '20%' }}
-                onChange={(e) => inputHandler(e)}
-                id="outlined-multiline-static"
-                label="Rating . . ."
-                multiline
-                name="rating"
-              />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={() => submitInputs()} color="primary">
-                Отправить
-              </Button>
+              <div className="inputBtnBlock">
+                <TextField
+                  style={{ width: '20%', marginTop: '20px' }}
+                  name="rating"
+                  type="text"
+                  id="outlined-multiline-static"
+                  label="Рейтинг"
+                  value={inputReview?.reting}
+                  onChange={(e) => inputHandler(e)}
+                />
+                <DialogActions>
+                  <Button onClick={() => submitInputs()} color="primary">
+                    Отправить
+                  </Button>
 
-            </DialogActions>
+                </DialogActions>
+              </div>
+            </DialogContent>
           </Dialog>
         </div>
         {/* модалка на отправку отзыва */}
@@ -154,7 +154,7 @@ export default function OneMentorPage() {
 
         {currReviews && currReviews.map((el) => <OneApplicationMentor key={el.id} review={el} />)}
         <div className="btnDiv">
-          <button onClick={() => setNumberReviews(numberReviews + 3)} className="button-34" type="submit">Еще отзывы</button>
+          {numberReviews > currReviews.length ? (null) : (<button onClick={() => setNumberReviews(numberReviews + 3)} className="button-34" type="submit">Еще отзывы</button>)}
         </div>
       </div>
     </>

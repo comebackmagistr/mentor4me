@@ -49,3 +49,8 @@ hr {
 .btnText {
     color: #FFFFFF;
   }
+
+.inputBtnBlock {
+    display: flex;
+    justify-content: space-between;
+}

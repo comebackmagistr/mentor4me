@@ -26,7 +26,7 @@ router.post('/:id', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const allReviews = await Review.findAll({ where: { mentor_id: id }, include: Student });
+    const allReviews = await Review.findAll({ where: { mentor_id: id }, order: [['id', 'DESC']], include: Student });
     res.json(allReviews);
   } catch (error) {
     console.log(error);

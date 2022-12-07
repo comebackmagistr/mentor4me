@@ -20,6 +20,7 @@
     text-align: center;
 }
 .textCard {
+    min-width: 57%;
     margin-left: 130px;
     padding-right: 60px;
     min-width: 57%

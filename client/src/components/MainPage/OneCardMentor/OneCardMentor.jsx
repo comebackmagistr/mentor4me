@@ -18,7 +18,7 @@ export default function OneMentorPage({ mentor }) {
     <div className="blockItem" data-wow-duration="1.2s" data-wow-delay="0.8s">
       <div className="imgBlock">
         <img src={`/photos/${mentor?.photo}`} alt="img" className="imgCard" />
-        <p className="reiting">9 / 10</p>
+        {/* <p className="reiting">9 / 10</p> */}
       </div>
       <div className="textCard" onClick={() => clickHandlerforinfo(mentor.id)}>
         <div className="subtitleCard">{`${mentor?.firstName} ${mentor?.lastName}`}</div>

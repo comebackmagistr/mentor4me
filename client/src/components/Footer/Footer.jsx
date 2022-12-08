@@ -16,6 +16,7 @@ export default function Footer() {
           <img src="https://cdn-icons-png.flaticon.com/512/1312/1312142.png" className="footerListOneItemRight" alt="twitter" />
         </div>
       </div>
+      <span className="copyraiting">© 2020 Mentor4me</span>
     </div>
   );
 }

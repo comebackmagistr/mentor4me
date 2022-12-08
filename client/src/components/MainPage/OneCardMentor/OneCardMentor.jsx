@@ -6,9 +6,7 @@ import { useNavigate, Link } from 'react-router-dom';
 export default function OneMentorPage({ mentor }) {
   console.log('mentor', mentor);
   const navigate = useNavigate();
-  const clickHandler = (id) => {
-    navigate(`/applications/${id}`);
-  };
+
   const clickHandlerforinfo = (id) => {
     navigate(`/mentorinfo/${id}`);
   };
@@ -45,7 +43,7 @@ export default function OneMentorPage({ mentor }) {
         </div>
       </div>
       <div className="priceBlock">
-        <button className="button-36" onClick={() => clickHandler(mentor.id)} type="button">Подать заявку</button>
+        <button className="button-36" type="button">Подать заявку</button>
         <div className="price">
           {`${mentor?.price} руб. / час`}
         </div>

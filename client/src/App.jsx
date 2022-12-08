@@ -49,7 +49,6 @@ function App() {
         <Route element={<About />} path="/about" />
         <Route element={<Gracies />} path="/gracies" />
         <Route element={<PageError />} path="*" />
-
       </Routes>
       <Footer />
     </>

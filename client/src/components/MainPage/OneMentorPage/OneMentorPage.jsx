@@ -159,7 +159,7 @@ export default function OneMentorPage() {
           </div>
         </div>
 
-        {currReviews && currReviews.map((el) => <OneApplicationMentor key={el.id} review={el} />)}
+        {currReviews && currReviews?.map((el) => <OneApplicationMentor key={el.id} review={el} />)}
         <div className="btnDiv">
           {numberReviews > currReviews.length ? (null) : (<button onClick={() => setNumberReviews(numberReviews + 3)} className="button-34 stylelefty" type="submit">Еще отзывы</button>)}
         </div>

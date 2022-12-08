@@ -103,11 +103,11 @@ export default function SignUp() {
                   Видео
                 </label>
                 <label className="inputAuthCheckbox" htmlFor="htmlcall">
-                  <input name="call" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlcall" type="checkbox" />
+                  <input name="call" value={inputMentor.call} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlcall" type="checkbox" />
                   Звонок
                 </label>
                 <label className="inputAuthCheckbox" htmlFor="htmlchat">
-                  <input name="chat" value={inputMentor.video} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlchat" type="checkbox" />
+                  <input name="chat" value={inputMentor.chat} onChange={(e) => setInputMentor((prev) => (prev[e.target.name] === 'on' ? ({ ...prev, [e.target.name]: 'off' }) : ({ ...prev, [e.target.name]: 'on' })))} id="htmlchat" type="checkbox" />
                   Чат
                 </label>
               </div>

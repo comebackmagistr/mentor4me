@@ -16,48 +16,77 @@ export default function ApplicationFormMentor({ el }) {
       <div className="container_copy">
         <div className="studentsCred" key={el.id}>
           Студент:
+          <div className="studentsPhoto"><img style={{ maxWidth: '60px', maxHeigth: '60px', borderRadius: '50%' }} src={`/photos/${el?.Student?.photo}`} alt="opps" /></div>
           <div className="studentsName"><b>{el?.Student.firstName}</b></div>
-          <div className="studentsName"><b>{el?.Student?.lastName}</b></div>
+          <div className="studentsLastName"><b>{el?.Student?.lastName}</b></div>
         </div>
       </div>
       {el.Statuses[0].status === true || el.Statuses[0].status === false ? (
-        el.Statuses[0].status === true ? ('Заявка принята') : ('Заяка отклонена')
+        el.Statuses[0].status === true ? (
+          <h4 style={{
+            color: 'green', fontSize: '14px', fontWeight: '300', padding: '0 15px',
+          }}
+          >
+            Заявка принята
+          </h4>
+        ) : (
+          <span style={{
+            color: 'red', fontSize: '14px', fontWeight: '300', padding: '0 15px',
+          }}
+          >
+            Заявка отклонена
+          </span>
+        )
       ) : (
         <>
           <button target="_blank" className="btn_primary" onClick={() => setHid((prev) => !prev)} type="button">Подробнее</button>
           <div className="modelStyle" hidden={hid}>
-            Текст заявки:
+            <h3 className="textHeader">Текст заявки:</h3>
             <br />
-            {el?.text}
-            Статус заявки:
+            <p className="textBody">{el?.text}</p>
             <br />
-            {el.Statuses[0].status === null ? ('На рассмотрении') : (el.Statuses[0].status === true ? ('Принята') : ('Отклонена'))}
-            <br />
-            <button
-              onClick={() => {
-                setHidCom(false);
-                setStatus(true);
-                setHid(true);
-              }}
-              type="button"
-            >
-              Принять
+            <div>
+              <h4 className="status">Cтатус заявки: </h4>
+              <br />
+              {el.Statuses[0].status === null ? (
+                <span style={{
+                  color: 'blue', fontSize: '13px', fontWeight: '300', padding: ' 0 10px',
+                }}
+                >
+                  На рассмотрении
+                </span>
+              ) : (el.Statuses[0].status === true ? (<span style={{ color: 'green' }}>Принята</span>) : (<span style={{ color: 'red' }}>Отклонена</span>))}
+              <br />
+              <div className="statusBtn">
+                <button
+                  className="acceptButton"
+                  onClick={() => {
+                    setHidCom(false);
+                    setStatus(true);
+                    setHid(true);
+                  }}
+                  type="button"
+                >
+                  Принять
 
-            </button>
-            <button
-              onClick={() => {
-                setHidCom(false);
-                setStatus(false);
-                setHid(true);
-              }}
-              type="button"
-            >
-              Отклонить
+                </button>
+                <button
+                  className="cancelButton"
+                  onClick={() => {
+                    setHidCom(false);
+                    setStatus(false);
+                    setHid(true);
+                  }}
+                  type="button"
+                >
+                  Отклонить
 
-            </button>
+                </button>
+              </div>
+            </div>
           </div>
           <div hidden={hidCom}>
-            <input name="comments" value={comm} onChange={(e) => setComm(e.target.value)} type="text" placeholder="укажите комментарий" />
+            <input name="comments" value={comm} onChange={(e) => setComm(e.target.value)} type="text" placeholder="Комментарий" />
             <button
               onClick={() => {
                 dispatch(setAplicationStatus({ status, comments: comm, application_id: el.id }));

@@ -17,15 +17,17 @@ export default function Application() {
     <div>
       <span>Мои заявки:</span>
       {user?.mentor === true ? (
-        <div style={{
-          griDAutoFlow: 'dense',
-          display: 'grid',
-          gap: '1rem',
-          flexWrap: 'wrap',
-          gridTemplateColumns: 'repeat(auto-fit, 20rem)',
-          justifyContent: 'center',
-          marginTop: '50px',
-        }}
+        <div
+          className="cards_container"
+          style={{
+            griDAutoFlow: 'dense',
+            display: 'grid',
+            gap: '1rem',
+            flexWrap: 'wrap',
+            gridTemplateColumns: 'repeat(auto-fit, 20rem)',
+            justifyContent: 'center',
+            marginTop: '50px',
+          }}
         >
 
           {allApplications.length > 0 ? (

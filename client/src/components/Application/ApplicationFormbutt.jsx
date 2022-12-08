@@ -11,7 +11,7 @@ export default function ApplicationFormbutt({ el }) {
       <div>
         Статус заявки:
         {' '}
-        {el.Statuses[0]?.status === null ? ('На рассмотрении') : (el.Statuses[0]?.status === true ? ('Принята') : ('Отклонена'))}
+        {el.Statuses[0]?.status === null ? ('На рассмотрении') : (el.Statuses[0]?.status === true ? (<span style={{ color: 'green' }}>Принята</span>) : (<span style={{ color: 'red' }}>Отклонена</span>))}
         <br />
         {' '}
         Комментарий:

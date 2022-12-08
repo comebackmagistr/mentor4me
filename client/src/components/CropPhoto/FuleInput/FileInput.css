@@ -14,3 +14,13 @@ h3,p {
     margin-bottom: 2em;
 }
 
+.addPhotoOneClass {
+    margin-top: 50px;
+    color: black;
+    font-size: 18px;
+}
+
+.textPhotoOneClass {
+    margin-top: 50px;
+}
+

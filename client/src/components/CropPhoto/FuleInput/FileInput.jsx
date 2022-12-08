@@ -22,7 +22,7 @@ function FileInput({ onImageSelected }) {
 
   return (
     <div>
-      <h3>Добавьте фотографию </h3>
+      <h3 className="addPhotoOneClass">Добавьте фотографию </h3>
       <input
         type="file"
         accept="image/*"
@@ -34,7 +34,7 @@ function FileInput({ onImageSelected }) {
       <button type="button" className="btn" onClick={onChooseImg}>
         <img src="/images/camera.png" alt="oop" />
       </button>
-      <p>Загрузите свою фотографию (поддерживаемые форматы JPEG, PNG, JPG, GIF)</p>
+      <p className="textPhotoOneClass">Загрузите свою фотографию (поддерживаемые форматы JPEG, PNG, JPG, GIF)</p>
     </div>
   );
 }

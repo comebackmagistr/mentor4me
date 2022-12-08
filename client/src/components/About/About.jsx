@@ -30,8 +30,8 @@ export default function About() {
           </span>
         </div>
         <div className="buttons">
-          <button className="buttonFindMent" type="button"><span className="textButton" onClick={() => navigate('/signup/student')}>Найти ментора</span></button>
-          <button className="buttonSetMent" type="button"><span className="textButton" onClick={() => clickHandlerMentor()}>Стать ментором</span></button>
+          <button className="buttonLeft" type="button"><span className="textButton" onClick={() => navigate('/signup/student')}>Найти ментора</span></button>
+          <button className="buttonRight" type="button"><span className="textButton" onClick={() => clickHandlerMentor()}>Стать ментором</span></button>
         </div>
       </div>
       <div className="rightBlock">

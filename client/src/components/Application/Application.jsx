@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllApplicationMentor, getAllApplicationStudent } from '../../redux/applicationSlice';
 import ApplicationFormbutt from './ApplicationFormbutt';
 import ApplicationFormMentor from './ApplicationFormMentor';
+import './ApplicationFormMentor.css';
 
 export default function Application() {
   const user = useSelector((store) => store.user);
@@ -14,9 +15,21 @@ export default function Application() {
 
   return (
     <div>
+      <h2 className="headerStyle">Мои заявки:</h2>
       {user?.mentor === true ? (
-        <div>
-          Мои заявки:
+        <div
+          className="cards_container"
+          style={{
+            griDAutoFlow: 'dense',
+            display: 'grid',
+            gap: '30px',
+            flexWrap: 'wrap',
+            gridTemplateColumns: 'repeat(auto-fit, 20rem)',
+            justifyContent: 'center',
+            marginTop: '50px',
+          }}
+        >
+
           {allApplications.length > 0 ? (
             <>
               {allApplications.map((el) => <ApplicationFormMentor el={el} />)}
@@ -27,8 +40,19 @@ export default function Application() {
         </div>
       )
         : (
-          <div>
-            Мои заявки:
+          <div
+            className="cards_container"
+            style={{
+              griDAutoFlow: 'dense',
+              display: 'grid',
+              gap: '1rem',
+              flexWrap: 'wrap',
+              gridTemplateColumns: 'repeat(auto-fit, 20rem)',
+              justifyContent: 'center',
+              marginTop: '50px',
+            }}
+          >
+
             {allApplications.length > 0 ? (
               <>
                 {allApplications.map((el) => <ApplicationFormbutt el={el} />)}

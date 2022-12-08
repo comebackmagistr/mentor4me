@@ -71,7 +71,7 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
           3:1 */}
 
         </div>
-        <div className="buttons">
+        <div className="oneClassButtonsCroppPhoto">
           {/*  */}
 
           <button type="button" className="btn2 " onClick={onCropCancel}>

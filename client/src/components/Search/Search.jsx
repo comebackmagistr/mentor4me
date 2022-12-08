@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from '@mui/material/Slider';
 import { useDispatch, useSelector } from 'react-redux';
+import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import { getSearch } from '../../redux/searchSlice';
 import OneCardMentor from '../MainPage/OneCardMentor';
 import './search.css';
@@ -26,6 +27,7 @@ export default function Search() {
         const obj = Object.fromEntries(new FormData(e.target));
         dispatch(getSearch({ valueOn, obj }));
       }}
+
       >
         <div className="mainTextSearch">
           <span>Поиск ментора</span>

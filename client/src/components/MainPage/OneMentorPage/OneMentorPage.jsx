@@ -70,12 +70,9 @@ export default function OneMentorPage() {
             <div className="subtitleCard">{`${oneMentor[0]?.firstName} ${oneMentor[0]?.lastName}`}</div>
             <div className="jobName">
               {oneMentor[0]?.profArea}
-              {' '}
-              - тупица
             </div>
             <div className="mentorDescr">
               {oneMentor[0]?.aboutMe}
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis atque pariatur minima quo, vitae minus labore quaerat temporibus odio aperiam aspernatur rerum provident molestias, recusandae ducimus ipsam. Illo, error mollitia.
             </div>
             <div className="scill">
               {oneMentor[0].profScill.length > 0 ? (oneMentor[0]?.profScill.split(',').map((el) => (
@@ -92,10 +89,9 @@ export default function OneMentorPage() {
           <div className="priceBlock">
             <button className="button-36" type="button" onClick={() => clickHandlerApplic(oneMentor.id)}>Подать заявку</button>
             <div className="price">
-              Расписание на ближайшее время
-            </div>
-            <div className="likeraspisanie">
-              Посмотреть все расписание
+              {oneMentor[0].price}
+              {' '}
+              руб. / час
             </div>
           </div>
         </div>
@@ -147,19 +143,14 @@ export default function OneMentorPage() {
             Отзывы
           </div>
           <div className="btnReview">
-            <Button
-              variant="outlined"
-              color="inherit"
-              onClick={handleOpen}
-              className="button-34"
-              type="submit"
-            >
-              <span className="button-36 styleleft">Оставить отзыв</span>
+            <Button onClick={handleOpen} type="submit" style={{ textTransform: 'none' }} size="small">
+              <img src="/icons/plus.png" alt="img" className="imgInfo" />
+              Добавить отзыв
             </Button>
           </div>
         </div>
 
-        {currReviews && currReviews.map((el) => <OneApplicationMentor key={el.id} review={el} />)}
+        {currReviews && currReviews?.map((el) => <OneApplicationMentor key={el.id} review={el} />)}
         <div className="btnDiv">
           {numberReviews > currReviews.length ? (null) : (<button onClick={() => setNumberReviews(numberReviews + 3)} className="button-34 stylelefty" type="submit">Еще отзывы</button>)}
         </div>

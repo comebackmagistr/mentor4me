@@ -55,7 +55,7 @@ router.patch('/mentorprofile', async (req, res) => {
     }, { where: { id } });
     const userUpdate = await Mentor.findOne({ where: { id } });
     req.session.user = {
-      id: userUpdate.id, firstName: userUpdate.firstName, lastName: userUpdate.lastName, zoom: userUpdate.zoom, phone: userUpdate.phone, email: userUpdate.email, video: userUpdate.video, call: userUpdate.call, chat: userUpdate.chat, price: userUpdate.price, education: userUpdate.education, job: userUpdate.job, profArea: userUpdate.profArea, profScill: userUpdate.profScill, aboutMe: userUpdate.aboutMe, portfolio: userUpdate.portfolio, mentor: true,
+      id: userUpdate.id, firstName: userUpdate.firstName, lastName: userUpdate.lastName, zoom: userUpdate.zoom, phone: userUpdate.phone, email: userUpdate.email, video: userUpdate.video, call: userUpdate.call, chat: userUpdate.chat, price: userUpdate.price, education: userUpdate.education, job: userUpdate.job, profArea: userUpdate.profArea, profScill: userUpdate.profScill, aboutMe: userUpdate.aboutMe, portfolio: userUpdate.portfolio, mentor: true, photo: userUpdate.photo,
     };
     res.json(req.session.user);
   } catch (err) {

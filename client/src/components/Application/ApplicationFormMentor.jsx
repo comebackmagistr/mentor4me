@@ -16,9 +16,9 @@ export default function ApplicationFormMentor({ el }) {
       <div className="container_copy">
         <div className="studentsCred" key={el.id}>
           Студент:
-          <div className="studentsPhoto"><img style={{ maxWidth: '60px', maxHeigth: '60px', borderRadius: '50%' }} src={`/photos/${el?.Student?.photo}`} alt="opps" /></div>
-          <div className="studentsName"><b>{el?.Student.firstName}</b></div>
-          <div className="studentsLastName"><b>{el?.Student?.lastName}</b></div>
+          <div><img className="photo" src={`/photos/${el?.Student?.photo}`} alt="opps" /></div>
+          <div className="userFirstName"><b>{el?.Student.firstName}</b></div>
+          <div className="userLastName"><b>{el?.Student?.lastName}</b></div>
         </div>
       </div>
       {el.Statuses[0].status === true || el.Statuses[0].status === false ? (
@@ -50,7 +50,7 @@ export default function ApplicationFormMentor({ el }) {
               <br />
               {el.Statuses[0].status === null ? (
                 <span style={{
-                  color: 'blue', fontSize: '13px', fontWeight: '300', padding: ' 0 10px',
+                  color: 'blue', fontSize: '13px', fontWeight: '300', padding: '0 10px',
                 }}
                 >
                   На рассмотрении
@@ -73,8 +73,8 @@ export default function ApplicationFormMentor({ el }) {
                 <button
                   className="cancelButton"
                   onClick={() => {
-                    setHidCom(false);
                     setStatus(false);
+                    setHidCom(false);
                     setHid(true);
                   }}
                   type="button"
@@ -85,19 +85,21 @@ export default function ApplicationFormMentor({ el }) {
               </div>
             </div>
           </div>
-          <div hidden={hidCom}>
-            <input name="comments" value={comm} onChange={(e) => setComm(e.target.value)} type="text" placeholder="Комментарий" />
-            <button
-              onClick={() => {
-                dispatch(setAplicationStatus({ status, comments: comm, application_id: el.id }));
-                navigate('/applications');
-              }}
-              type="button"
-            >
-              Отправить
-
-            </button>
-
+          <div className="setComm" hidden={hidCom}>
+            <div>
+              <h3 className="textHeader">Напишите комментарий</h3>
+              <textarea className="commInput" name="comments" value={comm} onChange={(e) => setComm(e.target.value)} type="text" placeholder="Комментарий" />
+              <button
+                className="btn_primary"
+                onClick={() => {
+                  dispatch(setAplicationStatus({ status, comments: comm, application_id: el.id }));
+                  navigate('/applications');
+                }}
+                type="button"
+              >
+                Отправить
+              </button>
+            </div>
           </div>
         </>
       )}

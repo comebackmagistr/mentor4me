@@ -147,14 +147,9 @@ export default function OneMentorPage() {
             Отзывы
           </div>
           <div className="btnReview">
-            <Button
-              variant="outlined"
-              color="inherit"
-              onClick={handleOpen}
-              className="button-34"
-              type="submit"
-            >
-              <span className="button-36 styleleft">Оставить отзыв</span>
+            <Button onClick={handleOpen} type="submit" style={{ textTransform: 'none' }} size="small">
+              <img src="/icons/plus.png" alt="img" className="imgInfo" />
+              Добавить отзыв
             </Button>
           </div>
         </div>

@@ -15,17 +15,19 @@ export default function Application() {
 
   return (
     <div>
-      <span>Мои заявки:</span>
+      <h2 className="headerStyle">Мои заявки:</h2>
       {user?.mentor === true ? (
-        <div style={{
-          griDAutoFlow: 'dense',
-          display: 'grid',
-          gap: '1rem',
-          flexWrap: 'wrap',
-          gridTemplateColumns: 'repeat(auto-fit, 20rem)',
-          justifyContent: 'center',
-          marginTop: '50px',
-        }}
+        <div
+          className="cards_container"
+          style={{
+            griDAutoFlow: 'dense',
+            display: 'grid',
+            gap: '1rem',
+            flexWrap: 'wrap',
+            gridTemplateColumns: 'repeat(auto-fit, 20rem)',
+            justifyContent: 'center',
+            marginTop: '50px',
+          }}
         >
 
           {allApplications.length > 0 ? (
@@ -38,7 +40,18 @@ export default function Application() {
         </div>
       )
         : (
-          <div>
+          <div
+            className="cards_container"
+            style={{
+              griDAutoFlow: 'dense',
+              display: 'grid',
+              gap: '1rem',
+              flexWrap: 'wrap',
+              gridTemplateColumns: 'repeat(auto-fit, 20rem)',
+              justifyContent: 'center',
+              marginTop: '50px',
+            }}
+          >
 
             {allApplications.length > 0 ? (
               <>

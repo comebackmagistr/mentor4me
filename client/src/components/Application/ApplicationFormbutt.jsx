@@ -1,22 +1,35 @@
 import React, { useState } from 'react';
+import './ApplicationFormMentor.css';
 
 export default function ApplicationFormbutt({ el }) {
   return (
-    <div style={{ border: '1px solid black' }} key={el.id}>
-      Ментор:
-      <div><b>{el?.Mentor.firstName}</b></div>
-      <div><b>{el?.Mentor?.lastName}</b></div>
-      Текст заявки:
-      <div>{el?.text}</div>
-      <div>
-        Статус заявки:
-        {' '}
-        {el.Statuses[0]?.status === null ? ('На рассмотрении') : (el.Statuses[0]?.status === true ? ('Принята') : ('Отклонена'))}
+    <div className="blog_post_student">
+      <div className="container_copy_student">
+        <div className="mentorInfo" key={el.id}>
+          Ментор:
+          <div><img className="photo" src={`/photos/${el?.Mentor?.photo}`} alt="opps" /></div>
+          <div className="userFirstName">{el?.Mentor.firstName}</div>
+          <div className="userLastName">{el?.Mentor?.lastName}</div>
+        </div>
+        <h3 className="textHeader">Текст заявки</h3>
         <br />
-        {' '}
-        Комментарий:
-        {' '}
-        {el.Statuses[0]?.comments ? (el.Statuses[0]?.comments) : ('Ментор не оставил комментариев')}
+        <p className="textBodyMentor">{el?.text}</p>
+        <br />
+        <div className="statusMent">
+          <h4>Cтатус заявки: </h4>
+          <br />
+          {el.Statuses[0]?.status === null ? (
+            <div style={{
+              color: 'blue', fontSize: '13px', fontWeight: '300', marginTop: '-7px',
+            }}
+            >
+              На рассмотрении
+            </div>
+          ) : (el.Statuses[0]?.status === true ? (<span style={{ color: 'green' }}>Принята</span>) : (<span style={{ color: 'red' }}>Отклонена</span>))}
+          <br />
+          <h4>Комментарий: </h4>
+          {el.Statuses[0]?.comments ? (el.Statuses[0]?.comments) : (<div style={{ marginTop: '8px' }}>Ментор не оставил комментариев</div>)}
+        </div>
       </div>
     </div>
   );

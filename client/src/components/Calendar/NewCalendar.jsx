@@ -75,7 +75,7 @@ function NewCalendar() {
 
   return (
     <div className="App">
-      <h1>Calendar</h1>
+      <h2 style={{ marginTop: '20px' }}>Календарь</h2>
       <Calendar
         localizer={localizer} //
         startAccessor="start"

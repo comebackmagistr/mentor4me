@@ -52,7 +52,7 @@ router.post('/status', async (req, res) => {
     where: {
       mentor_id: req.session.user.id,
     },
-    include: [{ model: Status }, { model: Student }]
+    include: [{ model: Status }, { model: Student }],
   });
   res.json(findAllApplications);
 });

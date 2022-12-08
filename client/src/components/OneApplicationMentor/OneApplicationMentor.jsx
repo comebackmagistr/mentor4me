@@ -2,11 +2,11 @@ import React from 'react';
 import './OneApplicationMentor.css';
 
 export default function OneApplicationMentor({ review }) {
-//   console.log('review', review);
+  console.log('review', review);
   return (
     <div className="blockReview" data-wow-duration="1.2s" data-wow-delay="0.8s">
       <div className="imgBlock">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaVn-RVo12JBJq8FDGKViN5KtJL6_OPXIuHA&usqp=CAU" alt="img" className="imgReview" />
+        <img src={`/photos/${review?.Student.photo}`} alt="img" className="imgReview" />
       </div>
       <div className="textReview">
         <div className="nameStudent">{`${review?.Student?.firstName} ${review?.Student?.lastName}`}</div>
@@ -22,7 +22,11 @@ export default function OneApplicationMentor({ review }) {
         <div>
           <img className="iconStar" src="/icons/star.png" alt="logo" />
         </div>
-        <div className="reting">(4 / 5)</div>
+        <div className="reting">
+          (
+          {`${review?.rating} / 5`}
+          )
+        </div>
       </div>
     </div>
   );

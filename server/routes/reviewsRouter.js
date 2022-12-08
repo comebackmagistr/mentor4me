@@ -16,7 +16,8 @@ router.post('/:id', async (req, res) => {
     const review = await Review.create({
       comment, rating, mentor_id: id, student_id: userId,
     });
-    res.json(review);
+    const allReviews = await Review.findAll({ where: { mentor_id: id }, order: [['id', 'DESC']], include: Student });
+    res.json(allReviews);
   } catch (error) {
     console.log(error);
   }

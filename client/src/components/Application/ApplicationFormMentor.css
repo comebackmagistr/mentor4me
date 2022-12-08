@@ -23,11 +23,13 @@ html {
 
 .blog_post {
   background: #fff;
-  max-width: 500px;
+  min-width: 230px;
   border-radius: 10px;
   box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
-  position: relative;
-  margin:auto
+  margin:auto;
+  height: 300px;
+  /* width: 500px */
+  position: relative
 }
 
 
@@ -68,10 +70,16 @@ p {
   transition: all 0.2s ease-in;
   text-decoration: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  height: 4rem;
-  width:11rem;
+  height: 30px;
+  width: 80px;
+  display: inline-flex;
+    justify-content: center; 
+    align-items: center; 
+    --padding-x: 1.2em;
+    border-color: transparent;
+    margin: 40px 0 10px 10px;
 }
 
 .btn_primary:hover {
@@ -87,3 +95,27 @@ p {
 
   }
 }
+
+.modelStyle{
+  background: #fff;
+  min-width: 230px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+  margin:auto;
+  height: 300px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+}
+
+
+.studentsName {
+  font-size: 20px;
+  font-weight: 300;
+}
+/* span { 
+    font-size: 30px;
+    font-weight: bold;
+    margin: 50px,
+
+} */

@@ -14,10 +14,10 @@ export default function ApplicationFormMentor({ el }) {
   return (
     <div className="blog_post">
       <div className="container_copy">
-        <div key={el.id}>
+        <div className="studentsCred" key={el.id}>
           Студент:
-          <div><b>{el?.Student.firstName}</b></div>
-          <div><b>{el?.Student?.lastName}</b></div>
+          <div className="studentsName"><b>{el?.Student.firstName}</b></div>
+          <div className="studentsName"><b>{el?.Student?.lastName}</b></div>
         </div>
       </div>
       {el.Statuses[0].status === true || el.Statuses[0].status === false ? (
@@ -25,15 +25,14 @@ export default function ApplicationFormMentor({ el }) {
       ) : (
         <>
           <button target="_blank" className="btn_primary" onClick={() => setHid((prev) => !prev)} type="button">Подробнее</button>
-          <div hidden={hid}>
+          <div className="modelStyle" hidden={hid}>
             Текст заявки:
-            {' '}
+            <br />
             {el?.text}
             Статус заявки:
-            {' '}
+            <br />
             {el.Statuses[0].status === null ? ('На рассмотрении') : (el.Statuses[0].status === true ? ('Принята') : ('Отклонена'))}
             <br />
-            {' '}
             <button
               onClick={() => {
                 setHidCom(false);
@@ -69,6 +68,7 @@ export default function ApplicationFormMentor({ el }) {
               Отправить
 
             </button>
+
           </div>
         </>
       )}

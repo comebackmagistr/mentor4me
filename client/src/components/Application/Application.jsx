@@ -15,9 +15,19 @@ export default function Application() {
 
   return (
     <div>
+      <span>Мои заявки:</span>
       {user?.mentor === true ? (
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          Мои заявки:
+        <div style={{
+          griDAutoFlow: 'dense',
+          display: 'grid',
+          gap: '1rem',
+          flexWrap: 'wrap',
+          gridTemplateColumns: 'repeat(auto-fit, 20rem)',
+          justifyContent: 'center',
+          marginTop: '50px',
+        }}
+        >
+
           {allApplications.length > 0 ? (
             <>
               {allApplications.map((el) => <ApplicationFormMentor el={el} />)}
@@ -29,7 +39,7 @@ export default function Application() {
       )
         : (
           <div>
-            Мои заявки:
+
             {allApplications.length > 0 ? (
               <>
                 {allApplications.map((el) => <ApplicationFormbutt el={el} />)}
